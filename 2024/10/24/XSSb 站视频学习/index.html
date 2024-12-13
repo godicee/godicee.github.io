@@ -22,26 +22,39 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程">
+    <meta name="description" content="0 安装和配置1 注意 php5xxx2 修改数据库配置文件：user、pass3 注意打开网页根目录下，setup 初始化数据库4 修改系统环境变量	总结Mysql 常用操作查表查库：select schema_name from information_schema.schemata; 查...">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程">
-<meta property="og:url" content="http://example.com/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:title" content="Sqli-labs">
+<meta property="og:url" content="http://example.com/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="冰神的小屋">
-<meta property="og:description" content="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程">
+<meta property="og:description" content="0 安装和配置1 注意 php5xxx2 修改数据库配置文件：user、pass3 注意打开网页根目录下，setup 初始化数据库4 修改系统环境变量	总结Mysql 常用操作查表查库：select schema_name from information_schema.schemata; 查...">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-12-10T03:11:12.000Z">
-<meta property="article:modified_time" content="2024-12-10T03:11:17.000Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/9b000c1d8adec536b6c7ffa16da9e8f9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/dfe3bd38a400729ce86b9c68d38e4f7e.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/9ff2818e33920b57f88afd9d26aa35f5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/97d807f6edb4fd307a7cdd1b78632037.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/e470082a90f51899c06548ce12c12c4d.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/2488eb3ff34a36ffa30b197eb0e496d1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/85f96d4b7b3a6aae7482ab23bdcaabcb.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/2d7dbe5bb9ec4a026328f131a32df0fe.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/3a6121ae8dceaecaf8966149866a3cc0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/72f03ba4967254b6ee483d60c219fca1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/c1787ca2f0b6d22f3a9f08eb9b44d6d5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/b1a2a9c6fa7b0cdf18e16e234865b8ab.png">
+<meta property="article:published_time" content="2024-10-24T05:42:41.000Z">
+<meta property="article:modified_time" content="2024-11-20T09:31:41.000Z">
 <meta property="article:author" content="Godice">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/godicee/img/main/9b000c1d8adec536b6c7ffa16da9e8f9.png">
 
 
-<link rel="canonical" href="http://example.com/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/">
+<link rel="canonical" href="http://example.com/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/","path":"2024/12/10/一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程/","title":"一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/","path":"2024/10/24/XSSb 站视频学习/","title":"Sqli-labs"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程 | 冰神的小屋</title>
+<title>Sqli-labs | 冰神的小屋</title>
   
 
 
@@ -140,7 +153,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -153,6 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dom-%E7%9A%84%E7%9B%B8%E5%85%B3%E5%9F%BA%E7%A1%80"><span class="nav-number">2.</span> <span class="nav-text">Dom 的相关基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3burp-xss-%E4%BD%BF%E7%94%A8"><span class="nav-number">2.1.</span> <span class="nav-text">3burp-xss 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E5%AE%98%E6%96%B9%E7%AB%99%E7%82%B9"><span class="nav-number">2.1.1.</span> <span class="nav-text">3.1 官方站点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E5%8F%8D%E5%B0%84%E5%9E%8B%E6%B5%8B%E8%AF%95"><span class="nav-number">2.1.2.</span> <span class="nav-text">3.2 反射型测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4Dom-Attribute"><span class="nav-number">2.2.</span> <span class="nav-text">4Dom-Attribute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5Dom-Document"><span class="nav-number">2.3.</span> <span class="nav-text">5Dom-Document</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Xss-%E6%94%BB%E5%87%BB%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">Xss 攻击流程</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -258,7 +272,7 @@ show_date_time();
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat.jpg">
@@ -271,12 +285,12 @@ show_date_time();
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程 | 冰神的小屋">
-      <meta itemprop="description" content="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程">
+      <meta itemprop="name" content="Sqli-labs | 冰神的小屋">
+      <meta itemprop="description" content="0 安装和配置1 注意 php5xxx2 修改数据库配置文件：user、pass3 注意打开网页根目录下，setup 初始化数据库4 修改系统环境变量	总结Mysql 常用操作查表查库：select schema_name from information_schema.schemata; 查...">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程
+          Sqli-labs
         </h1>
 
         <div class="post-meta-container">
@@ -286,9 +300,24 @@ show_date_time();
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-12-10 11:11:12 / 修改时间：11:11:17" itemprop="dateCreated datePublished" datetime="2024-12-10T11:11:12+08:00">2024-12-10</time>
+      <time title="创建时间：2024-10-24 13:42:41" itemprop="dateCreated datePublished" datetime="2024-10-24T13:42:41+08:00">2024-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-20 17:31:41" itemprop="dateModified" datetime="2024-11-20T17:31:41+08:00">2024-11-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">安全基础</span></a>
+        </span>
     </span>
 
   
@@ -307,8 +336,8 @@ show_date_time();
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" itemprop="commentCount"></span>
+    <a title="waline" href="/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -319,26 +348,92 @@ show_date_time();
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>30</span>
+      <span>593</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</div>
+            <div class="post-description">0 安装和配置1 注意 php5xxx2 修改数据库配置文件：user、pass3 注意打开网页根目录下，setup 初始化数据库4 修改系统环境变量	总结Mysql 常用操作查表查库：select schema_name from information_schema.schemata; 查...</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/16570?time__1311=GuD=YvxGxmrx/GG7DyDI2bNo8s7smeD">一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</a></p>
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Dom 和 Bom</p>
+<ul>
+<li>Dom （Document Browser Model）和 Bom（Browser Object Model）<ul>
+<li>Bom 代表的浏览器本身<ul>
+<li>Dom 属于 Bom，是一个组成部件（用于 Html 元素处理的）</li>
+<li>Window 也属于 Bom</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/9b000c1d8adec536b6c7ffa16da9e8f9.png"> </p>
+<p>下面是浏览器必须实现的标准接口组件</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/dfe3bd38a400729ce86b9c68d38e4f7e.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/9ff2818e33920b57f88afd9d26aa35f5.png"></p>
+<p>反射、存储、Dom</p>
+<ul>
+<li>反射：构建请求参数，向服务器请求——注入参数在 http 请求中，由服务器返回 html 到页面<ul>
+<li>经过服务器：短暂的经过服务器，可能会被服务器过滤</li>
+<li>利用：构造钓鱼链接（包含恶意代码），让其用户访问——向后端请求输出到前端<ul>
+<li>可以盗取 Cookie</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储：直接存储在服务器数据库中（只要是持久存在的就可以，不一定是数据库）——用户访问页面会执行<ul>
+<li>直接存储在服务器：可能会被过滤</li>
+</ul>
+</li>
+<li>Dom：利用 document 注入到 html 中，不经过服务器，不会被过滤掉</li>
+</ul>
+<h2 id="Dom-的相关基础"><a href="#Dom-的相关基础" class="headerlink" title="Dom 的相关基础"></a>Dom 的相关基础</h2><h3 id="3burp-xss-使用"><a href="#3burp-xss-使用" class="headerlink" title="3burp-xss 使用"></a>3burp-xss 使用</h3><h4 id="3-1-官方站点"><a href="#3-1-官方站点" class="headerlink" title="3.1 官方站点"></a>3.1 官方站点</h4><p><a target="_blank" rel="noopener" href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/97d807f6edb4fd307a7cdd1b78632037.png"></p>
+<h4 id="3-2-反射型测试"><a href="#3-2-反射型测试" class="headerlink" title="3.2 反射型测试"></a>3.2 反射型测试</h4><p>反射型的测试</p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation/xss/bypassing-filters">burp 的 fuzz 测试 xss</a></p>
+<p>（该页面里面有测试页面和 payload）</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/e470082a90f51899c06548ce12c12c4d.png"></p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security/cross-site-scripting/contexts/lab-html-context-with-most-tags-and-attributes-blocked">反射型 xss 测试站点</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2488eb3ff34a36ffa30b197eb0e496d1.png"></p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security/cross-site-scripting/cheat-sheet">payload页面</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/85f96d4b7b3a6aae7482ab23bdcaabcb.png">可以用到 burp 的 intruder 中测试</p>
+<h3 id="4Dom-Attribute"><a href="#4Dom-Attribute" class="headerlink" title="4Dom-Attribute"></a>4Dom-Attribute</h3><p>写 html 代码就是对 dom 的操作</p>
+<ul>
+<li>dom 可以操作 html 中的每一个标签</li>
+<li>attributes 可以操作对应标签中的属性（包括触发事件，但不止是）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.w3schools.com/js/js_htmldom.asp">dom文档</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2d7dbe5bb9ec4a026328f131a32df0fe.png"></p>
+<p>选择事件</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/3a6121ae8dceaecaf8966149866a3cc0.png"></p>
+<p>Dom 的基础操作</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/72f03ba4967254b6ee483d60c219fca1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1：a 的引用是第一个按钮标签的 Dom 对象（对 a 操作等于对标签操作）</span><br><span class="line">var a = document.getElementsByTagName(&quot;BUTTON&quot;)[0];</span><br><span class="line">2：获取a属性名为：onclick的值：即把myFunction()字符串赋值给 x</span><br><span class="line">var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span><br><span class="line">3：把 id 为demo1 的标签的文本内容换为 x——即bbb 替换为 x.value</span><br><span class="line">document.getElementById(&quot;demo1&quot;).innerHTML = x;</span><br></pre></td></tr></table></figure>
 
+<p>因此最开始页面如下：</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/c1787ca2f0b6d22f3a9f08eb9b44d6d5.png"></p>
+<p>点击 Try it 会触发 button 的 onclick——触发 myFunction——因此把 bbb 标签的赋值改变</p>
+<p>变成<img src="https://raw.githubusercontent.com/godicee/img/main/b1a2a9c6fa7b0cdf18e16e234865b8ab.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> Click the button to get the value of onclic attribute of the button element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>Try it<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;btn()&quot;</span>&gt;</span>btn<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span> aaa <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo1&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = a.<span class="title function_">getAttribute</span>(<span class="string">&quot;onclick&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span> = x;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">btn</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = a.<span class="title function_">getAttribute</span>(<span class="string">&quot;onclick&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo1&quot;</span>).<span class="property">innerHTML</span> = x;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="5Dom-Document"><a href="#5Dom-Document" class="headerlink" title="5Dom-Document"></a>5Dom-Document</h3><h2 id="Xss-攻击流程"><a href="#Xss-攻击流程" class="headerlink" title="Xss 攻击流程"></a>Xss 攻击流程</h2>
     </div>
 
     
@@ -361,7 +456,7 @@ show_date_time();
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" title="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程">http://example.com/2024/12/10/一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程/</a>
+      <a href="http://example.com/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/" title="Sqli-labs">http://example.com/2024/10/24/XSSb 站视频学习/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -374,13 +469,10 @@ show_date_time();
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/12/05/IoT%20%E5%AE%89%E5%85%A8%E8%B6%85%E8%AF%A6%E5%B0%BD%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" rel="prev" title="IoT 安全超详尽入门指南">
-                  <i class="fa fa-angle-left"></i> IoT 安全超详尽入门指南
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/12/10/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/" rel="next" title="b站视频学习">
-                  b站视频学习 <i class="fa fa-angle-right"></i>
+                <a href="/2024/10/24/Sqli-labs/" rel="next" title="Sqli-labs">
+                  Sqli-labs <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -507,7 +599,7 @@ show_date_time();
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
