@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/snowflake.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/snowflake.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/snowflake.svg">
+  <link rel="mask-icon" href="/images/snowflake.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="java安全漫谈github（方便获取demo代码）java反序列化深入剖析与实战jdbc攻击（java数据库连接攻击）01 反射（1）反射：运行时才知道要操作的类具体是什么：程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法Java安全：反序列化漏洞——可以从反射开始说起 ...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ToDo-Java安全漫谈">
+<meta property="og:url" content="http://example.com/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/index.html">
+<meta property="og:site_name" content="冰神的小屋">
+<meta property="og:description" content="java安全漫谈github（方便获取demo代码）java反序列化深入剖析与实战jdbc攻击（java数据库连接攻击）01 反射（1）反射：运行时才知道要操作的类具体是什么：程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法Java安全：反序列化漏洞——可以从反射开始说起 ...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-11-15T09:49:26.000Z">
+<meta property="article:modified_time" content="2024-12-05T07:53:27.000Z">
+<meta property="article:author" content="Godice">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/","path":"2024/11/15/ToDo-Java安全漫谈/","title":"ToDo-Java安全漫谈"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ToDo-Java安全漫谈 | 冰神的小屋</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="comments-eta-ten.vercel.app"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">冰神的小屋</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">18</span></a></li><li class="menu-item menu-item-生活碎片"><a href="/daily/" rel="section"><i class="fa fa-icons fa-fw"></i>生活碎片</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header> 
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%8F%8D%E5%B0%84%EF%BC%881%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">01 反射（1）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1java-lang-class"><span class="nav-number">1.1.</span> <span class="nav-text">1java.lang.class</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 获取类对象的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B2%99%E7%9B%92%E7%BB%95%E8%BF%87-ctf-%E4%BE%8B%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">3 沙盒绕过 ctf 例题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4forName-%E9%87%8D%E8%BD%BD"><span class="nav-number">1.3.</span> <span class="nav-text">4forName 重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forName-%E4%B8%8E-class"><span class="nav-number">1.4.</span> <span class="nav-text">forName 与 .class</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Godice"
+      src="/images/cat.jpg">
+  <p class="site-author-name" itemprop="name">Godice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("你的建站时间");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+//document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+<script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=你自己的数字"></script>
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+
+      <div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style>
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+      </div>
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="Godice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰神的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ToDo-Java安全漫谈 | 冰神的小屋">
+      <meta itemprop="description" content="java安全漫谈github（方便获取demo代码）java反序列化深入剖析与实战jdbc攻击（java数据库连接攻击）01 反射（1）反射：运行时才知道要操作的类具体是什么：程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法Java安全：反序列化漏洞——可以从反射开始说起 ...">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ToDo-Java安全漫谈
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-15 17:49:26" itemprop="dateCreated datePublished" datetime="2024-11-15T17:49:26+08:00">2024-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-05 15:53:27" itemprop="dateModified" datetime="2024-12-05T15:53:27+08:00">2024-12-05</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">java安全漫谈github（方便获取demo代码）java反序列化深入剖析与实战jdbc攻击（java数据库连接攻击）01 反射（1）反射：运行时才知道要操作的类具体是什么：程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法Java安全：反序列化漏洞——可以从反射开始说起 ...</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://github.com/phith0n/JavaThings">java安全漫谈github（方便获取demo代码）</a></p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/16423?time__1311=GuD=q+xmxfxRx05DKY4Cq7K1+ajFDk0feD">java反序列化深入剖析与实战</a></p>
+<p><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/16523?time__1311=GuD=Y5BK7K4BqDwqeqkciEoAIq0K3x">jdbc攻击（java数据库连接攻击）</a></p>
+<h2 id="01-反射（1）"><a href="#01-反射（1）" class="headerlink" title="01 反射（1）"></a>01 反射（1）</h2><p>反射：运行时才知道要操作的类具体是什么：程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法</p>
+<p>Java安全：反序列化漏洞——可以从反射开始说起 </p>
+<p>反射是⼤多数语⾔⾥都必不可少的组成部分</p>
+<p>对象通过反射——获取他的类——类通过反射拿到所有⽅法（包括私有）——拿到的⽅法可以调⽤</p>
+<p><font style="color:#DF2A3F;">通过“反射”，可以将Java这种静态语⾔附加上动态特性</font></p>
+<p>“动态特性”——⼀段代码，改变其中的变量，将会导致这段代码产⽣功能性的变化</p>
+<p><font style="color:#DF2A3F;">⽐如：⼀段代码，在你不知道传⼊的参数值的时候，你是不知道他的作⽤是什么的</font></p>
+<h3 id="1java-lang-class"><a href="#1java-lang-class" class="headerlink" title="1java.lang.class"></a>1java.lang.class</h3><ul>
+<li>java.lang.class 是一个重要的类，是 java 反射机制的核心，其允许<ul>
+<li>运行时动态获取类信息</li>
+<li>具体包括：<ul>
+<li>类名、字段（成员变量）、类方法、类构造方法、父类、接口</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-1-常用方法"><a href="#1-1-常用方法" class="headerlink" title="1.1 常用方法"></a>1.1 常用方法</h4><ul>
+<li>类</li>
+<li>类的对象：是 Java 的反射机制中，用来表示类的元数据（即关于类的结构、字段、方法等信息）的对象<ul>
+<li>每个类都有一个与之关联的<code>Class</code> 对象，包含了类的信息，如类的名称、方法、字段、构造函数等</li>
+</ul>
+</li>
+<li>类的实例： 是类的具体对象，是类的一个实例化对象（通过调用构造函数创建）<ul>
+<li>实例拥有类的属性和方法，可以执行类定义的行为</li>
+</ul>
+</li>
+</ul>
+<p>在反射中，<code>clazz</code> 是一个 <code>Class</code> 类型的对象，它代表了一个类的信息。你可以通过 <code>Class</code> 对象来获取类的方法、字段、构造函数等。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void execute(String className, String methodName) throws Exception &#123;</span><br><span class="line"> Class clazz = Class.forName(className);</span><br><span class="line"> clazz.getMethod(methodName).invoke(clazz.newInstance());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>Class.forName(&quot;com.example.Hello&quot;);</code>：根据类的完全限定名（包括包名）加载类</p>
+<ul>
+<li>如果不存在会抛异常</li>
+</ul>
+</li>
+<li><p><code>clazz.getMethod(methodName)</code>：获取类的指定<font style="color:#E4495B;">公有</font>方法（只接受方法名，不能携带参数）</p>
+<ul>
+<li>目的是：运行时动态获取类的方法、方便后续的执行(invoke)</li>
+<li><font style="color:#E4495B;">getMethod 可以获取类的 Method 对象</font>，然后可以用 invoke 调用它</li>
+<li>如果不指定方法名会返回一个方法数组：该类的所有公用方法<ul>
+<li><code>Method[] methods = clazz.getMethods();</code></li>
+</ul>
+</li>
+<li><code>clazz.getDeclaredMethod(String name, Class&lt;?&gt;... parameterTypes)</code>：可以携带参数<ul>
+<li>可以获取私有方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>clazz.newInstance()</code>：使用反射创建一个新的类实例&#x3D;调用类的无参构造方法</p>
+</li>
+<li><p><code>.invoke(obj,para)</code>：<font style="color:#E4495B;">是 Method 对象的一个方法</font>，参数是方法调用需要的目标对象&amp;调用方法的参数</p>
+<ul>
+<li>obj：调用哪个对象的该方法</li>
+<li>para：传入的参数数组，可为 null</li>
+</ul>
+</li>
+<li><p>总结：</p>
+<ul>
+<li><code>clazz.getMethod(methodName)</code>通过反射获取了 clazz 类中名为methodName公用方法——得到一个 Method 对象</li>
+<li><code>clazz.newInstance()</code>：通过反射创建类 <code>clazz</code> 的一个新的实例&#x3D;调用类的无参构造方法，创建该类的一个对象。  </li>
+<li><code>invoke(clazz.newInstance())</code>：调用 Method 对象，其是一个名为 <code>methodName</code>的方法。<code>invoke</code> 方法会执行 <code>clazz</code> 类的 <code>methodName</code> 方法，并且在这个方法上使用 <code>clazz.newInstance()</code> 创建的实例作为目标对象。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-获取类对象的方法"><a href="#1-2-获取类对象的方法" class="headerlink" title="1.2 获取类对象的方法"></a>1.2 获取类对象的方法</h4><ul>
+<li><code>obj.getClass()</code>：通过一个实例获取其类对象<ul>
+<li>动态获取</li>
+<li>场景： 有一个对象，并且想知道这个对象是什么类型</li>
+</ul>
+</li>
+<li><code>&lt;font style=&quot;color:rgb(51,51,51);&quot;&gt;Test.class()&lt;/font&gt;</code><font style="color:rgb(51,51,51);"> 如果你已经加载了某个类，只是想获取到它的 java.lang.Class 对象</font><ul>
+<li><font style="color:rgb(51,51,51);">那么就直接拿它的 class 属性即可。这个⽅法其实不属于反射（效率很高，编译时就知道）</font></li>
+<li><font style="color:rgb(51,51,51);">场景： 这种方式适用于你已经知道某个类的名字，并且在编译时就能确定  </font></li>
+</ul>
+</li>
+<li><code>&lt;font style=&quot;color:rgb(51,51,51);&quot;&gt;Class.forName()&lt;/font&gt;</code><font style="color:rgb(51,51,51);"> 如果你知道某个类的名字，想获取到这个类，就可以使⽤ forName 来获取</font><ul>
+<li><font style="color:rgb(51,51,51);">通过完全限定名动态获取</font></li>
+<li><font style="color:rgb(51,51,51);">场景：当你在运行时才知道类的名称，或者类名是动态提供的  </font></li>
+</ul>
+</li>
+</ul>
+<p><font style="color:#DF2A3F;"></font></p>
+<h3 id="3-沙盒绕过-ctf-例题"><a href="#3-沙盒绕过-ctf-例题" class="headerlink" title="3 沙盒绕过 ctf 例题"></a>3 沙盒绕过 ctf 例题</h3><p><a target="_blank" rel="noopener" href="http://rui0.cn/archives/1015">Code-Breaking2018沙盒绕过</a></p>
+<h3 id="4forName-重载"><a href="#4forName-重载" class="headerlink" title="4forName 重载"></a>4forName 重载</h3><p>使用 <code>forName()</code>会自动初始化该 Class 对象</p>
+<ul>
+<li><p>forName有两个函数重载：</p>
+<ul>
+<li><code>Class&lt;?&gt; forName(String name)</code><ul>
+<li>第⼀个就是常⻅获取class的⽅式，可以理解为第⼆种⽅式的封装</li>
+<li>等价于：</li>
+<li><code>Class.forName(name, true, Thread.currentThread().getContextClassLoader());</code></li>
+</ul>
+</li>
+<li><code>Class&lt;?&gt; forName(String name, **boolean** initialize, ClassLoader loader)</code><ul>
+<li>第⼀个参数是类名；第⼆个参数表示是否初始化；第三个参数就是 ClassLoader </li>
+<li>ClassLoader就是⼀个“加载器”，告诉Java虚拟机如何加载这个类</li>
+<li>Java默认的 ClassLoader 就是根据类名来加载类（类名需要是完整路径）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><font style="color:#DF2A3F;">加载和初始化</font></p>
+<ul>
+<li>加载：把类的.class 文件加载到 JVM 内容，Class 对象已被创建</li>
+<li>初始化：执行类的静态代码块，和静态变量（在类加载时执行，且只执行一次）</li>
+<li>加载但不初始化好处：<ul>
+<li>1 反射：用 ClassLoader 加载类，获取其元信息、无需执行其静态代码块。<ul>
+<li>eg：加载一个工具类，只需要调用方法，但不需要执行其静态代码</li>
+</ul>
+</li>
+<li>2 性能优化、延迟加载、避免静态代码被执行…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="forName-与-class"><a href="#forName-与-class" class="headerlink" title="forName 与 .class"></a>forName 与 .class</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>godice
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/" title="ToDo-Java安全漫谈">http://example.com/2024/11/15/ToDo-Java安全漫谈/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/11/15/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/" rel="prev" title="文件上传绕过总结">
+                  <i class="fa fa-angle-left"></i> 文件上传绕过总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/11/21/ToDo-SSTI%E6%B3%A8%E5%85%A5/" rel="next" title="ToDo-SSTI注入">
+                  ToDo-SSTI注入 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Godice</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">11k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">40 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: inline !important;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: inline !important;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("12/13/2024 00:00:00"); // 在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; 
+        dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); 
+        hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} 
+        minutes = (now - grt ) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); 
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+    setInterval("createtime()",250);
+</script>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/heart.js"></script>
+
+<a target="_blank" rel="noopener" href="https://github.com/godicee/godicee.github.io" class="github-corner" aria-label="View source on GitHub">
+  <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+  </svg>
+</a>
+
+<style>
+  .github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+  @keyframes octocat-wave {
+    0%, 100% { transform: rotate(0) }
+    20%, 60% { transform: rotate(-25deg) }
+    40%, 80% { transform: rotate(10deg) }
+  }
+  @media (max-width: 500px) {
+    .github-corner:hover .octo-arm { animation: none }
+    .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out }
+  }
+</style>
+
+</html>

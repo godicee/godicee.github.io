@@ -22,22 +22,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="冰神的小屋">
-<meta property="og:url" content="http://example.com/archives/2024/index.html">
+    <meta name="description" content="打点基础1 攻击流程2 主动信息收集找资产：主域、小程序（关键字去搜）、公众号写拓扑（递归）——搜索引擎找主域——由点到线到面子域、端口（服务）、目录...增大攻击面：域名解析记录（以前解析到的 ip，看还有没有在用）(建议信息收集：用多种工具、最后去重)网站使用语言php、c#、asp 好打...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础阶段">
+<meta property="og:url" content="http://example.com/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/index.html">
 <meta property="og:site_name" content="冰神的小屋">
+<meta property="og:description" content="打点基础1 攻击流程2 主动信息收集找资产：主域、小程序（关键字去搜）、公众号写拓扑（递归）——搜索引擎找主域——由点到线到面子域、端口（服务）、目录...增大攻击面：域名解析记录（以前解析到的 ip，看还有没有在用）(建议信息收集：用多种工具、最后去重)网站使用语言php、c#、asp 好打...">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730821601727-33238f57-1038-4f39-8219-642e0e83dc20.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730972654942-519f576d-239e-4bc1-955a-f1b6359af860.png">
+<meta property="article:published_time" content="2024-11-05T14:12:28.000Z">
+<meta property="article:modified_time" content="2024-11-07T09:59:55.000Z">
 <meta property="article:author" content="Godice">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png">
 
 
-<link rel="canonical" href="http://example.com/archives/2024/">
+<link rel="canonical" href="http://example.com/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2024/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/","path":"2024/11/05/基础阶段/","title":"基础阶段"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 冰神的小屋</title>
+<title>基础阶段 | 冰神的小屋</title>
   
 
 
@@ -83,7 +91,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">冰神的小屋</h1>
+      <p class="site-title">冰神的小屋</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -136,7 +144,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -149,6 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E7%82%B9%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">打点基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%94%BB%E5%87%BB%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1 攻击流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%BB%E5%8A%A8%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">1.2.</span> <span class="nav-text">2 主动信息收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A2%AB%E5%8A%A8%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">3 被动信息收集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1google-%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1google 语法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%80%83%E8%99%91%E9%98%BB%E7%A2%8D"><span class="nav-number">1.4.</span> <span class="nav-text">4 考虑阻碍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ToDo"><span class="nav-number">2.</span> <span class="nav-text">ToDo</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,233 +252,227 @@ show_date_time();
       </div>
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 18 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2024<span class="collection-year-count">18</span></span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="Godice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰神的小屋">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基础阶段 | 冰神的小屋">
+      <meta itemprop="description" content="打点基础1 攻击流程2 主动信息收集找资产：主域、小程序（关键字去搜）、公众号写拓扑（递归）——搜索引擎找主域——由点到线到面子域、端口（服务）、目录...增大攻击面：域名解析记录（以前解析到的 ip，看还有没有在用）(建议信息收集：用多种工具、最后去重)网站使用语言php、c#、asp 好打...">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基础阶段
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-05 22:12:28" itemprop="dateCreated datePublished" datetime="2024-11-05T22:12:28+08:00">2024-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-11-07 17:59:55" itemprop="dateModified" datetime="2024-11-07T17:59:55+08:00">2024-11-07</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>463</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">打点基础1 攻击流程2 主动信息收集找资产：主域、小程序（关键字去搜）、公众号写拓扑（递归）——搜索引擎找主域——由点到线到面子域、端口（服务）、目录...增大攻击面：域名解析记录（以前解析到的 ip，看还有没有在用）(建议信息收集：用多种工具、最后去重)网站使用语言php、c#、asp 好打...</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="打点基础"><a href="#打点基础" class="headerlink" title="打点基础"></a>打点基础</h2><h3 id="1-攻击流程"><a href="#1-攻击流程" class="headerlink" title="1 攻击流程"></a>1 攻击流程</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png"></p>
+<h3 id="2-主动信息收集"><a href="#2-主动信息收集" class="headerlink" title="2 主动信息收集"></a>2 主动信息收集</h3><p>找资产：主域、小程序（关键字去搜）、公众号</p>
+<p>写拓扑（递归）——搜索引擎找主域——由点到线到面</p>
+<p>子域、端口（服务）、目录…</p>
+<p>增大攻击面：域名解析记录（以前解析到的 ip，看还有没有在用）</p>
+<p>(建议信息收集：用多种工具、最后去重)</p>
+<p>网站使用语言</p>
+<ul>
+<li><font style="color:#DF2A3F;">php、c#、asp 好打</font><ul>
+<li>c#很多 sql 注入（数据库一般用的 mssql）<ul>
+<li>有堆叠 sql 就能 getshell</li>
+</ul>
+</li>
+<li>php——mysql</li>
+<li>aps——sqlserver（mssql）微软自己的，免费</li>
+</ul>
+</li>
+<li><font style="color:#DF2A3F;">java、jsp难打：放后面</font><ul>
+<li>java：mysql</li>
+<li>jsp：oracle&#x2F;mysql——oracle 收费且很贵，一般是大公司用</li>
+</ul>
+</li>
+</ul>
+<p><font style="color:#DF2A3F;"></font></p>
+<p><font style="color:#DF2A3F;"></font></p>
+<p>（历史漏洞和代码审计）</p>
+<ul>
+<li>CMS 识别<ul>
+<li>php：thinkphp</li>
+<li>CMS 开源网站、售卖网站…</li>
+</ul>
+</li>
+<li>指纹识别：Wrappr<ul>
+<li>云悉</li>
+<li>fofa：ip 聚合（左下角，web 版）</li>
+<li>ehole：把 c 段的所有资产做一个指纹识别</li>
+</ul>
+</li>
+<li>直接搜相关洞都打一遍</li>
+<li>也可以下载源码下来审计</li>
+</ul>
+<p>扫目录（备份文件）</p>
+<p>Ehole：通过 c 段来识别（列出 c 段中的所有资产）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ehole -f xxx.xxx.xxx.xxx/24</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730821601727-33238f57-1038-4f39-8219-642e0e83dc20.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fofa搜cms</span><br><span class="line">app=&quot;泛微-协同办公OA&quot;    政府用的很多的</span><br><span class="line">泛微、通达、致远</span><br><span class="line">title=&quot;后台管理&quot;</span><br><span class="line">yapi（可视化平台，洞很多）</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="3-被动信息收集"><a href="#3-被动信息收集" class="headerlink" title="3 被动信息收集"></a>3 被动信息收集</h3><p>（不主动和站点交互——fofa、云悉等第三方接口）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730972654942-519f576d-239e-4bc1-955a-f1b6359af860.png"></p>
+<h4 id="3-1google-语法"><a href="#3-1google-语法" class="headerlink" title="3.1google 语法"></a>3.1google 语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">filetype:pdf site:.qq.com   qq.com域名结尾的pdf文件</span><br><span class="line">intitle:标题含有指定内容的网页</span><br><span class="line">inurl:搜url中有指定内容的网页</span><br><span class="line">intext:网页内容中有指定内容</span><br><span class="line"></span><br><span class="line">eg：</span><br><span class="line">学号 site:cuit.edu.cn filetype:pdf OR filetype:xls</span><br><span class="line">inurl:ALFA_DATA intitle:&quot;index of&quot; 搜索wordpress下alfa插件的敏感信息泄漏</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h3 id="4-考虑阻碍"><a href="#4-考虑阻碍" class="headerlink" title="4 考虑阻碍"></a>4 考虑阻碍</h3><p>负载均衡、cdn、waf、</p>
+<p>域名查 ip——多地 ping——看有没有 cdn </p>
+<h2 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h2><p>安装—— Ehole 指纹职别（用的爬虫）</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-12-12T11:24:01+08:00"
-              content="2024-12-12">
-          12-12
-        </time>
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
       </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/12/12/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86Hexo+next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA&%E8%AF%AD%E9%9B%80+github%E5%9B%BE%E5%BA%8A+elog%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8A%E4%BC%A0&SEO%E4%BC%98%E5%8C%96&%E5%90%84%E7%A7%8D%E4%BC%98%E5%8C%96&leancloud+Waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" itemprop="url">
-            <span itemprop="name">全网最详细Hexo+next博客搭建&语雀+github图床+elog全自动化上传&SEO优化&各种优化&leancloud+Waline评论系统</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T11:15:40+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/12/10/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">b站视频学习</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-12-10T11:11:12+08:00"
-              content="2024-12-10">
-          12-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-12-05T14:51:00+08:00"
-              content="2024-12-05">
-          12-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/12/05/IoT%20%E5%AE%89%E5%85%A8%E8%B6%85%E8%AF%A6%E5%B0%BD%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" itemprop="url">
-            <span itemprop="name">IoT 安全超详尽入门指南</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-11-25T16:45:18+08:00"
-              content="2024-11-25">
-          11-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/25/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E6%BA%AF%E6%BA%90/" itemprop="url">
-            <span itemprop="name">个人信息溯源</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-11-25T16:45:18+08:00"
-              content="2024-11-25">
-          11-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/25/%E6%BA%AF%E6%BA%90/" itemprop="url">
-            <span itemprop="name">溯源</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-11-21T20:21:59+08:00"
-              content="2024-11-21">
-          11-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/21/SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/" itemprop="url">
-            <span itemprop="name">SEO搜索引擎优化</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-11-21T17:05:59+08:00"
-              content="2024-11-21">
-          11-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/21/ToDo-SSTI%E6%B3%A8%E5%85%A5/" itemprop="url">
-            <span itemprop="name">ToDo-SSTI注入</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-11-15T17:49:26+08:00"
-              content="2024-11-15">
-          11-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/" itemprop="url">
-            <span itemprop="name">ToDo-Java安全漫谈</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-11-15T09:54:35+08:00"
-              content="2024-11-15">
-          11-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/11/15/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/" itemprop="url">
-            <span itemprop="name">文件上传绕过总结</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
     </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2024/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/archives/2024/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+          
 
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>godice
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/" title="基础阶段">http://example.com/2024/11/05/基础阶段/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/11/05/ctf_hub/" rel="prev" title="ctf_hub">
+                  <i class="fa fa-angle-left"></i> ctf_hub
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/11/05/RT%E5%9F%BA%E7%A1%80/" rel="next" title="RT基础">
+                  RT基础 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -583,7 +586,7 @@ show_date_time();
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/archives/2024/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
