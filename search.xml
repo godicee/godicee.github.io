@@ -996,6 +996,11 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <h3 id="5Dom-Document"><a href="#5Dom-Document" class="headerlink" title="5Dom-Document"></a>5Dom-Document</h3><h2 id="Xss-攻击流程"><a href="#Xss-攻击流程" class="headerlink" title="Xss 攻击流程"></a>Xss 攻击流程</h2>]]></content>
   </entry>
   <entry>
+    <title>ctf_hub</title>
+    <url>/ctf_hub.html</url>
+    <content><![CDATA[<h3 id="1eval-执行"><a href="#1eval-执行" class="headerlink" title="1eval 执行"></a>1eval 执行</h3>]]></content>
+  </entry>
+  <entry>
     <title>burp的xss使用</title>
     <url>/burp%E7%9A%84xss%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<h2 id="burp-官方测试"><a href="#burp-官方测试" class="headerlink" title="burp 官方测试"></a>burp 官方测试</h2><h3 id="1-官方站点"><a href="#1-官方站点" class="headerlink" title="1 官方站点"></a>1 官方站点</h3><p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
@@ -1017,15 +1022,36 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 ]]></content>
   </entry>
   <entry>
-    <title>ctf_hub</title>
-    <url>/ctf_hub.html</url>
-    <content><![CDATA[<h3 id="1eval-执行"><a href="#1eval-执行" class="headerlink" title="1eval 执行"></a>1eval 执行</h3>]]></content>
-  </entry>
-  <entry>
     <title>一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</title>
     <url>/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B.html</url>
     <content><![CDATA[<p><a href="https://xz.aliyun.com/t/16570?time__1311=GuD=YvxGxmrx/GG7DyDI2bNo8s7smeD">一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>个人信息溯源</title>
+    <url>/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E6%BA%AF%E6%BA%90.html</url>
+    <content><![CDATA[<p><a href="%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%94%9F%E6%88%90">https://reurl.cc/main/cn</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/bc58a1c0480b98b9eb4f43f384a11fc8.png"></p>
+<h3 id="ip-溯源"><a href="#ip-溯源" class="headerlink" title="ip 溯源"></a>ip 溯源</h3><p><a href="https://www.chaipip.com/">高精度ip查询</a></p>
+<p><a href="https://github.com/xingyunsec/IPTraceabilityTool?tab=readme-ov-file">ip归属查询工具</a></p>
+<h3 id="个人信息溯源"><a href="#个人信息溯源" class="headerlink" title="个人信息溯源"></a>个人信息溯源</h3><h4 id="手机号查信息"><a href="#手机号查信息" class="headerlink" title="手机号查信息"></a>手机号查信息</h4><p><a href="https://privacy.aiuys.com/">个人信息泄露：qq&#x2F;手机&#x2F;身份证&#x2F;邮箱&#x2F;微博（互查，效果一般）</a></p>
+<p><a href="https://zy.xywlapi.cc/emoh.html">查手机号归属&#x2F;qq查绑定账号（微博）</a></p>
+<p>支付宝转账（到对应银行看名字）、微信搜索、钉钉通讯录导入</p>
+<h4 id="telegram-群组"><a href="#telegram-群组" class="headerlink" title="telegram 群组"></a>telegram 群组</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">空壳bot</span><br><span class="line">星盾-社工机器人</span><br><span class="line">liemo（猎魔）</span><br><span class="line">人查查-定位-....</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="github-泄露"><a href="#github-泄露" class="headerlink" title="github 泄露"></a>github 泄露</h4><p>意点击一个 commit 进入</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/7e82249e6448e328acbf36758130f089.png"></p>
+<p>在后面加上.patch</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733304585715-e3a76c97-cd29-4fd9-93df-28a366a4d65d.png"></p>
+<h3 id="钓鱼"><a href="#钓鱼" class="headerlink" title="钓鱼"></a>钓鱼</h3><p><a href="https://reurl.cc/main/cn">短链接生成（xss）</a></p>
+]]></content>
+      <categories>
+        <category>溯源</category>
+      </categories>
   </entry>
   <entry>
     <title>全网最详细Hexo+next博客搭建+语雀+github图床+elog全自动化上传+SEO优化+各种优化+leancloud+Waline评论系统</title>
@@ -1338,32 +1364,6 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
       </categories>
   </entry>
   <entry>
-    <title>个人信息溯源</title>
-    <url>/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E6%BA%AF%E6%BA%90.html</url>
-    <content><![CDATA[<p><a href="%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%94%9F%E6%88%90">https://reurl.cc/main/cn</a></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/bc58a1c0480b98b9eb4f43f384a11fc8.png"></p>
-<h3 id="ip-溯源"><a href="#ip-溯源" class="headerlink" title="ip 溯源"></a>ip 溯源</h3><p><a href="https://www.chaipip.com/">高精度ip查询</a></p>
-<p><a href="https://github.com/xingyunsec/IPTraceabilityTool?tab=readme-ov-file">ip归属查询工具</a></p>
-<h3 id="个人信息溯源"><a href="#个人信息溯源" class="headerlink" title="个人信息溯源"></a>个人信息溯源</h3><h4 id="手机号查信息"><a href="#手机号查信息" class="headerlink" title="手机号查信息"></a>手机号查信息</h4><p><a href="https://privacy.aiuys.com/">个人信息泄露：qq&#x2F;手机&#x2F;身份证&#x2F;邮箱&#x2F;微博（互查，效果一般）</a></p>
-<p><a href="https://zy.xywlapi.cc/emoh.html">查手机号归属&#x2F;qq查绑定账号（微博）</a></p>
-<p>支付宝转账（到对应银行看名字）、微信搜索、钉钉通讯录导入</p>
-<h4 id="telegram-群组"><a href="#telegram-群组" class="headerlink" title="telegram 群组"></a>telegram 群组</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">空壳bot</span><br><span class="line">星盾-社工机器人</span><br><span class="line">liemo（猎魔）</span><br><span class="line">人查查-定位-....</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="github-泄露"><a href="#github-泄露" class="headerlink" title="github 泄露"></a>github 泄露</h4><p>意点击一个 commit 进入</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/7e82249e6448e328acbf36758130f089.png"></p>
-<p>在后面加上.patch</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733304585715-e3a76c97-cd29-4fd9-93df-28a366a4d65d.png"></p>
-<h3 id="钓鱼"><a href="#钓鱼" class="headerlink" title="钓鱼"></a>钓鱼</h3><p><a href="https://reurl.cc/main/cn">短链接生成（xss）</a></p>
-]]></content>
-      <categories>
-        <category>溯源</category>
-      </categories>
-  </entry>
-  <entry>
     <title>基础阶段</title>
     <url>/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5.html</url>
     <content><![CDATA[<h2 id="打点基础"><a href="#打点基础" class="headerlink" title="打点基础"></a>打点基础</h2><h3 id="1-攻击流程"><a href="#1-攻击流程" class="headerlink" title="1 攻击流程"></a>1 攻击流程</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png"></p>
@@ -1438,13 +1438,6 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 ]]></content>
   </entry>
   <entry>
-    <title>文件上传绕过总结</title>
-    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
-    <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
     <title>溯源</title>
     <url>/%E6%BA%AF%E6%BA%90.html</url>
     <content><![CDATA[<p><a href="%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%94%9F%E6%88%90">https://reurl.cc/main/cn</a></p>
@@ -1465,6 +1458,13 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <p>在后面加上.patch</p>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733304585715-e3a76c97-cd29-4fd9-93df-28a366a4d65d.png"></p>
 <h3 id="钓鱼"><a href="#钓鱼" class="headerlink" title="钓鱼"></a>钓鱼</h3><p><a href="https://reurl.cc/main/cn">短链接生成（xss）</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>文件上传绕过总结</title>
+    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
+    <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
 </search>
