@@ -90,12 +90,6 @@
       </categories>
   </entry>
   <entry>
-    <title>SEO搜索引擎优化</title>
-    <url>/SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96.html</url>
-    <content><![CDATA[<p><font style="color:rgba(0, 0, 0, 0.85);">搜索引擎优化（Search Engine Optimization，简称SEO）是一种通过了解搜索引擎的运作规则来提高网站在搜索引擎内排名的方法，从而增加网站的可见度和访问量。这种技术涉及网站结构、内容质量、关键词策略等多个方面。 然而，一些不法分子滥用SEO技术，发展出“黑帽SEO（Black Hat SEO）”，通过欺骗或操纵搜索引擎算法获得不正当排名优势。常见手法包括关键词堆砌、链接农场等，严重影响用户体验和互联网生态。搜索引擎公司持续更新算法以打击这些行为。 在本挑战中，参赛者将在真实的百度搜索引擎中一展身手，运用你的SEO技巧和创意，将你的网页推向搜索结果的顶峰。我们鼓励参赛者探索和应用合法、有效的SEO策略，以提高网页在搜索结果中的排名。通过这场比赛，我们希望参赛者能够深入理解SEO的原理，同时认识到合法的SEO策略对于网站长期发展的重要性。 请注意：本赛题要求选手提前准备好参赛所需使用的域名，并自行进行搜索引擎收录提交尝试，请注意域名格式具体要求详见赛题详情。</font></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Sqli-labs</title>
     <url>/Sqli-labs.html</url>
     <content><![CDATA[<h2 id="0-安装和配置"><a href="#0-安装和配置" class="headerlink" title="0 安装和配置"></a>0 安装和配置</h2><p>1 注意 php5xxx</p>
@@ -199,6 +193,12 @@
       <categories>
         <category>安全基础</category>
       </categories>
+  </entry>
+  <entry>
+    <title>SEO搜索引擎优化</title>
+    <url>/SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96.html</url>
+    <content><![CDATA[<p><font style="color:rgba(0, 0, 0, 0.85);">搜索引擎优化（Search Engine Optimization，简称SEO）是一种通过了解搜索引擎的运作规则来提高网站在搜索引擎内排名的方法，从而增加网站的可见度和访问量。这种技术涉及网站结构、内容质量、关键词策略等多个方面。 然而，一些不法分子滥用SEO技术，发展出“黑帽SEO（Black Hat SEO）”，通过欺骗或操纵搜索引擎算法获得不正当排名优势。常见手法包括关键词堆砌、链接农场等，严重影响用户体验和互联网生态。搜索引擎公司持续更新算法以打击这些行为。 在本挑战中，参赛者将在真实的百度搜索引擎中一展身手，运用你的SEO技巧和创意，将你的网页推向搜索结果的顶峰。我们鼓励参赛者探索和应用合法、有效的SEO策略，以提高网页在搜索结果中的排名。通过这场比赛，我们希望参赛者能够深入理解SEO的原理，同时认识到合法的SEO策略对于网站长期发展的重要性。 请注意：本赛题要求选手提前准备好参赛所需使用的域名，并自行进行搜索引擎收录提交尝试，请注意域名格式具体要求详见赛题详情。</font></p>
+]]></content>
   </entry>
   <entry>
     <title>ToDo-Java安全漫谈</title>
@@ -328,6 +328,12 @@
 <h3 id="forName-与-class"><a href="#forName-与-class" class="headerlink" title="forName 与 .class"></a>forName 与 .class</h3>]]></content>
   </entry>
   <entry>
+    <title>ToDo-SSTI注入</title>
+    <url>/ToDo-SSTI%E6%B3%A8%E5%85%A5.html</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Sqli-labs</title>
     <url>/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
@@ -401,12 +407,6 @@
       <categories>
         <category>安全基础</category>
       </categories>
-  </entry>
-  <entry>
-    <title>ToDo-SSTI注入</title>
-    <url>/ToDo-SSTI%E6%B3%A8%E5%85%A5.html</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
-]]></content>
   </entry>
   <entry>
     <title>Xss绕过</title>
@@ -1364,13 +1364,6 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
       </categories>
   </entry>
   <entry>
-    <title>文件上传绕过总结</title>
-    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
-    <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
     <title>基础阶段</title>
     <url>/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5.html</url>
     <content><![CDATA[<h2 id="打点基础"><a href="#打点基础" class="headerlink" title="打点基础"></a>打点基础</h2><h3 id="1-攻击流程"><a href="#1-攻击流程" class="headerlink" title="1 攻击流程"></a>1 攻击流程</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png"></p>
@@ -1442,6 +1435,13 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <h3 id="4-考虑阻碍"><a href="#4-考虑阻碍" class="headerlink" title="4 考虑阻碍"></a>4 考虑阻碍</h3><p>负载均衡、cdn、waf、</p>
 <p>域名查 ip——多地 ping——看有没有 cdn </p>
 <h2 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h2><p>安装—— Ehole 指纹职别（用的爬虫）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>文件上传绕过总结</title>
+    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
+    <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
+
 ]]></content>
   </entry>
   <entry>
