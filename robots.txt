@@ -16,5 +16,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://域名/sitemap.xml
-Sitemap: https://域名/baidusitemap.xml
+Sitemap: https://www.godice.top/sitemap.xml
+Sitemap: https://www.godice.top/baidusitemap.xml
