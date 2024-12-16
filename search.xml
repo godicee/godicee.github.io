@@ -2,19 +2,19 @@
 <search>
   <entry>
     <title>Js 原型链污染</title>
-    <url>/2024/11/03/Js%20%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93/</url>
+    <url>/Js%20%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93.html</url>
     <content><![CDATA[<p><a href="https://xz.aliyun.com/t/7182?time__1311=n4+xnD0Dy737q4YqAKDsA3rxIxg+YDBeUPzmoD">原型链污染</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>IoT 安全超详尽入门指南</title>
-    <url>/2024/12/05/IoT%20%E5%AE%89%E5%85%A8%E8%B6%85%E8%AF%A6%E5%B0%BD%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</url>
+    <url>/IoT%20%E5%AE%89%E5%85%A8%E8%B6%85%E8%AF%A6%E5%B0%BD%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html</url>
     <content><![CDATA[<p><a href="https://xz.aliyun.com/t/16511?time__1311=GuD=Y5BKiKAIq05DKYYIe7KZA+ucxDkjeD#toc-18">先知社区IoT安全入门指南</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>RT基础</title>
-    <url>/2024/11/05/RT%E5%9F%BA%E7%A1%80/</url>
+    <url>/RT%E5%9F%BA%E7%A1%80.html</url>
     <content><![CDATA[<h2 id="打点基础"><a href="#打点基础" class="headerlink" title="打点基础"></a>打点基础</h2><h3 id="1-攻击流程"><a href="#1-攻击流程" class="headerlink" title="1 攻击流程"></a>1 攻击流程</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/3b56fcba256a278c0fc1242b75a81af1.png"></p>
 <h3 id="2-主动信息收集"><a href="#2-主动信息收集" class="headerlink" title="2 主动信息收集"></a>2 主动信息收集</h3><p>找资产：主域、小程序（关键字去搜）、公众号</p>
 <p>写拓扑（递归）——搜索引擎找主域——由点到线到面</p>
@@ -91,13 +91,13 @@
   </entry>
   <entry>
     <title>SEO搜索引擎优化</title>
-    <url>/2024/11/21/SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</url>
+    <url>/SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96.html</url>
     <content><![CDATA[<p><font style="color:rgba(0, 0, 0, 0.85);">搜索引擎优化（Search Engine Optimization，简称SEO）是一种通过了解搜索引擎的运作规则来提高网站在搜索引擎内排名的方法，从而增加网站的可见度和访问量。这种技术涉及网站结构、内容质量、关键词策略等多个方面。 然而，一些不法分子滥用SEO技术，发展出“黑帽SEO（Black Hat SEO）”，通过欺骗或操纵搜索引擎算法获得不正当排名优势。常见手法包括关键词堆砌、链接农场等，严重影响用户体验和互联网生态。搜索引擎公司持续更新算法以打击这些行为。 在本挑战中，参赛者将在真实的百度搜索引擎中一展身手，运用你的SEO技巧和创意，将你的网页推向搜索结果的顶峰。我们鼓励参赛者探索和应用合法、有效的SEO策略，以提高网页在搜索结果中的排名。通过这场比赛，我们希望参赛者能够深入理解SEO的原理，同时认识到合法的SEO策略对于网站长期发展的重要性。 请注意：本赛题要求选手提前准备好参赛所需使用的域名，并自行进行搜索引擎收录提交尝试，请注意域名格式具体要求详见赛题详情。</font></p>
 ]]></content>
   </entry>
   <entry>
     <title>Sqli-labs</title>
-    <url>/2024/10/24/Sqli-labs/</url>
+    <url>/Sqli-labs.html</url>
     <content><![CDATA[<h2 id="0-安装和配置"><a href="#0-安装和配置" class="headerlink" title="0 安装和配置"></a>0 安装和配置</h2><p>1 注意 php5xxx</p>
 <p>2 修改数据库配置文件：user、pass</p>
 <p>3 注意打开网页根目录下，setup 初始化数据库</p>
@@ -202,7 +202,7 @@
   </entry>
   <entry>
     <title>ToDo-Java安全漫谈</title>
-    <url>/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/</url>
+    <url>/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88.html</url>
     <content><![CDATA[<p><a href="https://github.com/phith0n/JavaThings">java安全漫谈github（方便获取demo代码）</a></p>
 <p><a href="https://xz.aliyun.com/t/16423?time__1311=GuD=q+xmxfxRx05DKY4Cq7K1+ajFDk0feD">java反序列化深入剖析与实战</a></p>
 <p><a href="https://xz.aliyun.com/t/16523?time__1311=GuD=Y5BK7K4BqDwqeqkciEoAIq0K3x">jdbc攻击（java数据库连接攻击）</a></p>
@@ -329,13 +329,13 @@
   </entry>
   <entry>
     <title>ToDo-SSTI注入</title>
-    <url>/2024/11/21/ToDo-SSTI%E6%B3%A8%E5%85%A5/</url>
+    <url>/ToDo-SSTI%E6%B3%A8%E5%85%A5.html</url>
     <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>Sqli-labs</title>
-    <url>/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
+    <url>/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
 <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Dom 和 Bom</p>
 <ul>
@@ -410,7 +410,7 @@
   </entry>
   <entry>
     <title>Xss绕过</title>
-    <url>/2024/11/01/Xss%E7%BB%95%E8%BF%87/</url>
+    <url>/Xss%E7%BB%95%E8%BF%87.html</url>
     <content><![CDATA[<p><a href="https://reurl.cc/main/cn">短链接生成</a></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">https</span>:<span class="comment">//xss.haozi.me/</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -925,7 +925,7 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   </entry>
   <entry>
     <title>b 站视频学习</title>
-    <url>/2024/11/03/b%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
+    <url>/b%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
 <h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Dom 和 Bom</p>
 <ul>
@@ -997,7 +997,7 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   </entry>
   <entry>
     <title>burp的xss使用</title>
-    <url>/2024/11/03/burp%E7%9A%84xss%E4%BD%BF%E7%94%A8/</url>
+    <url>/burp%E7%9A%84xss%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<h2 id="burp-官方测试"><a href="#burp-官方测试" class="headerlink" title="burp 官方测试"></a>burp 官方测试</h2><h3 id="1-官方站点"><a href="#1-官方站点" class="headerlink" title="1 官方站点"></a>1 官方站点</h3><p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730621434038-31a3a744-c04a-4aaa-b311-3cbf75dfd934.png"></p>
 <h3 id="2-反射型测试"><a href="#2-反射型测试" class="headerlink" title="2 反射型测试"></a>2 反射型测试</h3><p>反射型的测试</p>
@@ -1012,24 +1012,24 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   </entry>
   <entry>
     <title>b站视频学习</title>
-    <url>/2024/12/10/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
+    <url>/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/2142877265/search/video?keyword=java">up主链接</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>ctf_hub</title>
-    <url>/2024/11/05/ctf_hub/</url>
+    <url>/ctf_hub.html</url>
     <content><![CDATA[<h3 id="1eval-执行"><a href="#1eval-执行" class="headerlink" title="1eval 执行"></a>1eval 执行</h3>]]></content>
   </entry>
   <entry>
     <title>一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</title>
-    <url>/2024/12/10/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B/</url>
+    <url>/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B.html</url>
     <content><![CDATA[<p><a href="https://xz.aliyun.com/t/16570?time__1311=GuD=YvxGxmrx/GG7DyDI2bNo8s7smeD">一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</a></p>
 ]]></content>
   </entry>
   <entry>
     <title>全网最详细Hexo+next博客搭建+语雀+github图床+elog全自动化上传+SEO优化+各种优化+leancloud+Waline评论系统</title>
-    <url>/2024/12/12/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86Hexo+next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA+%E8%AF%AD%E9%9B%80+github%E5%9B%BE%E5%BA%8A+elog%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8A%E4%BC%A0+SEO%E4%BC%98%E5%8C%96+%E5%90%84%E7%A7%8D%E4%BC%98%E5%8C%96+leancloud+Waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <url>/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86Hexo+next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA+%E8%AF%AD%E9%9B%80+github%E5%9B%BE%E5%BA%8A+elog%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8A%E4%BC%A0+SEO%E4%BC%98%E5%8C%96+%E5%90%84%E7%A7%8D%E4%BC%98%E5%8C%96+leancloud+Waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.html</url>
     <content><![CDATA[<ul>
 <li>博客部署：Hexo+next8 部署到 github 并设置自购域名解析</li>
 <li>个性化配置：超级完整的个性化配置</li>
@@ -1339,7 +1339,7 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   </entry>
   <entry>
     <title>个人信息溯源</title>
-    <url>/2024/11/25/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E6%BA%AF%E6%BA%90/</url>
+    <url>/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%E6%BA%AF%E6%BA%90.html</url>
     <content><![CDATA[<p><a href="%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%94%9F%E6%88%90">https://reurl.cc/main/cn</a></p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/bc58a1c0480b98b9eb4f43f384a11fc8.png"></p>
 <h3 id="ip-溯源"><a href="#ip-溯源" class="headerlink" title="ip 溯源"></a>ip 溯源</h3><p><a href="https://www.chaipip.com/">高精度ip查询</a></p>
@@ -1365,7 +1365,7 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   </entry>
   <entry>
     <title>基础阶段</title>
-    <url>/2024/11/05/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5/</url>
+    <url>/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5.html</url>
     <content><![CDATA[<h2 id="打点基础"><a href="#打点基础" class="headerlink" title="打点基础"></a>打点基础</h2><h3 id="1-攻击流程"><a href="#1-攻击流程" class="headerlink" title="1 攻击流程"></a>1 攻击流程</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png"></p>
 <h3 id="2-主动信息收集"><a href="#2-主动信息收集" class="headerlink" title="2 主动信息收集"></a>2 主动信息收集</h3><p>找资产：主域、小程序（关键字去搜）、公众号</p>
 <p>写拓扑（递归）——搜索引擎找主域——由点到线到面</p>
@@ -1439,14 +1439,14 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   </entry>
   <entry>
     <title>文件上传绕过总结</title>
-    <url>/2024/11/15/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93/</url>
+    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
     <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
 
 ]]></content>
   </entry>
   <entry>
     <title>溯源</title>
-    <url>/2024/11/25/%E6%BA%AF%E6%BA%90/</url>
+    <url>/%E6%BA%AF%E6%BA%90.html</url>
     <content><![CDATA[<p><a href="%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%94%9F%E6%88%90">https://reurl.cc/main/cn</a></p>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733307578804-12e2f823-6637-4bd2-802a-86f227630b4b.png"></p>
 <h3 id="ip-溯源"><a href="#ip-溯源" class="headerlink" title="ip 溯源"></a>ip 溯源</h3><p><a href="https://www.chaipip.com/">高精度ip查询</a></p>
