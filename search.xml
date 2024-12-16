@@ -201,12 +201,6 @@
       </categories>
   </entry>
   <entry>
-    <title>ToDo-SSTI注入</title>
-    <url>/2024/11/21/ToDo-SSTI%E6%B3%A8%E5%85%A5/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>ToDo-Java安全漫谈</title>
     <url>/2024/11/15/ToDo-Java%E5%AE%89%E5%85%A8%E6%BC%AB%E8%B0%88/</url>
     <content><![CDATA[<p><a href="https://github.com/phith0n/JavaThings">java安全漫谈github（方便获取demo代码）</a></p>
@@ -332,6 +326,12 @@
 </li>
 </ul>
 <h3 id="forName-与-class"><a href="#forName-与-class" class="headerlink" title="forName 与 .class"></a>forName 与 .class</h3>]]></content>
+  </entry>
+  <entry>
+    <title>ToDo-SSTI注入</title>
+    <url>/2024/11/21/ToDo-SSTI%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Xss绕过</title>
@@ -849,6 +849,81 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
       </categories>
   </entry>
   <entry>
+    <title>Sqli-labs</title>
+    <url>/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Dom 和 Bom</p>
+<ul>
+<li>Dom （Document Browser Model）和 Bom（Browser Object Model）<ul>
+<li>Bom 代表的浏览器本身<ul>
+<li>Dom 属于 Bom，是一个组成部件（用于 Html 元素处理的）</li>
+<li>Window 也属于 Bom</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/9b000c1d8adec536b6c7ffa16da9e8f9.png"> </p>
+<p>下面是浏览器必须实现的标准接口组件</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/dfe3bd38a400729ce86b9c68d38e4f7e.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/9ff2818e33920b57f88afd9d26aa35f5.png"></p>
+<p>反射、存储、Dom</p>
+<ul>
+<li>反射：构建请求参数，向服务器请求——注入参数在 http 请求中，由服务器返回 html 到页面<ul>
+<li>经过服务器：短暂的经过服务器，可能会被服务器过滤</li>
+<li>利用：构造钓鱼链接（包含恶意代码），让其用户访问——向后端请求输出到前端<ul>
+<li>可以盗取 Cookie</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>存储：直接存储在服务器数据库中（只要是持久存在的就可以，不一定是数据库）——用户访问页面会执行<ul>
+<li>直接存储在服务器：可能会被过滤</li>
+</ul>
+</li>
+<li>Dom：利用 document 注入到 html 中，不经过服务器，不会被过滤掉</li>
+</ul>
+<h2 id="Dom-的相关基础"><a href="#Dom-的相关基础" class="headerlink" title="Dom 的相关基础"></a>Dom 的相关基础</h2><h3 id="3burp-xss-使用"><a href="#3burp-xss-使用" class="headerlink" title="3burp-xss 使用"></a>3burp-xss 使用</h3><h4 id="3-1-官方站点"><a href="#3-1-官方站点" class="headerlink" title="3.1 官方站点"></a>3.1 官方站点</h4><p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/97d807f6edb4fd307a7cdd1b78632037.png"></p>
+<h4 id="3-2-反射型测试"><a href="#3-2-反射型测试" class="headerlink" title="3.2 反射型测试"></a>3.2 反射型测试</h4><p>反射型的测试</p>
+<p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation/xss/bypassing-filters">burp 的 fuzz 测试 xss</a></p>
+<p>（该页面里面有测试页面和 payload）</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/e470082a90f51899c06548ce12c12c4d.png"></p>
+<p><a href="https://portswigger.net/web-security/cross-site-scripting/contexts/lab-html-context-with-most-tags-and-attributes-blocked">反射型 xss 测试站点</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2488eb3ff34a36ffa30b197eb0e496d1.png"></p>
+<p><a href="https://portswigger.net/web-security/cross-site-scripting/cheat-sheet">payload页面</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/85f96d4b7b3a6aae7482ab23bdcaabcb.png">可以用到 burp 的 intruder 中测试</p>
+<h3 id="4Dom-Attribute"><a href="#4Dom-Attribute" class="headerlink" title="4Dom-Attribute"></a>4Dom-Attribute</h3><p>写 html 代码就是对 dom 的操作</p>
+<ul>
+<li>dom 可以操作 html 中的每一个标签</li>
+<li>attributes 可以操作对应标签中的属性（包括触发事件，但不止是）</li>
+</ul>
+<p><a href="https://www.w3schools.com/js/js_htmldom.asp">dom文档</a></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2d7dbe5bb9ec4a026328f131a32df0fe.png"></p>
+<p>选择事件</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/3a6121ae8dceaecaf8966149866a3cc0.png"></p>
+<p>Dom 的基础操作</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/72f03ba4967254b6ee483d60c219fca1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1：a 的引用是第一个按钮标签的 Dom 对象（对 a 操作等于对标签操作）</span><br><span class="line">var a = document.getElementsByTagName(&quot;BUTTON&quot;)[0];</span><br><span class="line">2：获取a属性名为：onclick的值：即把myFunction()字符串赋值给 x</span><br><span class="line">var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span><br><span class="line">3：把 id 为demo1 的标签的文本内容换为 x——即bbb 替换为 x.value</span><br><span class="line">document.getElementById(&quot;demo1&quot;).innerHTML = x;</span><br></pre></td></tr></table></figure>
+
+<p>因此最开始页面如下：</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/c1787ca2f0b6d22f3a9f08eb9b44d6d5.png"></p>
+<p>点击 Try it 会触发 button 的 onclick——触发 myFunction——因此把 bbb 标签的赋值改变</p>
+<p>变成<img src="https://raw.githubusercontent.com/godicee/img/main/b1a2a9c6fa7b0cdf18e16e234865b8ab.png"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> Click the button to get the value of onclic attribute of the button element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>Try it<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;btn()&quot;</span>&gt;</span>btn<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span> aaa <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo1&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = a.<span class="title function_">getAttribute</span>(<span class="string">&quot;onclick&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span> = x;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">btn</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = a.<span class="title function_">getAttribute</span>(<span class="string">&quot;onclick&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo1&quot;</span>).<span class="property">innerHTML</span> = x;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h3 id="5Dom-Document"><a href="#5Dom-Document" class="headerlink" title="5Dom-Document"></a>5Dom-Document</h3><h2 id="Xss-攻击流程"><a href="#Xss-攻击流程" class="headerlink" title="Xss 攻击流程"></a>Xss 攻击流程</h2>]]></content>
+      <categories>
+        <category>安全基础</category>
+      </categories>
+  </entry>
+  <entry>
     <title>b 站视频学习</title>
     <url>/2024/11/03/b%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
@@ -921,12 +996,6 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <h3 id="5Dom-Document"><a href="#5Dom-Document" class="headerlink" title="5Dom-Document"></a>5Dom-Document</h3><h2 id="Xss-攻击流程"><a href="#Xss-攻击流程" class="headerlink" title="Xss 攻击流程"></a>Xss 攻击流程</h2>]]></content>
   </entry>
   <entry>
-    <title>b站视频学习</title>
-    <url>/2024/12/10/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><a href="https://space.bilibili.com/2142877265/search/video?keyword=java">up主链接</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>burp的xss使用</title>
     <url>/2024/11/03/burp%E7%9A%84xss%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="burp-官方测试"><a href="#burp-官方测试" class="headerlink" title="burp 官方测试"></a>burp 官方测试</h2><h3 id="1-官方站点"><a href="#1-官方站点" class="headerlink" title="1 官方站点"></a>1 官方站点</h3><p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
@@ -939,6 +1008,12 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730621697769-185f3fa7-bfba-435d-a09c-d4b5eaca30b8.png"></p>
 <p><a href="https://portswigger.net/web-security/cross-site-scripting/cheat-sheet">payload页面</a></p>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730621932299-22839f13-bdf9-4dd6-85fd-d117e30f3c0c.png">可以用到 burp 的 intruder 中测试</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>b站视频学习</title>
+    <url>/2024/12/10/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p><a href="https://space.bilibili.com/2142877265/search/video?keyword=java">up主链接</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -1390,80 +1465,5 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733304585715-e3a76c97-cd29-4fd9-93df-28a366a4d65d.png"></p>
 <h3 id="钓鱼"><a href="#钓鱼" class="headerlink" title="钓鱼"></a>钓鱼</h3><p><a href="https://reurl.cc/main/cn">短链接生成（xss）</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Sqli-labs</title>
-    <url>/2024/10/24/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
-<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><p>Dom 和 Bom</p>
-<ul>
-<li>Dom （Document Browser Model）和 Bom（Browser Object Model）<ul>
-<li>Bom 代表的浏览器本身<ul>
-<li>Dom 属于 Bom，是一个组成部件（用于 Html 元素处理的）</li>
-<li>Window 也属于 Bom</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/9b000c1d8adec536b6c7ffa16da9e8f9.png"> </p>
-<p>下面是浏览器必须实现的标准接口组件</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/dfe3bd38a400729ce86b9c68d38e4f7e.png"></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/9ff2818e33920b57f88afd9d26aa35f5.png"></p>
-<p>反射、存储、Dom</p>
-<ul>
-<li>反射：构建请求参数，向服务器请求——注入参数在 http 请求中，由服务器返回 html 到页面<ul>
-<li>经过服务器：短暂的经过服务器，可能会被服务器过滤</li>
-<li>利用：构造钓鱼链接（包含恶意代码），让其用户访问——向后端请求输出到前端<ul>
-<li>可以盗取 Cookie</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>存储：直接存储在服务器数据库中（只要是持久存在的就可以，不一定是数据库）——用户访问页面会执行<ul>
-<li>直接存储在服务器：可能会被过滤</li>
-</ul>
-</li>
-<li>Dom：利用 document 注入到 html 中，不经过服务器，不会被过滤掉</li>
-</ul>
-<h2 id="Dom-的相关基础"><a href="#Dom-的相关基础" class="headerlink" title="Dom 的相关基础"></a>Dom 的相关基础</h2><h3 id="3burp-xss-使用"><a href="#3burp-xss-使用" class="headerlink" title="3burp-xss 使用"></a>3burp-xss 使用</h3><h4 id="3-1-官方站点"><a href="#3-1-官方站点" class="headerlink" title="3.1 官方站点"></a>3.1 官方站点</h4><p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/97d807f6edb4fd307a7cdd1b78632037.png"></p>
-<h4 id="3-2-反射型测试"><a href="#3-2-反射型测试" class="headerlink" title="3.2 反射型测试"></a>3.2 反射型测试</h4><p>反射型的测试</p>
-<p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation/xss/bypassing-filters">burp 的 fuzz 测试 xss</a></p>
-<p>（该页面里面有测试页面和 payload）</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/e470082a90f51899c06548ce12c12c4d.png"></p>
-<p><a href="https://portswigger.net/web-security/cross-site-scripting/contexts/lab-html-context-with-most-tags-and-attributes-blocked">反射型 xss 测试站点</a></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/2488eb3ff34a36ffa30b197eb0e496d1.png"></p>
-<p><a href="https://portswigger.net/web-security/cross-site-scripting/cheat-sheet">payload页面</a></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/85f96d4b7b3a6aae7482ab23bdcaabcb.png">可以用到 burp 的 intruder 中测试</p>
-<h3 id="4Dom-Attribute"><a href="#4Dom-Attribute" class="headerlink" title="4Dom-Attribute"></a>4Dom-Attribute</h3><p>写 html 代码就是对 dom 的操作</p>
-<ul>
-<li>dom 可以操作 html 中的每一个标签</li>
-<li>attributes 可以操作对应标签中的属性（包括触发事件，但不止是）</li>
-</ul>
-<p><a href="https://www.w3schools.com/js/js_htmldom.asp">dom文档</a></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/2d7dbe5bb9ec4a026328f131a32df0fe.png"></p>
-<p>选择事件</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/3a6121ae8dceaecaf8966149866a3cc0.png"></p>
-<p>Dom 的基础操作</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/72f03ba4967254b6ee483d60c219fca1.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1：a 的引用是第一个按钮标签的 Dom 对象（对 a 操作等于对标签操作）</span><br><span class="line">var a = document.getElementsByTagName(&quot;BUTTON&quot;)[0];</span><br><span class="line">2：获取a属性名为：onclick的值：即把myFunction()字符串赋值给 x</span><br><span class="line">var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span><br><span class="line">3：把 id 为demo1 的标签的文本内容换为 x——即bbb 替换为 x.value</span><br><span class="line">document.getElementById(&quot;demo1&quot;).innerHTML = x;</span><br></pre></td></tr></table></figure>
-
-<p>因此最开始页面如下：</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/c1787ca2f0b6d22f3a9f08eb9b44d6d5.png"></p>
-<p>点击 Try it 会触发 button 的 onclick——触发 myFunction——因此把 bbb 标签的赋值改变</p>
-<p>变成<img src="https://raw.githubusercontent.com/godicee/img/main/b1a2a9c6fa7b0cdf18e16e234865b8ab.png"></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> Click the button to get the value of onclic attribute of the button element.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunction()&quot;</span>&gt;</span>Try it<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;btn()&quot;</span>&gt;</span>btn<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo&quot;</span>&gt;</span> aaa <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;demo1&quot;</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">myFunction</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = a.<span class="title function_">getAttribute</span>(<span class="string">&quot;onclick&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo&quot;</span>).<span class="property">innerHTML</span> = x;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">btn</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> a = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;button&quot;</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//var x = a.attributes.getNamedItem(&quot;onclick&quot;).value;</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = a.<span class="title function_">getAttribute</span>(<span class="string">&quot;onclick&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;demo1&quot;</span>).<span class="property">innerHTML</span> = x;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<h3 id="5Dom-Document"><a href="#5Dom-Document" class="headerlink" title="5Dom-Document"></a>5Dom-Document</h3><h2 id="Xss-攻击流程"><a href="#Xss-攻击流程" class="headerlink" title="Xss 攻击流程"></a>Xss 攻击流程</h2>]]></content>
-      <categories>
-        <category>安全基础</category>
-      </categories>
   </entry>
 </search>
