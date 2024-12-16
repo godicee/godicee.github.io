@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Js 原型链污染</title>
-    <url>/Js%20%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93.html</url>
-    <content><![CDATA[<p><a href="https://xz.aliyun.com/t/7182?time__1311=n4+xnD0Dy737q4YqAKDsA3rxIxg+YDBeUPzmoD">原型链污染</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>IoT 安全超详尽入门指南</title>
     <url>/IoT%20%E5%AE%89%E5%85%A8%E8%B6%85%E8%AF%A6%E5%B0%BD%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html</url>
     <content><![CDATA[<p><a href="https://xz.aliyun.com/t/16511?time__1311=GuD=Y5BKiKAIq05DKYYIe7KZA+ucxDkjeD#toc-18">先知社区IoT安全入门指南</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Js 原型链污染</title>
+    <url>/Js%20%E5%8E%9F%E5%9E%8B%E9%93%BE%E6%B1%A1%E6%9F%93.html</url>
+    <content><![CDATA[<p><a href="https://xz.aliyun.com/t/7182?time__1311=n4+xnD0Dy737q4YqAKDsA3rxIxg+YDBeUPzmoD">原型链污染</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -328,12 +328,6 @@
 <h3 id="forName-与-class"><a href="#forName-与-class" class="headerlink" title="forName 与 .class"></a>forName 与 .class</h3>]]></content>
   </entry>
   <entry>
-    <title>ToDo-SSTI注入</title>
-    <url>/ToDo-SSTI%E6%B3%A8%E5%85%A5.html</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Sqli-labs</title>
     <url>/XSSb%20%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/282616786/channel/seriesdetail?sid=2061170">xss 视频</a></p>
@@ -407,6 +401,12 @@
       <categories>
         <category>安全基础</category>
       </categories>
+  </entry>
+  <entry>
+    <title>ToDo-SSTI注入</title>
+    <url>/ToDo-SSTI%E6%B3%A8%E5%85%A5.html</url>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/sun1318578251/article/details/105824562">参考文档</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Xss绕过</title>
@@ -996,11 +996,6 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <h3 id="5Dom-Document"><a href="#5Dom-Document" class="headerlink" title="5Dom-Document"></a>5Dom-Document</h3><h2 id="Xss-攻击流程"><a href="#Xss-攻击流程" class="headerlink" title="Xss 攻击流程"></a>Xss 攻击流程</h2>]]></content>
   </entry>
   <entry>
-    <title>ctf_hub</title>
-    <url>/ctf_hub.html</url>
-    <content><![CDATA[<h3 id="1eval-执行"><a href="#1eval-执行" class="headerlink" title="1eval 执行"></a>1eval 执行</h3>]]></content>
-  </entry>
-  <entry>
     <title>burp的xss使用</title>
     <url>/burp%E7%9A%84xss%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<h2 id="burp-官方测试"><a href="#burp-官方测试" class="headerlink" title="burp 官方测试"></a>burp 官方测试</h2><h3 id="1-官方站点"><a href="#1-官方站点" class="headerlink" title="1 官方站点"></a>1 官方站点</h3><p><a href="https://portswigger.net/burp/documentation/desktop/testing-workflow/input-validation">burp 官方测试网站（多种漏洞）</a></p>
@@ -1020,6 +1015,11 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
     <url>/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html</url>
     <content><![CDATA[<p><a href="https://space.bilibili.com/2142877265/search/video?keyword=java">up主链接</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>ctf_hub</title>
+    <url>/ctf_hub.html</url>
+    <content><![CDATA[<h3 id="1eval-执行"><a href="#1eval-执行" class="headerlink" title="1eval 执行"></a>1eval 执行</h3>]]></content>
   </entry>
   <entry>
     <title>一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</title>
@@ -1364,6 +1364,13 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
       </categories>
   </entry>
   <entry>
+    <title>文件上传绕过总结</title>
+    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
+    <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>基础阶段</title>
     <url>/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5.html</url>
     <content><![CDATA[<h2 id="打点基础"><a href="#打点基础" class="headerlink" title="打点基础"></a>打点基础</h2><h3 id="1-攻击流程"><a href="#1-攻击流程" class="headerlink" title="1 攻击流程"></a>1 攻击流程</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1730816395437-33bbc892-f2ed-48d5-bc5a-6ec978a11401.png"></p>
@@ -1458,13 +1465,6 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <p>在后面加上.patch</p>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733304585715-e3a76c97-cd29-4fd9-93df-28a366a4d65d.png"></p>
 <h3 id="钓鱼"><a href="#钓鱼" class="headerlink" title="钓鱼"></a>钓鱼</h3><p><a href="https://reurl.cc/main/cn">短链接生成（xss）</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>文件上传绕过总结</title>
-    <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
-    <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
-
 ]]></content>
   </entry>
 </search>
