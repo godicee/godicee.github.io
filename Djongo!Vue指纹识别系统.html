@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"godice.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="---title: Djongo&#x2F;Vue指纹识别系统categories: 安全研发---系统分析需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管理）Todo识别处理	识别后端编程语言识别数据库版本识别服务器系统版本集成：集成第三方 api端口扫描ai：加入机...">
+    <meta name="description" content="---title: Djongo&#x2F;Vue指纹识别系统categories: 安全研发---系统需求分析这部分是对于一个：Djongo&#x2F;Vue指纹识别系统的相关情况分析方便更好地了解一个指纹系统的大概功能需求和架构需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管...">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Djongo&#x2F;Vue指纹识别系统">
 <meta property="og:url" content="http://godice.top/Djongo!Vue%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F.html">
 <meta property="og:site_name" content="冰神的小屋">
-<meta property="og:description" content="---title: Djongo&#x2F;Vue指纹识别系统categories: 安全研发---系统分析需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管理）Todo识别处理	识别后端编程语言识别数据库版本识别服务器系统版本集成：集成第三方 api端口扫描ai：加入机...">
+<meta property="og:description" content="---title: Djongo&#x2F;Vue指纹识别系统categories: 安全研发---系统需求分析这部分是对于一个：Djongo&#x2F;Vue指纹识别系统的相关情况分析方便更好地了解一个指纹系统的大概功能需求和架构需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管...">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/494e4e1814fbe1d65503f409db990e18.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/891d9bfc59865f0ef21a34f6ebe0361b.png">
@@ -50,8 +50,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/bc7179b067f489735834c8a27b1d52f3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/27696b8c9cb203a2e2aa0e2213808520.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/b43eaef0b5733c545f7ddb286adda658.png">
+<meta property="og:image" content="https://github.com/TideSec/TideFinger/raw/master/images/001.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/8e38069bbc4222278948c7e31dd3aa5e.png">
+<meta property="og:image" content="https://github.com/TideSec/TideFinger/raw/master/images/003.png">
 <meta property="article:published_time" content="2024-12-16T11:03:32.000Z">
-<meta property="article:modified_time" content="2024-12-16T13:09:43.000Z">
+<meta property="article:modified_time" content="2024-12-20T02:23:42.000Z">
 <meta property="article:author" content="Godice">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/godicee/img/main/494e4e1814fbe1d65503f409db990e18.png">
@@ -72,7 +75,7 @@
 
 
 
-<link rel="dns-prefetch" href="comments-eta-ten.vercel.app"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
 #needsharebutton-postbottom {
   cursor: pointer;
   height: 26px;
@@ -85,7 +88,7 @@
   display: initial;
   padding: 1px 4px;
 }
-</style>
+</style><link rel="dns-prefetch" href="comments-eta-ten.vercel.app">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -125,7 +128,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a></li><li class="menu-item menu-item-coding+书单"><a href="/daily/" rel="section"><i class="fa fa-icons fa-fw"></i>Coding+书单</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">21</span></a></li><li class="menu-item menu-item-coding+书单"><a href="/daily/" rel="section"><i class="fa fa-icons fa-fw"></i>Coding+书单</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -174,7 +177,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">系统分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E5%88%86%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">角色分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.</span> <span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.4.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E6%9E%90"><span class="nav-number">1.6.</span> <span class="nav-text">数据库分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.7.</span> <span class="nav-text">数据库设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">1.8.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA"><span class="nav-number">1.9.</span> <span class="nav-text">页面展示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5"><span class="nav-number">1.9.1.</span> <span class="nav-text">主页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-1"><span class="nav-number">1.9.2.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86"><span class="nav-number">1.9.3.</span> <span class="nav-text">应用管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E7%AE%A1%E7%90%86"><span class="nav-number">1.9.4.</span> <span class="nav-text">指纹管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.9.5.</span> <span class="nav-text">指纹查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.10.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%87%8D%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">项目重构</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">系统需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%92%E8%89%B2%E5%88%86%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">角色分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.</span> <span class="nav-text">开发工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.4.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E6%9E%90"><span class="nav-number">1.6.</span> <span class="nav-text">数据库分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.7.</span> <span class="nav-text">数据库设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="nav-number">1.8.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA"><span class="nav-number">1.9.</span> <span class="nav-text">页面展示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A1%B5"><span class="nav-number">1.9.1.</span> <span class="nav-text">主页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86-1"><span class="nav-number">1.9.2.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86"><span class="nav-number">1.9.3.</span> <span class="nav-text">应用管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E7%AE%A1%E7%90%86"><span class="nav-number">1.9.4.</span> <span class="nav-text">指纹管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.9.5.</span> <span class="nav-text">指纹查询</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.</span> <span class="nav-text">指纹识别学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%8C%87%E7%BA%B9%E9%97%B4%E6%A3%80%E6%B5%8B%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.1.</span> <span class="nav-text">常见指纹间检测对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">常见指纹识别方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#W11scan"><span class="nav-number">3.</span> <span class="nav-text">W11scan</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">docker 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">项目架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%87%8D%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">项目重构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-git-%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.1.</span> <span class="nav-text">创建 git 项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Django"><span class="nav-number">4.2.</span> <span class="nav-text">Django</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue3"><span class="nav-number">4.3.</span> <span class="nav-text">vue3</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,7 +191,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -216,13 +219,13 @@
           <a href="/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86Hexo+next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA+%E8%AF%AD%E9%9B%80+github%E5%9B%BE%E5%BA%8A+elog%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8A%E4%BC%A0+SEO%E4%BC%98%E5%8C%96+%E5%90%84%E7%A7%8D%E4%BC%98%E5%8C%96+leancloud+Waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.html" title="全网最详细Hexo+next博客搭建+语雀+github图床+elog全自动化上传+SEO优化+各种优化+leancloud+Waline评论系统.html">全网最详细Hexo+next博客搭建+语雀+github图床+elog全自动化上传+SEO优化+各种优化+leancloud+Waline评论系统</a>
         </li>
         <li class="links-of-recent-posts-item">
+          <a href="/index.html" title="index.html">index</a>
+        </li>
+        <li class="links-of-recent-posts-item">
           <a href="/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html" title="b站视频学习.html">b站视频学习</a>
         </li>
         <li class="links-of-recent-posts-item">
           <a href="/%E4%B8%80%E6%AC%A1Telegram%E7%AA%83%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BB%8E%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82%E5%88%B0%E5%AE%9A%E4%BD%8D%E6%94%BB%E5%87%BB%E8%80%85%E8%B4%A6%E6%88%B7%E7%9A%84%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B.html" title="一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程.html">一次Telegram窃取程序的深入解析：从技术细节到定位攻击者账户的完整流程</a>
-        </li>
-        <li class="links-of-recent-posts-item">
-          <a href="/IoT%20%E5%AE%89%E5%85%A8%E8%B6%85%E8%AF%A6%E5%B0%BD%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.html" title="IoT 安全超详尽入门指南.html">IoT 安全超详尽入门指南</a>
         </li>
     </ul>
   </div>
@@ -287,7 +290,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Djongo/Vue指纹识别系统 | 冰神的小屋">
-      <meta itemprop="description" content="---title: Djongo/Vue指纹识别系统categories: 安全研发---系统分析需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管理）Todo识别处理	识别后端编程语言识别数据库版本识别服务器系统版本集成：集成第三方 api端口扫描ai：加入机...">
+      <meta itemprop="description" content="---title: Djongo/Vue指纹识别系统categories: 安全研发---系统需求分析这部分是对于一个：Djongo/Vue指纹识别系统的相关情况分析方便更好地了解一个指纹系统的大概功能需求和架构需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管...">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -301,9 +304,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-12-16 19:03:32 / 修改时间：21:09:43" itemprop="dateCreated datePublished" datetime="2024-12-16T19:03:32+08:00">2024-12-16</time>
+      <time title="创建时间：2024-12-16 19:03:32" itemprop="dateCreated datePublished" datetime="2024-12-16T19:03:32+08:00">2024-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-20 10:23:42" itemprop="dateModified" datetime="2024-12-20T10:23:42+08:00">2024-12-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -343,25 +352,31 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>665</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">---title: Djongo/Vue指纹识别系统categories: 安全研发---系统分析需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管理）Todo识别处理	识别后端编程语言识别数据库版本识别服务器系统版本集成：集成第三方 api端口扫描ai：加入机...</div>
+            <div class="post-description">---title: Djongo/Vue指纹识别系统categories: 安全研发---系统需求分析这部分是对于一个：Djongo/Vue指纹识别系统的相关情况分析方便更好地了解一个指纹系统的大概功能需求和架构需求分析需求分析：识别网站的前端架构、CMS、服务器自定义添加指纹用户管理（权限管...</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="系统分析"><a href="#系统分析" class="headerlink" title="系统分析"></a>系统分析</h2><h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ul>
+    <div class="post-body" itemprop="articleBody"><h2 id="系统需求分析"><a href="#系统需求分析" class="headerlink" title="系统需求分析"></a>系统需求分析</h2><ul>
+<li>这部分是对于一个：Djongo&#x2F;Vue指纹识别系统的相关情况分析<ul>
+<li>方便更好地了解一个指纹系统的大概功能需求和架构</li>
+</ul>
+</li>
+</ul>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ul>
 <li>需求分析：<ul>
 <li>识别网站的前端架构、CMS、服务器</li>
 <li>自定义添加指纹</li>
@@ -381,8 +396,8 @@
 </ul>
 </li>
 <li>重构：<ul>
-<li>目前项目是 vue2+Djongo</li>
-<li>计划开发后：重构为 Spring+vue3</li>
+<li>目前项目是 vue2+Django（很多依赖都是很老的版本）</li>
+<li>计划开发后：重构为 vue3+Django</li>
 <li>把前面的 Todo 全部完成</li>
 </ul>
 </li>
@@ -463,8 +478,89 @@
 <p>网站请求的时候：注意随机选择生成 UA 头，避免人机检测（从准备好的文本随机选择）</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/b43eaef0b5733c545f7ddb286adda658.png"></p>
 <p>指纹识别：根据指纹出现的不同位置，去应用信息里查询其对应应用</p>
-<h3 id><a href="#" class="headerlink" title></a></h3><h2 id="项目重构"><a href="#项目重构" class="headerlink" title="项目重构"></a>项目重构</h2><ul>
-<li>计划使用 SpringBoot+Vue3 重构复现该项目，并实现下列功能：</li>
+<h2 id="指纹识别学习"><a href="#指纹识别学习" class="headerlink" title="指纹识别学习"></a>指纹识别学习</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/TideSec/TideFinger/blob/master/Web%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E4%B8%8E%E4%BC%98%E5%8C%96%E5%AE%9E%E7%8E%B0.md">Web指纹识别技术的研究与实现（参考文档）</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/TideSec/TideFinger?tab=readme-ov-file">TideFinger</a></p>
+<h3 id="常见指纹间检测对象"><a href="#常见指纹间检测对象" class="headerlink" title="常见指纹间检测对象"></a>常见指纹间检测对象</h3><p>1、CMS信息：比如大汉CMS、织梦、帝国CMS、phpcms、ecshop等；</p>
+<p>2、前端技术：比如HTML5、jquery、bootstrap、pure、ace等；</p>
+<p>3、Web服务器：比如Apache、lighttpd, Nginx, IIS等；</p>
+<p>4、应用服务器：比如Tomcat、Jboss、weblogic、websphere等；</p>
+<p>5、开发语言：比如PHP、Java、Ruby、Python、C#等；</p>
+<p>6、操作系统信息：比如linux、win2k8、win7、kali、centos等；</p>
+<p>7、CDN信息：是否使用CDN，如cloudflare、360cdn、365cyd、yunjiasu等；</p>
+<p>8、WAF信息：是否使用waf，如Topsec、Jiasule、Yundun等；</p>
+<p>9、IP及域名信息：IP和域名注册信息、服务商信息等；</p>
+<p>10、端口信息：有些软件或平台还会探测服务器开放的常见端口。</p>
+<h3 id="常见指纹识别方式"><a href="#常见指纹识别方式" class="headerlink" title="常见指纹识别方式"></a>常见指纹识别方式</h3><ul>
+<li>1 特定文件 md5：选取网站中特定图片、js、css 等静态文件<ul>
+<li>如：favicon.ico、css、logo.ico、js 等一般不会修改的文件</li>
+<li>通过爬虫抓取这些文件、并和规则库中的对比</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/TideSec/TideFinger/raw/master/images/001.png"></p>
+<ul>
+<li>2 正常页面&#x2F;错误页面中包含的关键字<ul>
+<li>首页&#x2F;特定页面：robots.txt 中，然后用正则匹配关键字<ul>
+<li>Powered by Discuz、dedecms</li>
+</ul>
+</li>
+<li>fuzz 报错，根据报错信息判断 CMS 或中间件信息<ul>
+<li>eg：tomcat 报错页面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8e38069bbc4222278948c7e31dd3aa5e.png"></p>
+<ul>
+<li>3 请求头关键字匹配：根据这些 banner 识别<ul>
+<li>效率很高、但是搜集规则很耗时、而且容易被改掉</li>
+</ul>
+</li>
+<li>识别方式：<ul>
+<li>X-Powered-By</li>
+<li>Cookie：一些 Waf 会包含 360wzws、Safedog、yunsuo</li>
+<li>Server：DVRDVS-Webs、yunjiasu-nginx、Mod_Security、nginx-wallarm</li>
+<li>WWW-Authenticate：一些路由交换设备可能存在这个字段，如NETCORE、huawei、h3c等设备</li>
+</ul>
+</li>
+</ul>
+<p><font style="color:rgb(240, 246, 252);background-color:rgb(13, 17, 23);"></font></p>
+<ul>
+<li>4URL 中的关键字：wp-includes、dede 等<ul>
+<li>规则库探测对应目录、爬虫分析链接 url、robots.txt、sitemap.xml 分析<ul>
+<li>通过 url 地址判别是否使用了对应 CMS</li>
+<li>eg：wordpress默认存在wp-includes和wp-admin目录，织梦默认管理后台为dede目录，solr平台可能使用&#x2F;solr目录，weblogic可能使用wls-wsat目录等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/TideSec/TideFinger/raw/master/images/003.png"></p>
+<ul>
+<li>5 开发语言：web开发语言一般常见的有PHP、jsp、aspx、asp等<ul>
+<li>通过爬虫获取动态链接进行直接判断是比较简便的方法。<ul>
+<li>asp规则<code>&lt;a[^&gt;]*?href=(&#39;|&quot;)[^http][^&gt;]*?\.asp(\?|\#|\1)</code>，其他语言可替换相应asp即可</li>
+</ul>
+</li>
+<li>通过<code>X-Powered-By</code>进行识别<ul>
+<li>比较常见的有<code>X-Powered-By: ASP.NET</code>或者<code>X-Powered-By: PHP/7.1.8</code></li>
+</ul>
+</li>
+<li>通过<code>Set-Cookie</code>进行识别<ul>
+<li>这种方法比较常见也很快捷，比如<code>Set-Cookie</code>中包含<code>PHPSSIONID</code>说明是php、包含<code>JSESSIONID</code>说明是java、包含<code>ASP.NET_SessionId</code>说明是aspx等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="W11scan"><a href="#W11scan" class="headerlink" title="W11scan"></a>W11scan</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/w-digital-scanner/w11scan?tab=readme-ov-file">w11scan的github</a></p>
+<h3 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1从官方镜像源拉取</span><br><span class="line">docker pull boyhack/w11scan</span><br><span class="line">2因为在启动docker的时候会向mongodb添加指纹信息，所以速度会比较慢。用下面的命令查看进度。</span><br><span class="line">docker run -it -p 666:8000 boyhack/w11scan:latest</span><br><span class="line">3打开127.0.0.1:666</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h3><h2 id="项目重构"><a href="#项目重构" class="headerlink" title="项目重构"></a>项目重构</h2><ul>
+<li>计划使用 Django+Vue3 重构复现该项目，并实现下列功能：</li>
 <li>本来的功能<ul>
 <li>需求分析：</li>
 <li>识别网站的前端架构、CMS、服务器</li>
@@ -477,6 +573,7 @@
 <li>识别后端编程语言</li>
 <li>识别数据库版本</li>
 <li>识别服务器系统版本</li>
+<li>批量识别并导出</li>
 </ul>
 </li>
 <li>端口扫描</li>
@@ -485,6 +582,22 @@
 </ul>
 </li>
 </ul>
+<h3 id="创建-git-项目"><a href="#创建-git-项目" class="headerlink" title="创建 git 项目"></a>创建 git 项目</h3><p>在本地生成公钥，上传到 github</p>
+<p>测试是否成功<code>ssh -T git@github.com</code></p>
+<p>随便创建一个文件夹，作为项目文件夹</p>
+<p>初始化 git<code>git init</code></p>
+<p>创建 readme 文件<code>vim readme.md</code></p>
+<p>查看未被 git 收录的文件<code>git status</code></p>
+<p>加入收录范围<code>git add .</code></p>
+<p>保存当前版本<code>git commit -m &quot;创建项目&quot;</code></p>
+<p>上传 git<code>git push</code></p>
+<h3 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h3><p>直接 pycharm 安装后，启动<code>python manage.py runserver</code>即可</p>
+<p>创建 app<code>python manage.py startapp ocr</code></p>
+<h3 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h3><p>全局安装 vue3<code>npm install -g @vue/cli</code></p>
+<p>全局升级最新版<code>npm update -g @vue/cli</code></p>
+<p>查看版本<code>vue -v</code></p>
+<p>启动<code>vue ui</code></p>
+<p>访问端口创建项目（不选择初始化 git）</p>
 
     </div>
 
@@ -557,13 +670,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">13k</span>
+    <span title="站点总字数">14k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">47 分钟</span>
+    <span title="站点阅读时长">51 分钟</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -651,7 +764,16 @@
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/Djongo!Vue%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F.html"}</script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/Djongo!Vue%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F.html"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
@@ -663,15 +785,6 @@ document.addEventListener('page:loaded', () => {
 });
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 
 

@@ -1504,7 +1504,13 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
   <entry>
     <title>Djongo/Vue指纹识别系统</title>
     <url>/Djongo!Vue%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F.html</url>
-    <content><![CDATA[<h2 id="系统分析"><a href="#系统分析" class="headerlink" title="系统分析"></a>系统分析</h2><h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ul>
+    <content><![CDATA[<h2 id="系统需求分析"><a href="#系统需求分析" class="headerlink" title="系统需求分析"></a>系统需求分析</h2><ul>
+<li>这部分是对于一个：Djongo&#x2F;Vue指纹识别系统的相关情况分析<ul>
+<li>方便更好地了解一个指纹系统的大概功能需求和架构</li>
+</ul>
+</li>
+</ul>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ul>
 <li>需求分析：<ul>
 <li>识别网站的前端架构、CMS、服务器</li>
 <li>自定义添加指纹</li>
@@ -1524,8 +1530,8 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 </ul>
 </li>
 <li>重构：<ul>
-<li>目前项目是 vue2+Djongo</li>
-<li>计划开发后：重构为 Spring+vue3</li>
+<li>目前项目是 vue2+Django（很多依赖都是很老的版本）</li>
+<li>计划开发后：重构为 vue3+Django</li>
 <li>把前面的 Todo 全部完成</li>
 </ul>
 </li>
@@ -1606,8 +1612,89 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <p>网站请求的时候：注意随机选择生成 UA 头，避免人机检测（从准备好的文本随机选择）</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/b43eaef0b5733c545f7ddb286adda658.png"></p>
 <p>指纹识别：根据指纹出现的不同位置，去应用信息里查询其对应应用</p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="项目重构"><a href="#项目重构" class="headerlink" title="项目重构"></a>项目重构</h2><ul>
-<li>计划使用 SpringBoot+Vue3 重构复现该项目，并实现下列功能：</li>
+<h2 id="指纹识别学习"><a href="#指纹识别学习" class="headerlink" title="指纹识别学习"></a>指纹识别学习</h2><p><a href="https://github.com/TideSec/TideFinger/blob/master/Web%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E4%B8%8E%E4%BC%98%E5%8C%96%E5%AE%9E%E7%8E%B0.md">Web指纹识别技术的研究与实现（参考文档）</a></p>
+<p><a href="https://github.com/TideSec/TideFinger?tab=readme-ov-file">TideFinger</a></p>
+<h3 id="常见指纹间检测对象"><a href="#常见指纹间检测对象" class="headerlink" title="常见指纹间检测对象"></a>常见指纹间检测对象</h3><p>1、CMS信息：比如大汉CMS、织梦、帝国CMS、phpcms、ecshop等；</p>
+<p>2、前端技术：比如HTML5、jquery、bootstrap、pure、ace等；</p>
+<p>3、Web服务器：比如Apache、lighttpd, Nginx, IIS等；</p>
+<p>4、应用服务器：比如Tomcat、Jboss、weblogic、websphere等；</p>
+<p>5、开发语言：比如PHP、Java、Ruby、Python、C#等；</p>
+<p>6、操作系统信息：比如linux、win2k8、win7、kali、centos等；</p>
+<p>7、CDN信息：是否使用CDN，如cloudflare、360cdn、365cyd、yunjiasu等；</p>
+<p>8、WAF信息：是否使用waf，如Topsec、Jiasule、Yundun等；</p>
+<p>9、IP及域名信息：IP和域名注册信息、服务商信息等；</p>
+<p>10、端口信息：有些软件或平台还会探测服务器开放的常见端口。</p>
+<h3 id="常见指纹识别方式"><a href="#常见指纹识别方式" class="headerlink" title="常见指纹识别方式"></a>常见指纹识别方式</h3><ul>
+<li>1 特定文件 md5：选取网站中特定图片、js、css 等静态文件<ul>
+<li>如：favicon.ico、css、logo.ico、js 等一般不会修改的文件</li>
+<li>通过爬虫抓取这些文件、并和规则库中的对比</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/TideSec/TideFinger/raw/master/images/001.png"></p>
+<ul>
+<li>2 正常页面&#x2F;错误页面中包含的关键字<ul>
+<li>首页&#x2F;特定页面：robots.txt 中，然后用正则匹配关键字<ul>
+<li>Powered by Discuz、dedecms</li>
+</ul>
+</li>
+<li>fuzz 报错，根据报错信息判断 CMS 或中间件信息<ul>
+<li>eg：tomcat 报错页面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8e38069bbc4222278948c7e31dd3aa5e.png"></p>
+<ul>
+<li>3 请求头关键字匹配：根据这些 banner 识别<ul>
+<li>效率很高、但是搜集规则很耗时、而且容易被改掉</li>
+</ul>
+</li>
+<li>识别方式：<ul>
+<li>X-Powered-By</li>
+<li>Cookie：一些 Waf 会包含 360wzws、Safedog、yunsuo</li>
+<li>Server：DVRDVS-Webs、yunjiasu-nginx、Mod_Security、nginx-wallarm</li>
+<li>WWW-Authenticate：一些路由交换设备可能存在这个字段，如NETCORE、huawei、h3c等设备</li>
+</ul>
+</li>
+</ul>
+<p><font style="color:rgb(240, 246, 252);background-color:rgb(13, 17, 23);"></font></p>
+<ul>
+<li>4URL 中的关键字：wp-includes、dede 等<ul>
+<li>规则库探测对应目录、爬虫分析链接 url、robots.txt、sitemap.xml 分析<ul>
+<li>通过 url 地址判别是否使用了对应 CMS</li>
+<li>eg：wordpress默认存在wp-includes和wp-admin目录，织梦默认管理后台为dede目录，solr平台可能使用&#x2F;solr目录，weblogic可能使用wls-wsat目录等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/TideSec/TideFinger/raw/master/images/003.png"></p>
+<ul>
+<li>5 开发语言：web开发语言一般常见的有PHP、jsp、aspx、asp等<ul>
+<li>通过爬虫获取动态链接进行直接判断是比较简便的方法。<ul>
+<li>asp规则<code>&lt;a[^&gt;]*?href=(&#39;|&quot;)[^http][^&gt;]*?\.asp(\?|\#|\1)</code>，其他语言可替换相应asp即可</li>
+</ul>
+</li>
+<li>通过<code>X-Powered-By</code>进行识别<ul>
+<li>比较常见的有<code>X-Powered-By: ASP.NET</code>或者<code>X-Powered-By: PHP/7.1.8</code></li>
+</ul>
+</li>
+<li>通过<code>Set-Cookie</code>进行识别<ul>
+<li>这种方法比较常见也很快捷，比如<code>Set-Cookie</code>中包含<code>PHPSSIONID</code>说明是php、包含<code>JSESSIONID</code>说明是java、包含<code>ASP.NET_SessionId</code>说明是aspx等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="W11scan"><a href="#W11scan" class="headerlink" title="W11scan"></a>W11scan</h2><p><a href="https://github.com/w-digital-scanner/w11scan?tab=readme-ov-file">w11scan的github</a></p>
+<h3 id="docker-安装"><a href="#docker-安装" class="headerlink" title="docker 安装"></a>docker 安装</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">1从官方镜像源拉取</span><br><span class="line">docker pull boyhack/w11scan</span><br><span class="line">2因为在启动docker的时候会向mongodb添加指纹信息，所以速度会比较慢。用下面的命令查看进度。</span><br><span class="line">docker run -it -p 666:8000 boyhack/w11scan:latest</span><br><span class="line">3打开127.0.0.1:666</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="项目架构"><a href="#项目架构" class="headerlink" title="项目架构"></a>项目架构</h3><h2 id="项目重构"><a href="#项目重构" class="headerlink" title="项目重构"></a>项目重构</h2><ul>
+<li>计划使用 Django+Vue3 重构复现该项目，并实现下列功能：</li>
 <li>本来的功能<ul>
 <li>需求分析：</li>
 <li>识别网站的前端架构、CMS、服务器</li>
@@ -1620,6 +1707,7 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 <li>识别后端编程语言</li>
 <li>识别数据库版本</li>
 <li>识别服务器系统版本</li>
+<li>批量识别并导出</li>
 </ul>
 </li>
 <li>端口扫描</li>
@@ -1628,9 +1716,41 @@ XSS过滤关键词绕过可以使用双写、大小写等方式，例如<scRipt>
 </ul>
 </li>
 </ul>
+<h3 id="创建-git-项目"><a href="#创建-git-项目" class="headerlink" title="创建 git 项目"></a>创建 git 项目</h3><p>在本地生成公钥，上传到 github</p>
+<p>测试是否成功<code>ssh -T git@github.com</code></p>
+<p>随便创建一个文件夹，作为项目文件夹</p>
+<p>初始化 git<code>git init</code></p>
+<p>创建 readme 文件<code>vim readme.md</code></p>
+<p>查看未被 git 收录的文件<code>git status</code></p>
+<p>加入收录范围<code>git add .</code></p>
+<p>保存当前版本<code>git commit -m &quot;创建项目&quot;</code></p>
+<p>上传 git<code>git push</code></p>
+<h3 id="Django"><a href="#Django" class="headerlink" title="Django"></a>Django</h3><p>直接 pycharm 安装后，启动<code>python manage.py runserver</code>即可</p>
+<p>创建 app<code>python manage.py startapp ocr</code></p>
+<h3 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h3><p>全局安装 vue3<code>npm install -g @vue/cli</code></p>
+<p>全局升级最新版<code>npm update -g @vue/cli</code></p>
+<p>查看版本<code>vue -v</code></p>
+<p>启动<code>vue ui</code></p>
+<p>访问端口创建项目（不选择初始化 git）</p>
 ]]></content>
       <categories>
         <category>安全研发</category>
       </categories>
+  </entry>
+  <entry>
+    <title>index</title>
+    <url>/index.html</url>
+    <content><![CDATA[<p>目前主要是一些关于安全的书</p>
+<ul>
+<li>《java 安全漫谈》</li>
+<li>《白帽子讲网络安全》</li>
+<li>《The Art of Software Security Assessment - Identifying and Preventing Software Vulnerabilities》</li>
+<li>《The-hacker-playbook-3-pdf》</li>
+<li>《代码审计企业级 Web 代码安全架构》</li>
+</ul>
+<p><a href="https://github.com/javadevbooks/books">终极详细的超多java&#x2F;python电子书版本</a></p>
+<p><a href="https://github.com/soberqian/Java-Carwler-Technology?tab=readme-ov-file">网络数据采集技术—Java网络爬虫（完整代码）</a></p>
+<p><a href="https://github.com/duoan/codes-scratch-crawler">《自己动手写网络爬虫》实现代码</a></p>
+]]></content>
   </entry>
 </search>
