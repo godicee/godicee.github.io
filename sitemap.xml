@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://godice.top/index.html</loc>
+    <loc>http://godice.top/daily/todo/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
@@ -48,15 +48,6 @@
   
   <url>
     <loc>http://godice.top/daily/game/index.html</loc>
-    
-    <lastmod>2024-12-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://godice.top/daily/todo/index.html</loc>
     
     <lastmod>2024-12-16</lastmod>
     
