@@ -2050,15 +2050,49 @@
 </li>
 </ul>
 <h3 id="L5-查询结果无回显（报错注入）"><a href="#L5-查询结果无回显（报错注入）" class="headerlink" title="L5 查询结果无回显（报错注入）"></a>L5 查询结果无回显（报错注入）</h3><h4 id="关卡情况判断"><a href="#关卡情况判断" class="headerlink" title="关卡情况判断"></a>关卡情况判断</h4><p>可以看到 id&#x3D;1 是对的，但是查询结果没有回显</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1735810507765-a4cd25be-7560-449b-b19c-bb08e8420028.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8660dc1e619a6c73eef8ad7e3d69fbb3.png"></p>
 <p>查看源代码，可以看到，源码里面没有写回显数据的函数</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1735810573271-06ae8dc1-954f-4c01-818b-d9c52a7ff61b.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/214623e5539c4682c5a0c4f252972920.png"></p>
 <p>以前的关卡是写了返回结果的</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/f082607314d1edb27567b23c9c93a236.png"></p>
-<p>这里需要报错注入了</p>
+<p>这里需要报错注入了。</p>
 ]]></content>
       <categories>
         <category>安全基础</category>
       </categories>
+  </entry>
+  <entry>
+    <title>index</title>
+    <url>/index.html</url>
+    <content><![CDATA[<ul>
+<li>待办事项：<ul>
+<li>学习路线：<ul>
+<li>sqllabs 前 25（最好做完）</li>
+<li>原型链污染</li>
+<li><a href="https://challenge-0222.intigriti.io/">每月xss挑战</a></li>
+<li>upload-labs 全部</li>
+<li><a href="https://github.com/paralax/lfi-labs">lfi-labs</a></li>
+</ul>
+</li>
+<li>开发：<ul>
+<li>学网 Django 的课程，写出 demo</li>
+<li>写指纹识别系统</li>
+</ul>
+</li>
+<li>博客安全笔记：<ul>
+<li>爬虫：数据分析</li>
+<li>OWASP TOP10</li>
+<li>BUGKU</li>
+<li>CTFSHOW的VIP</li>
+<li>php&#x2F;java 代码审计</li>
+<li>java 安全漫谈</li>
+<li>p 牛知识星球</li>
+</ul>
+</li>
+<li>论文：复现完所有代码</li>
+</ul>
+</li>
+</ul>
+]]></content>
   </entry>
 </search>

@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://godice.top/index.html</loc>
+    
+    <lastmod>2025-01-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://godice.top/CTF_Show_RCE%E6%8A%80%E8%83%BD%E6%A0%91.html</loc>
     
     <lastmod>2024-12-31</lastmod>
