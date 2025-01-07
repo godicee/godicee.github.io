@@ -49,7 +49,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_ 文件包含"></a>RCE_ 文件包含</h2><p><a href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
+<h2 id="RCE-文件包含"><a href="#RCE-文件包含" class="headerlink" title="RCE_文件包含"></a>RCE_文件包含</h2><p><a href="https://www.ctfhub.com/#/skilltree">技能树连接</a></p>
 <p>ctf_show 的 RCE 的技能树</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/a668cc998bb727803602b1bc712728c8.png"></p>
 <h3 id="代码执行-命令执行"><a href="#代码执行-命令执行" class="headerlink" title="代码执行&amp;命令执行"></a>代码执行&amp;命令执行</h3><p><a href="https://www.cnblogs.com/-qing-/p/10819069.html">代码执行&amp;命令执行参考文档</a></p>
@@ -148,7 +148,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="RCE-命令注入"><a href="#RCE-命令注入" class="headerlink" title="RCE_ 命令注入"></a>RCE_ 命令注入</h2><h3 id="题目：命令注入-exec-命令执行"><a href="#题目：命令注入-exec-命令执行" class="headerlink" title="题目：命令注入(exec 命令执行)"></a>题目：命令注入(exec 命令执行)</h3><ul>
+<h2 id="RCE-命令注入"><a href="#RCE-命令注入" class="headerlink" title="RCE_命令注入"></a>RCE_命令注入</h2><h3 id="题目：命令注入-exec-命令执行"><a href="#题目：命令注入-exec-命令执行" class="headerlink" title="题目：命令注入(exec 命令执行)"></a>题目：命令注入(exec 命令执行)</h3><ul>
 <li><code>|</code>是管道符，前一个命令输出，作为后一个命令输入<ul>
 <li>前一个命令对后一个命令如果没有有效的输入：会直接执行后一个命令</li>
 </ul>
@@ -315,7 +315,7 @@
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/f7f714502f9a29c7335de7cea5c48f73.png"></p>
 ]]></content>
       <categories>
-        <category>CTF 相关</category>
+        <category>安全基础</category>
       </categories>
   </entry>
   <entry>
@@ -401,7 +401,7 @@
 <h3 id="git-仓库初始化"><a href="#git-仓库初始化" class="headerlink" title="git 仓库初始化"></a>git 仓库初始化</h3><p>项目文件夹下初始化 git 仓库<code>git init</code></p>
 <p>把本地公钥复制后存入 github 仓库</p>
 <p>测试 git 是否连接成功<code>ssh -T git@github.com</code></p>
-]]></content>
+<h3 id="Django-创建项目"><a href="#Django-创建项目" class="headerlink" title="Django 创建项目"></a>Django 创建项目</h3>]]></content>
       <categories>
         <category>开发项目</category>
       </categories>
@@ -1826,6 +1826,8 @@
 <p>4 修改系统环境变量	</p>
 <p>本地访问目录<code>[http://127.0.0.1/sql/Less-1/?id=1](http://127.0.0.1/sql/Less-1/?id=1)</code></p>
 <p><a href="https://www.sqlsec.com/2020/05/sqlilabs.html#%E5%AE%89%E8%A3%85">sql：1——65关通关参考文档（含sqlmap）</a></p>
+<p><a href="https://blog.csdn.net/weixin_51143375/article/details/121111169">1——23关，含较多讲解的参考版本</a></p>
+<p><a href="https://tari.moe/2022/sqli-labs.html#8995a61341df41e0bd678c15c61ddaca">1——65关，注重原理的讲解</a></p>
 <p><a href="https://www.bilibili.com/video/BV1e441127Rd/?spm_id_from=333.999.0.0">1——10关b站参考视频</a></p>
 <h2 id="配置总结"><a href="#配置总结" class="headerlink" title="配置总结"></a>配置总结</h2><p>数据库账户密码配置<code>sql/sql-connections/db-creds.inc</code>里面可以配置数据库账户密码</p>
 <p>本地命令行登录数据库（Windows）<code>mysql -uroot -pmima</code></p>
@@ -1993,11 +1995,11 @@
 <li><p><strong><font style="color:#DF2A3F;">常规判断：</font></strong><code>**&lt;font style=&quot;color:#DF2A3F;&quot;&gt;and 1=1&lt;/font&gt;**</code><strong><font style="color:#DF2A3F;">、</font></strong><code>**&lt;font style=&quot;color:#DF2A3F;&quot;&gt;and 1=2&lt;/font&gt;**</code></p>
 <ul>
 <li>数字型：<ul>
-<li><code>?id=1 and 1=1--+</code>逻辑对不报错<ul>
+<li><code>?id=1 and 1=1--+</code>逻辑对：不报错<ul>
 <li>查询语句<code>select from user where id=1--+</code></li>
 </ul>
 </li>
-<li><code>?id=1 and 1=2</code>逻辑不对报错<ul>
+<li><code>?id=1 and 1=2--+</code>逻辑不对：报错<ul>
 <li>查询语句<code>select from user where id=2--+</code></li>
 </ul>
 </li>
@@ -2049,13 +2051,52 @@
 </ul>
 </li>
 </ul>
-<h3 id="L5-查询结果无回显（报错注入）"><a href="#L5-查询结果无回显（报错注入）" class="headerlink" title="L5 查询结果无回显（报错注入）"></a>L5 查询结果无回显（报错注入）</h3><h4 id="关卡情况判断"><a href="#关卡情况判断" class="headerlink" title="关卡情况判断"></a>关卡情况判断</h4><p>可以看到 id&#x3D;1 是对的，但是查询结果没有回显</p>
+<h3 id="L5-查询结果无回显（报错注入）"><a href="#L5-查询结果无回显（报错注入）" class="headerlink" title="L5 查询结果无回显（报错注入）"></a>L5 查询结果无回显（报错注入）</h3><h4 id="类型判断"><a href="#类型判断" class="headerlink" title="类型判断"></a>类型判断</h4><p>可以看到 id&#x3D;1 是对的，但是查询结果没有回显</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/8660dc1e619a6c73eef8ad7e3d69fbb3.png"></p>
 <p>查看源代码，可以看到，源码里面没有写回显数据的函数</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/214623e5539c4682c5a0c4f252972920.png"></p>
 <p>以前的关卡是写了返回结果的</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/f082607314d1edb27567b23c9c93a236.png"></p>
-<p>这里需要报错注入了。</p>
+<p>这里需要报错注入了</p>
+<ul>
+<li>判断类型<ul>
+<li><code>?id=1&#39;</code>报错</li>
+<li><code>?id=1 and 1=1--+</code>不报错</li>
+<li><code>?id=1 and 1=2--+</code>不报错</li>
+<li>因此类型为字符型（逻辑判断被当作字符串内容解析了，而数据库模糊匹配：只匹配了 1）</li>
+</ul>
+</li>
+</ul>
+<h4 id="floor报错注入"><a href="#floor报错注入" class="headerlink" title="floor报错注入"></a>floor报错注入</h4><p><a href="https://blog.csdn.net/weixin_45146120/article/details/100062786">MYSQL floor 报错注入详解_mysql 报错注入 floor-CSDN博客</a></p>
+<p>语句<code>SELECT COUNT(*),floor(RAND(0)*2) as x from users GROUP BY x</code></p>
+<ul>
+<li><font style="color:#DF2A3F;">floor报错原理</font>：利用主键不能重复，使用随机数序列配合<code>group by</code>的逻辑<ul>
+<li>数据库主键重复会报错</li>
+<li><code>rand(0) * 2</code>会产生数字序列为<code>011011</code></li>
+<li><code>group by</code>在统计数据时会产生虚表（临时表），用作统计<ul>
+<li>在查询时会计算一次<code>rand(0) * 2</code>第一次是 0</li>
+<li>如果表中没有该数据，向虚表插入数据会在计算一次<code>rand(0) * 2</code>第二次就变成 1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">count  x</span><br><span class="line">  1		 1</span><br></pre></td></tr></table></figure>
+
+<pre><code>    * 查询第二个数据时计算一次`rand(0) * 2`第三次变成 1
+        + 但是表中已经有值为 1 的数据了，不需要插入，count+1 即可
+</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">count  x</span><br><span class="line">  2		 1</span><br></pre></td></tr></table></figure>
+
+<pre><code>    * 查询第三个数据计算一次`rand(0) * 2`第四次变成 0
+        + 表中没有值为 0 的数据，需要插入
+        + 插入时再计算一次`rand(0) * 2`，第五次变为 1
+</code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">count  x</span><br><span class="line">  2		 1</span><br><span class="line">  1		 1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这样表中就有两个主键为 1 的表项，就会报错</li>
+</ul>
 ]]></content>
       <categories>
         <category>安全基础</category>
@@ -2064,35 +2105,18 @@
   <entry>
     <title>index</title>
     <url>/index.html</url>
-    <content><![CDATA[<ul>
-<li>待办事项：<ul>
-<li>学习路线：<ul>
-<li>sqllabs 前 25（最好做完）</li>
-<li>原型链污染</li>
-<li><a href="https://challenge-0222.intigriti.io/">每月xss挑战</a></li>
-<li>upload-labs 全部</li>
-<li><a href="https://github.com/paralax/lfi-labs">lfi-labs</a></li>
+    <content><![CDATA[<p>目前主要是一些关于安全的书</p>
+<ul>
+<li>《java 安全漫谈》</li>
+<li>《白帽子讲网络安全》</li>
+<li>《The Art of Software Security Assessment - Identifying and Preventing Software Vulnerabilities》</li>
+<li>《The-hacker-playbook-3-pdf》</li>
+<li>《代码审计企业级 Web 代码安全架构》</li>
 </ul>
-</li>
-<li>开发：<ul>
-<li>学网 Django 的课程，写出 demo</li>
-<li>写指纹识别系统</li>
-</ul>
-</li>
-<li>博客安全笔记：<ul>
-<li>爬虫：数据分析</li>
-<li>OWASP TOP10</li>
-<li>BUGKU</li>
-<li>CTFSHOW的VIP</li>
-<li>php&#x2F;java 代码审计</li>
-<li>java 安全漫谈</li>
-<li>p 牛知识星球</li>
-</ul>
-</li>
-<li>论文：复现完所有代码</li>
-</ul>
-</li>
-</ul>
+<p><a href="https://github.com/javadevbooks/books">终极详细的超多java&#x2F;python电子书版本</a></p>
+<p><a href="https://github.com/soberqian/Java-Carwler-Technology?tab=readme-ov-file">网络数据采集技术—Java网络爬虫（完整代码）</a></p>
+<p><a href="https://github.com/duoan/codes-scratch-crawler">《自己动手写网络爬虫》实现代码</a></p>
+<p><a href="https://xz.aliyun.com/t/16523?time__1311=GuD=Y5BK7K4BqDwqeqq7qmxfxYqFXioD">jdbc Attack</a></p>
 ]]></content>
   </entry>
 </search>
