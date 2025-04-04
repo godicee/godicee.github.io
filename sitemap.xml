@@ -11,18 +11,18 @@
   </url>
   
   <url>
-    <loc>http://godice.top/1%E2%80%94%E2%80%9465%E5%85%B3%20SQLI-labs%E5%85%A8%E9%83%A8%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95%EF%BC%88%E7%BB%88%E6%9E%81%E8%AF%A6%E7%BB%86%EF%BC%89.html</loc>
+    <loc>http://godice.top/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html</loc>
     
-    <lastmod>2025-02-23</lastmod>
+    <lastmod>2025-04-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://godice.top/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html</loc>
+    <loc>http://godice.top/1%E2%80%94%E2%80%9465%E5%85%B3%20SQLI-labs%E5%85%A8%E9%83%A8%E9%80%9A%E5%85%B3%E8%AE%B0%E5%BD%95%EF%BC%88%E7%BB%88%E6%9E%81%E8%AF%A6%E7%BB%86%EF%BC%89.html</loc>
     
-    <lastmod>2025-02-21</lastmod>
+    <lastmod>2025-02-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -330,6 +330,13 @@
   
   <url>
     <loc>http://godice.top/categories/%E8%B6%85%E8%AF%A6%E7%BB%86%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2025-04-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://godice.top/categories/Java%E7%99%BD%E7%9B%92/</loc>
     <lastmod>2025-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
