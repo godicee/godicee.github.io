@@ -6,7 +6,7 @@
   <link href="http://godice.top/atom.xml" rel="self"/>
   
   <link href="http://godice.top/"/>
-  <updated>2025-04-04T10:48:28.000Z</updated>
+  <updated>2025-04-04T12:43:05.000Z</updated>
   <id>http://godice.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025第八届西湖论剑第2名作品</title>
+    <link href="http://godice.top/2025%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91%E7%AC%AC2%E5%90%8D%E4%BD%9C%E5%93%81.html"/>
+    <id>http://godice.top/2025%E7%AC%AC%E5%85%AB%E5%B1%8A%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91%E7%AC%AC2%E5%90%8D%E4%BD%9C%E5%93%81.html</id>
+    <published>2025-04-04T12:37:49.000Z</published>
+    <updated>2025-04-04T12:43:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="—"><a href="#—" class="headerlink" title="—"></a>—</h3><p>categories: Ai 安全（大模型安全）</p><hr><h3 id="第八届西湖论剑第二名作品《-LogFlow基于大模型的双重匹配与多权重调节的智能增压日志解析系统-》"><a href="#第八届西湖论剑第二名作品《-LogFlow基于大模型的双重匹配与多权重调节的智能增压日志解析系统-》" class="headerlink" title="第八届西湖论剑第二名作品《**LogFlow基于大模型的双重匹配与多权重调节的智能增压日志解析系统**》"></a>第八届西湖论剑第二名作品《**<font style="color:rgb(0,0,0);">LogFlow基于大模型的双重匹配与多权重调节的智能增压日志解析系统</font>**》</h3><p>这个是参加 2025 第八届西湖论剑：创新赛获得第二名的作品</p><p>（实际上我的算法，无论是时间效率，还是解析精度都远高于第一名。这个是我和第一名交流后确认的：第一名的使用的聚类存在过拟合问题和时间效率的问题。评委想法不得而知…）</p><h4 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h4><p><img src="https://raw.githubusercontent.com/godicee/img/main/7a3d2ee21d5307f87f6b32590dfd021f.png"></p><ul><li><p>需求总结：海量日志解析中存在”解析效率”、”解析精度”、”扩展性”的矛盾</p></li><li><p>解决方法：（以下只说了需要重点关注的优缺点）</p><ul><li>1 部署轻量化模型：不断提高单日志的解析效率（训练特定场景下的模型）<ul><li>eg：聚类、频繁模式挖掘</li><li>优点：扩展性比较好，可用于异构日志，人工参与很少</li><li>缺点：极高的计算开销、难以实现高精度</li></ul></li><li>2 使用高精度规则：代替模型解析日志<ul><li>优点：速度快、精度高</li><li>缺点：规则的维护（日志格式、场景改变，需要大量的人工工作）<ul><li>（当日志格式变动时需要大量的工作）</li></ul></li></ul></li></ul></li><li><p>因此重点需要关注的有三方面问题：</p><ul><li>1：计算开销（时空效率）</li><li>2：高精度（需求高精度的解析）</li><li>3：扩展性（日志格式、场景变动时需要高扩展性）</li></ul></li><li><p>规则可以满足 12，难以满足扩展性</p></li><li><p>轻量化模型可以满足 3，但是 12 都不能满足</p></li><li><p><strong>效果</strong>：</p><ul><li>我提出的方法，可以同时兼顾 123<ul><li>1 在单日志平均解析时间不超过 130ms 的前提下</li><li>2 甚至超越了人工写的规则进行人日志解析的精度</li><li>3 具有超高的扩展性<ul><li>3.1 在格式变动不大的亿级日志场景下，不需要任何改动</li><li>3.2 需要扩展到格式完全不一样的异构日志时：只需要少量标注日志数据即可快速收敛<ul><li>标注数据量： 数百条</li><li>收敛时间：12 小时内</li></ul></li></ul></li></ul></li></ul></li></ul><h4 id="规则生成部分"><a href="#规则生成部分" class="headerlink" title="规则生成部分"></a>规则生成部分</h4><ul><li><strong>问题 1</strong>：大模型生成高精度数据存在精度上限<ul><li>1.1：多重增压的 prompt 列表<ul><li>当生成规则无法完全匹配，通过提示词列表逐渐增加模型压力</li></ul></li><li>1.2：优化提示词<ul><li>针对日志匹配中的疑难问题，增加额外的 prompt 提示</li></ul></li><li>1.3：最优模块算法<ul><li>保留解析效率最好的规则</li></ul></li></ul></li><li><strong>问题 2</strong>：未登录词与复杂结构日志问题<ul><li>三源规则：大模型生成动态粗粒度规则、大模型生成动态细粒度规则、大模型生成的静态细粒度规则</li></ul></li></ul><h4 id="规则择优部分"><a href="#规则择优部分" class="headerlink" title="规则择优部分"></a>规则择优部分</h4><ul><li><strong>问题 1</strong>：面对待匹配日志，如何选择其最佳的规则<ul><li>1：三维打分的多权重算法（其中用到了本地训练的的小模型处理相关评分）</li></ul></li><li><strong>问题 2</strong>：高精度的要求，总存在极端情况，有部分日志格式无法匹配<ul><li>2：双重匹配算法，结合三源规则</li></ul></li></ul><h4 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h4><ul><li>实现日志解析的终极目标，无疑是——异常识别（攻击检测）<ul><li>对此，我提出了基于本项目的相关算法， 有想法的师傅欢迎交流</li></ul></li><li>问题：目前的系统还存在一个问题<ul><li>少数日志会存在相同 key，有多个对应 value 的问题</li><li>我也提出了相关算法可以解决该问题，只是最近比较忙，没时间实现</li></ul></li></ul><h4 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h4><p>有疑问，或者需要交流，欢迎邮件：<a href="mailto:&#51;&#x38;&#50;&#56;&#53;&#53;&#x32;&#54;&#x36;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#51;&#x38;&#50;&#56;&#53;&#53;&#x32;&#54;&#x36;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>]]></content>
+    
+    
+    <summary type="html">---categories: Ai 安全（大模型安全）---第八届西湖论剑第二名作品《LogFlow基于大模型的双重匹配与多权重调节的智能增压日志解析系统》这个是参加 2025 第八届西湖论剑：创新赛获得第二名的作品（实际上我的算法，无论是时间效率，还是解析精度都远高于第一名。这个是我和第一名...</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Java企业常见漏洞</title>
