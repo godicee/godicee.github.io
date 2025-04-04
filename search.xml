@@ -1795,6 +1795,12 @@
     <url>/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E6%80%BB%E7%BB%93.html</url>
     <content><![CDATA[<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">加后缀</span><br><span class="line"></span><br><span class="line">file.Php   大小写绕过</span><br><span class="line">file.php::$DATA</span><br><span class="line">file.Php</span><br><span class="line">file.php+</span><br><span class="line">file.php.   （多少个 . 都可以）</span><br><span class="line">file.php%80-90</span><br><span class="line">file.php+</span><br><span class="line">file.php.+.+</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">黑名单</span><br><span class="line">替换绕过</span><br><span class="line">.phphp p</span><br><span class="line">file.pphphp</span><br><span class="line">定义不全</span><br><span class="line">php、php2、php3、php4、php5、php6、php7、pht、phtm、phtml</span><br><span class="line"></span><br><span class="line">文件幻术</span><br><span class="line">GIF89a?</span><br></pre></td></tr></table></figure>
 
+
+
+
+
+
+
 ]]></content>
   </entry>
   <entry>
@@ -1897,7 +1903,7 @@
 <p>排序查询</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">select</span> * from users order by <span class="number">2</span>;  // 按照第二列排序</span><br><span class="line">//可以以此判断，一共有多少列</span><br><span class="line"><span class="built_in">select</span> * from users order by <span class="number">4</span>;  // 这里直接报错，因为只有<span class="number">3</span>列（平时可以用<span class="number">2</span>分法）</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/e362a8e8ca9e80a5a53ee8bfe51f4561.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1729771545177-0bc7b416-e98d-40c1-9467-0b153d3b6d39.png"></p>
 <p>联合注入</p>
 <p>联合注入：sql 有回显的地方（把本身的回显屏蔽了，然后查询自己想要的内容）</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">id=<span class="number">1</span><span class="string">&#x27; union select 1,2,3--+</span></span><br><span class="line"><span class="string">SELECT * FROM users WHERE id=&#x27;</span><span class="number">1</span><span class="string">&#x27; union select 1,2,3-- &#x27;</span> LIMIT <span class="number">0</span>,<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
@@ -1938,7 +1944,7 @@
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/586b948dab71bf5fd342469f9b9f9a62.png"></p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">?id=<span class="literal">-1</span><span class="string">&#x27; union select 1,2,schema_name from information_schema.schemata limit 1,1;--+</span></span><br><span class="line"><span class="string">?id=-1&#x27;</span> union <span class="built_in">select</span> <span class="number">1</span>,<span class="number">2</span>,schema_name from information_schema.schemata limit <span class="number">2</span>,<span class="number">1</span>;<span class="literal">--</span>+</span><br><span class="line">?id=<span class="literal">-1</span><span class="string">&#x27; union select 1,2,schema_name from information_schema.schemata limit 3,1;--+</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/f27746d2456cf923603ac43932b28736.png"><img src="https://raw.githubusercontent.com/godicee/img/main/dea85a71ca4a4ab9c0cc3f99063568ad.png"><img src="https://raw.githubusercontent.com/godicee/img/main/a2b2d8f2f8be1a3a07566c15efd839e4.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/f27746d2456cf923603ac43932b28736.png"><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1729830298048-bd2a625e-a987-4aff-8cba-0b37c92913b8.png"><img src="https://raw.githubusercontent.com/godicee/img/main/a2b2d8f2f8be1a3a07566c15efd839e4.png"></p>
 <p>把所有数据链接、拼接为一行，进行显示</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">?id=<span class="literal">-1</span><span class="string">&#x27; union select 1,2,group_concat(schema_name) from information_schema.schemata;--+</span></span><br></pre></td></tr></table></figure>
 
@@ -1978,25 +1984,30 @@
 </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/fa7372da5f1646f4ae3418a366f413c9.png"></p>
+<p><a href="https://blog.csdn.net/jenchoi413/article/details/125431401">order by 判断方法</a></p>
 <ul>
 <li><p><strong><font style="color:#DF2A3F;">orderby 判断：</font></strong></p>
 <ul>
-<li><code>id=1 order by 9999--+</code>数字型会报错，字符型不会</li>
+<li>payload：<code>id=1 order by 9999--+</code>数字型会报错，字符型不会</li>
+<li>数字型字符型指的是：我们传入的值是被当作什么类型的变量处理<ul>
+<li>而不是指的 id 这个变量存在数据库中的类型</li>
 </ul>
 </li>
-<li><p>字符型</p>
+</ul>
+</li>
+<li><p>字符型（自动加上包裹符号）</p>
 <ul>
 <li>查询语句<code>select from user where id = &#39;1 order by 9999--+&#39;</code></li>
 <li>没有用<code>&#39;</code>闭合的时候，注释符号<code>--+</code>是被当做查询值的一部分的（没有起作用）</li>
 <li>实际上：只会截取到第一个不是数字的字母为止<ul>
-<li><code>1 order by 9999 --+</code>这里就会直接被当作查 1</li>
+<li><code>1 order by 9999 --+</code>这里就会直接被当作查 1，不会报错</li>
 <li><code>1asdas</code>也会被当作查 1</li>
-<li><code>asd1</code>就会被错</li>
+<li><code>asd1</code>就会报错</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>数字型</p>
+<li><p>数字型（没有包裹符号）</p>
 <ul>
 <li>查询语句<code>select from user where id=1 order by 9999--+</code></li>
 <li>这个时候注释符起作用了：查询 id 等于 1 的表项，按照第 9999 个属性字段排序</li>
@@ -2308,5 +2319,403 @@
       <categories>
         <category>安全基础</category>
       </categories>
+  </entry>
+  <entry>
+    <title>内网基础知识</title>
+    <url>/%E5%86%85%E7%BD%91%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html</url>
+    <content><![CDATA[<h2 id="内网最最基础"><a href="#内网最最基础" class="headerlink" title="内网最最基础"></a>内网最最基础</h2><p><a href="https://www.freebuf.com/articles/network/317424.html">学习文档参考</a></p>
+<h3 id="工作组"><a href="#工作组" class="headerlink" title="工作组"></a>工作组</h3><h4 id="工作组概念"><a href="#工作组概念" class="headerlink" title="工作组概念"></a>工作组概念</h4><ul>
+<li>对局域网内不同的电脑按照功能（部分）进行分组</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/5ac86d33a394993d6a0359b23fcdf14e.png"></p>
+<h4 id="win11加退工作组"><a href="#win11加退工作组" class="headerlink" title="win11加退工作组"></a>win11加退工作组</h4><ul>
+<li>右键我的电脑-属性-域或工作组<ul>
+<li>如果输入的名称在当前局域网没有，相当于创建了一个新的工作组</li>
+<li>退出工作组，只需要改名即可</li>
+<li>（工作组中的计算机是对等的）</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/14fdd5e043e63cf2252cc01c64e68b98.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/4680fb8c830d9f17dd3608807ed439d8.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8b87f49f51778f0e77249b724b5ab821.png"></p>
+<h3 id="域"><a href="#域" class="headerlink" title="域"></a>域</h3><h4 id="域基础概念"><a href="#域基础概念" class="headerlink" title="域基础概念"></a>域基础概念</h4><p>SAM 数据库<font style="color:rgba(0, 0, 0, 0.85);">即 Security Accounts Manager 数据库，是 Windows 操作系统中用于存储本地用户账户和组账户信息的重要组件</font></p>
+<p><font style="color:rgba(0, 0, 0, 0.85);"></font></p>
+<p><font style="color:rgba(0, 0, 0, 0.85);"></font></p>
+<ul>
+<li>域：有安全边界的计算机集合（两个域之间的资源无法互相访问）<ul>
+<li>访问域资源：必须有合法身份登录该域</li>
+<li>在域中的资源权限：取决于你在域中的身份</li>
+</ul>
+</li>
+<li>域控（DC）：审核域内电脑之间的互相访问<ul>
+<li>域控中存在数据库含：域的账号&#x2F;密码、属于本域的计算机信息<ul>
+<li>域内所有用来验证身份的账号和密码的 散列值都保存在域控制器中</li>
+</ul>
+</li>
+<li>计算机连接到域的控制：<ul>
+<li>检查计算机是否属于本域、用户使用的账户&#x2F;密码是否正确</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="域的分类"><a href="#域的分类" class="headerlink" title="域的分类"></a>域的分类</h4><ul>
+<li><strong>单域</strong>：固定地理位置的小公司，一般一个域就可以<ul>
+<li>一个域一般至少两个域服务器：DC、备份 DC<ul>
+<li>否则 DC 瘫痪后所有域内其他用户都不能登录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>父域和子域</strong>：网络中划分多个域，第一个域为父域，其他为子域（父子域是相对的）<ul>
+<li>优点：占用带宽变少、便于管理和交流、方便单独制定域安全策略</li>
+</ul>
+</li>
+<li><strong>域树</strong>：多个域通过建立信任关系组成的集合<ul>
+<li>（域管理员只能管理本域内部，两个域互访需建立信任关系）</li>
+<li>树域内的：父域和子域可以按需管理、跨网分配资源（文件、打印机）</li>
+<li>子域是相对父域来说的，指域名中的每一个段<ul>
+<li>各子域之间用点号隔开，一个”.”代表一个层次</li>
+<li>放在域名最后的子域称为最高级子域或一级域，它前面的子域称为二级域</li>
+<li>子域只能使用父域作为域名的后缀，也就是说在一个域树中，域的名字是连续的</li>
+</ul>
+</li>
+<li>举例：<ul>
+<li><code>abc.com</code>（一个层次）是<code>asia.abc.com</code>（两个层次）的父域</li>
+<li><code>cn.asia.abc.com</code>的级别比域<code>abc.cm</code>低，<code>asia.abc.com</code>是<code>cn.asia.abc.com</code>的父域</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/5b5a47700f15f7a982e16d81c253147b.png"></p>
+<ul>
+<li><strong>域森林</strong>：若干个域树通过建立信任关系组成<ul>
+<li>场景：某公司使用域树 <code>abc.com</code>兼并了一个公司域树<code>abc.net</code>，他们无法相互挂载</li>
+<li>这两个域树就可以通过建立信任关系，组成域森林<ul>
+<li>通过域树之间建立的信任关系来管理和使用整个森林中的资源</li>
+<li>（又保持了原有特性）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/b01f0b815286f40ce415d746a666aa9f.png"></p>
+<ul>
+<li><strong>域名服务器</strong>：进行域名 ip 转换的服务器<ul>
+<li>域树中的域的名字和DNS域的名字非常相似，实际上域的名字就是DNS域的名字</li>
+<li>因为域中的计算机使用DNS来定位域控制器和服务器以及其他计算机、网络服务</li>
+</ul>
+</li>
+<li><strong>定位 DC</strong>：<ul>
+<li>因此内网渗透一般通过寻找 DNS 服务器来定位 DC</li>
+<li>（DNS 服务器和 DC 一般处于同一台服务器上）</li>
+</ul>
+</li>
+</ul>
+<h3 id="活动目录"><a href="#活动目录" class="headerlink" title="活动目录"></a>活动目录</h3><h2 id="域环境知识点"><a href="#域环境知识点" class="headerlink" title="域环境知识点"></a>域环境知识点</h2>]]></content>
+  </entry>
+  <entry>
+    <title>Java企业常见漏洞</title>
+    <url>/Java%E4%BC%81%E4%B8%9A%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E.html</url>
+    <content><![CDATA[<ul>
+<li>在某 logo 是黑色的一线潮流平台实习中遇到的：企业中一般常见的漏洞：sql、越权、ssrf、未授权、硬编码 key 等&#x2F;动态加载脚本（反序列化较少）<ul>
+<li>在公司审计的代码就不便上传了，用一些网上能找到的例子学习举例</li>
+</ul>
+</li>
+</ul>
+<h2 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h2><ul>
+<li>sql 注入的防御核心手段——预编译<ul>
+<li>1 将SQL语句的结构提前发送到数据库进行编译<ul>
+<li>参数作为数据单独传递、数据库会将占位符中的参数值视为数据，而非 sql 代码</li>
+</ul>
+</li>
+<li>2 自动转移特殊字符</li>
+</ul>
+</li>
+</ul>
+<h3 id="企业-sql-简述"><a href="#企业-sql-简述" class="headerlink" title="企业 sql 简述"></a>企业 sql 简述</h3><ul>
+<li>现象：企业级 java 白盒一般使用 sink 点进行告警，然后需要人工审计追踪数据流。但是其中存在大量误报</li>
+<li>误报原因：<ul>
+<li>MyBatis 中有两种拼接用户输入的占位符号，到 sql 语句中进行查询</li>
+<li><code>$&#123;&#125;</code>是直接拼接，但是不容易报错</li>
+<li><code>#&#123;&#125;</code>会对数据进行预编译，但是使用不规范易报错</li>
+<li>这就要求开发者在代码健壮性（不易报错）和 sql 注入的风险之间平衡</li>
+</ul>
+</li>
+<li>误报场景：<ul>
+<li><code>$&#123;&#125;</code>虽然直接拼接，触发了告警策略，但是可能存在以下场景，该用法是安全的</li>
+<li>1：在后续的传参追踪中，做了一些类型转换&#x2F;白名单之类的去掉了可能的注入可能</li>
+<li>2：在数据定义时做了限制——限制为整形</li>
+<li>3：使用的参数<code>$&#123;id&#125;</code>是从数据库中查询出来的<ul>
+<li>注意：这里可能存在二次注入风险，但是风险较小，一般企业中判断这种情况为误报</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>审计核心：<ul>
+<li>1：追踪危险传参的数据流（<code>Mapper.select</code>）<ul>
+<li>白盒 sink 点，会直接正向给出传参，正向追踪即可 post&#x2F;get-service-impl…</li>
+<li>代码审计（没有 sink 点可以用），需要在 idea 中反向追踪<ul>
+<li>这时候可以采用黑白盒结合的方式（eg：直接 idea 搜索<code>$</code>）</li>
+</ul>
+</li>
+</ul>
+<p>	</p>
+</li>
+<li>2：通过多种手段分析，是否能确定该处不存在注入</li>
+</ul>
+</li>
+<li>存在注入核心：参数可控（不是从数据库查的数据拼接）、未预编译（<code>$&#123;&#125;</code>）、未限制类型为整形</li>
+</ul>
+<h3 id="java-中执行-sql-的方式"><a href="#java-中执行-sql-的方式" class="headerlink" title="java 中执行 sql 的方式"></a>java 中执行 sql 的方式</h3><h4 id="java-sql-Statement-执行"><a href="#java-sql-Statement-执行" class="headerlink" title="java.sql.Statement 执行"></a>java.sql.Statement 执行</h4><ul>
+<li><font style="color:rgb(0, 0, 0);">JDBC ：是 java 中用于连接、操作数据库的 api</font></li>
+<li><font style="color:rgb(0, 0, 0);">Statement是Java JDBC下执行SQL语句的一种原生方式，执行语句时需要拼接</font><ul>
+<li><font style="color:rgb(0, 0, 0);">若拼接的语句没有有效过滤过滤，将出现SQL 注入</font></li>
+</ul>
+</li>
+</ul>
+<p><strong>JDBC 使用步骤</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//加载驱动</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"><span class="comment">//建立连接</span></span><br><span class="line"><span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(</span><br><span class="line">    <span class="string">&quot;jdbc:mysql://localhost:3306/mydb&quot;</span>, <span class="string">&quot;user&quot;</span>, <span class="string">&quot;password&quot;</span></span><br><span class="line">);<span class="comment">//DBURL、DBUser、DBPassWord</span></span><br><span class="line"><span class="comment">//创建Statement对象</span></span><br><span class="line"><span class="type">Statement</span> <span class="variable">state</span> <span class="operator">=</span> conn.createStatement();  <span class="comment">// </span></span><br><span class="line"><span class="comment">//定义&amp;执行sql</span></span><br><span class="line">String sql=<span class="string">&quot;SELECT*FROM user WHERE id=&quot;</span>+id+<span class="string">&quot;&quot;</span>;</span><br><span class="line">state. executeQuery(sql);</span><br></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(</span><br><span class="line">    <span class="string">&quot;jdbc:mysql://192.168.88.20:3306/iwebsec?useSSL=false&amp;serverTimezone=UTC&quot;</span>,</span><br><span class="line">    <span class="string">&quot;root&quot;</span>,</span><br><span class="line">    <span class="string">&quot;root&quot;</span>  <span class="comment">// 注意密码的引号闭合</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> <span class="string">&quot;2&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM user WHERE id = &quot;</span> + id;</span><br><span class="line"></span><br><span class="line"><span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> conn.createStatement();  <span class="comment">// 创建Statement对象：应使用PreparedStatement代替</span></span><br><span class="line"></span><br><span class="line"><span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery(sql);  <span class="comment">// 执行查询并获取结果集</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (rs.next()) &#123;  <span class="comment">//遍历打印结果集</span></span><br><span class="line">    System.out.println(</span><br><span class="line">        <span class="string">&quot;id: &quot;</span> + rs.getInt(<span class="string">&quot;id&quot;</span>) + </span><br><span class="line">        <span class="string">&quot;, username: &quot;</span> + rs.getString(<span class="string">&quot;username&quot;</span>) + </span><br><span class="line">        <span class="string">&quot;, password: &quot;</span> + rs.getString(<span class="string">&quot;password&quot;</span>)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 关闭资源</span></span><br><span class="line">rs.close();</span><br><span class="line">stmt.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
+
+<p>上面代码没有使用预编译<code>PreparedStatement</code>，存在 sql 注入风险</p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/74ff0913e0516ba39d862f2a322fc89f.png"></p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="java-sql-PreparedStatement-执行"><a href="#java-sql-PreparedStatement-执行" class="headerlink" title="java.sql.PreparedStatement 执行"></a>java.sql.PreparedStatement 执行</h4><ul>
+<li><code>PreparedStatement</code>是继承<code>Statement</code>的子接口——使用预编译处理参数<ul>
+<li>占位符<code>?</code></li>
+</ul>
+</li>
+<li>Sql 语句：预先定义结构、但参数值未被指定（多个 <code>IN参数</code>，用<code>?</code>作占位符）</li>
+<li>参数设定：<ul>
+<li>每个占位符的值，通过 sql 执行前的<code>setXXX</code>提供<ul>
+<li><code>setInt</code></li>
+<li><code>setString</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>优势：<ul>
+<li>执行速度更快：提前预编译执行结构、会缓存在数据库</li>
+<li>防止 sql 攻击：参数只被当作查询值（而不是 sql 语句），同时转义特殊字符</li>
+</ul>
+</li>
+</ul>
+<p>案例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PreparedStatementExample</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数据库连接信息</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">URL</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/mydb?useSSL=false&amp;serverTimezone=UTC&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">USER</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PASSWORD</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        insertUser(<span class="string">&quot;Alice&quot;</span>, <span class="string">&quot;alice@example.com&quot;</span>, <span class="number">25</span>);  <span class="comment">// 新增用户</span></span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> getUserById(<span class="number">1</span>);  <span class="comment">// 查询用户</span></span><br><span class="line">        System.out.println(<span class="string">&quot;查询结果: &quot;</span> + user);</span><br><span class="line">        updateUserAge(<span class="number">1</span>, <span class="number">30</span>);  <span class="comment">// 更新用户年龄</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 删除用户</span></span><br><span class="line">        deleteUser(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ================== 新增用户（INSERT） ==================</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">insertUser</span><span class="params">(String username, String email, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;INSERT INTO user (username, email, age) VALUES (?, ?, ?)&quot;</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 使用 try-with-resources 自动关闭资源</span></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(URL, USER, PASSWORD);</span><br><span class="line">             <span class="type">PreparedStatement</span> <span class="variable">pstmt</span> <span class="operator">=</span> conn.prepareStatement(sql)) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 设置参数（注意索引从1开始）</span></span><br><span class="line">            pstmt.setString(<span class="number">1</span>, username);</span><br><span class="line">            pstmt.setString(<span class="number">2</span>, email);</span><br><span class="line">            pstmt.setInt(<span class="number">3</span>, age);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 执行更新（INSERT/UPDATE/DELETE）</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">rowsAffected</span> <span class="operator">=</span> pstmt.executeUpdate();</span><br><span class="line">            System.out.println(<span class="string">&quot;插入成功，影响行数: &quot;</span> + rowsAffected);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ================== 根据ID查询用户（SELECT） ==================</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> User <span class="title function_">getUserById</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM user WHERE id = ?&quot;</span>;</span><br><span class="line">        <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(URL, USER, PASSWORD);</span><br><span class="line">             <span class="type">PreparedStatement</span> <span class="variable">pstmt</span> <span class="operator">=</span> conn.prepareStatement(sql)) &#123;</span><br><span class="line">            </span><br><span class="line">            pstmt.setInt(<span class="number">1</span>, id);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">try</span> (<span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> pstmt.executeQuery()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">                    user = <span class="keyword">new</span> <span class="title class_">User</span>(</span><br><span class="line">                        rs.getInt(<span class="string">&quot;id&quot;</span>),</span><br><span class="line">                        rs.getString(<span class="string">&quot;username&quot;</span>),</span><br><span class="line">                        rs.getString(<span class="string">&quot;email&quot;</span>),</span><br><span class="line">                        rs.getInt(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ================== 更新用户年龄（UPDATE） ==================</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">updateUserAge</span><span class="params">(<span class="type">int</span> id, <span class="type">int</span> newAge)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;UPDATE user SET age = ? WHERE id = ?&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(URL, USER, PASSWORD);</span><br><span class="line">             <span class="type">PreparedStatement</span> <span class="variable">pstmt</span> <span class="operator">=</span> conn.prepareStatement(sql)) &#123;</span><br><span class="line">            </span><br><span class="line">            pstmt.setInt(<span class="number">1</span>, newAge);</span><br><span class="line">            pstmt.setInt(<span class="number">2</span>, id);</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> <span class="variable">rowsAffected</span> <span class="operator">=</span> pstmt.executeUpdate();</span><br><span class="line">            System.out.println(<span class="string">&quot;更新成功，影响行数: &quot;</span> + rowsAffected);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ================== 删除用户（DELETE） ==================</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">deleteUser</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;DELETE FROM user WHERE id = ?&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> (<span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> DriverManager.getConnection(URL, USER, PASSWORD);</span><br><span class="line">             <span class="type">PreparedStatement</span> <span class="variable">pstmt</span> <span class="operator">=</span> conn.prepareStatement(sql)) &#123;</span><br><span class="line">            </span><br><span class="line">            pstmt.setInt(<span class="number">1</span>, id);</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> <span class="variable">rowsAffected</span> <span class="operator">=</span> pstmt.executeUpdate();</span><br><span class="line">            System.out.println(<span class="string">&quot;删除成功，影响行数: &quot;</span> + rowsAffected);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 用户实体类（辅助数据封装）</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">        <span class="keyword">private</span> String username;</span><br><span class="line">        <span class="keyword">private</span> String email;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(<span class="type">int</span> id, String username, String email, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.id = id;</span><br><span class="line">            <span class="built_in">this</span>.username = username;</span><br><span class="line">            <span class="built_in">this</span>.email = email;</span><br><span class="line">            <span class="built_in">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> String.format(<span class="string">&quot;User&#123;id=%d, username=&#x27;%s&#x27;, email=&#x27;%s&#x27;, age=%d&#125;&quot;</span>,</span><br><span class="line">                id, username, email, age);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="预编译风险"><a href="#预编译风险" class="headerlink" title="预编译风险"></a>预编译风险</h4><p>动态拼接结构（非参数部分）</p>
+<ul>
+<li><strong>预编译的绕过</strong>（<code>Statement</code>中的占位符是<code>?</code>）<ul>
+<li>预编译<strong>仅对参数值</strong>（查询值）进行转义和隔离，sql 的结构部分（表名、列名、排序字段）无法用占位符</li>
+</ul>
+</li>
+</ul>
+<p>案例：动态拼接 sql 结构（非参数部分）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">userInput</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;orderBy&quot;</span>); <span class="comment">// 用户传入 &quot;id; DROP TABLE users--&quot;</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM users ORDER BY &quot;</span> + userInput; <span class="comment">// 直接拼接</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> (<span class="type">PreparedStatement</span> <span class="variable">pstmt</span> <span class="operator">=</span> conn.prepareStatement(sql)) &#123;</span><br><span class="line">    <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> pstmt.executeQuery();</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用户传参<code>id; DROP TABLE users--</code>闭合语句<ul>
+<li>实际查询语句<code>SELECT * FROM users ORDER BY id; DROP TABLE users--</code></li>
+</ul>
+</li>
+<li>解决：白名单-只允许合法字符<code>id、name、email</code>等</li>
+</ul>
+<h4 id="Mybatis-Mybatis-Plus"><a href="#Mybatis-Mybatis-Plus" class="headerlink" title="Mybatis&amp;Mybatis-Plus"></a>Mybatis&amp;Mybatis-Plus</h4><ul>
+<li>Mybatis：需要手写所有 sql ，通过 XML 描述符 or 注解把对象与 sql 语句关联<ul>
+<li>（在需要高度自定义 sql 和效率等使用）</li>
+</ul>
+</li>
+<li>Mybatis-Plus 是 Mybatis 的超集，保留灵活性的基础上，实现基础的自动化 sql 生成<ul>
+<li>通过<code>QueryWrapper</code>、<code>LambdaQueryWrapper</code>等</li>
+</ul>
+</li>
+</ul>
+<h4 id="MyBatis-执行"><a href="#MyBatis-执行" class="headerlink" title="MyBatis 执行"></a>MyBatis 执行</h4><p>（一般企业工程中 MyBtis 和 Mybatis-Plus 用的多一点，用原生的 Statement 和 PreparedStatement 很少）</p>
+<ul>
+<li>MyBatis 有两种方式自定义 SQL：<ul>
+<li>1 直接在 <code>Mapper</code> 接口上加上注解 （适合简单的）<ul>
+<li><code>@Select</code>关联</li>
+</ul>
+</li>
+<li>2 在 <code>XML</code> 中定义 SQL 语句（适合复杂动态的）<ul>
+<li>通过<code>namespace</code>和 sql 中的 id 关联</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>假设 User 表的实体类定义和 Mapper 接口如下</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="comment">// getter/setter 省略</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    <span class="comment">// 方法定义：根据 ID 查询用户</span></span><br><span class="line">    User <span class="title function_">findUserById</span><span class="params">(Long id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="注解实现"><a href="#注解实现" class="headerlink" title="注解实现"></a>注解实现</h5><p>但是不支持复杂动态 sql，eg<code>&lt;if&gt;</code>、<code>&lt;foreach&gt;</code>，需要借助<code>@SelectProvider</code>or<code>xml</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    <span class="meta">@Select(&quot;SELECT id, username, email FROM user WHERE id = #&#123;id&#125;&quot;)</span>  <span class="comment">// 预编译拼接</span></span><br><span class="line">    User <span class="title function_">findUserById</span><span class="params">(Long id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="XML-实现"><a href="#XML-实现" class="headerlink" title="XML 实现"></a>XML 实现</h5><p>在 XML 文件中，通过 <code>&lt;mapper&gt;</code> 标签的 <code>namespace</code> 属性定义命名空间，该值必须与对应的 Mapper 接口的全限定类名一致。例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!-- 路径：src/main/resources/com/example/mapper/UserMapper.xml --&gt;</span><br><span class="line">&lt;mapper namespace=<span class="string">&quot;com.example.mapper.UserMapper&quot;</span>&gt;</span><br><span class="line">    &lt;select id=<span class="string">&quot;findUserById&quot;</span> resultType=<span class="string">&quot;com.example.entity.User&quot;</span>&gt;</span><br><span class="line">        SELECT * FROM user <span class="type">WHERE</span> <span class="variable">id</span> <span class="operator">=</span> #&#123;id&#125;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Mapper 接口的 全限定类名（即包名 + 接口名）隐式成为其命名空间，无需额外定义。例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 路径：src/main/java/com/example/mapper/UserMapper.java</span></span><br><span class="line"><span class="keyword">package</span> com.example.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> &#123;</span><br><span class="line">    User <span class="title function_">findUserById</span><span class="params">(Long id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Mybatis占位符分析"><a href="#Mybatis占位符分析" class="headerlink" title="Mybatis占位符分析"></a>Mybatis占位符分析</h3><p><a href="https://www.freebuf.com/articles/web/381239.html">参考好文</a></p>
+<ul>
+<li>两种占位符<ul>
+<li><code>#&#123;&#125;</code>会预编译，但是使用有比较严格的规范，容易报错</li>
+<li><code>$&#123;&#125;</code>直接拼接，不容易报错，但易造成 sql 注入（以下几种情况可以使用<code>$&#123;&#125;</code>）<ul>
+<li>1 是从数据库中直接查的数据 （虽然可能存在二次注入，但可能性较小）</li>
+<li>2 传参限制了类型为整形</li>
+<li>3 做了白名单、严格限制、编译等自定义措施</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="IN-查询"><a href="#IN-查询" class="headerlink" title="IN 查询"></a>IN 查询</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// xml</span></span><br><span class="line">&lt;select id=<span class="string">&quot;selectNews&quot;</span> resultType=<span class="string">&quot;News&quot;</span>&gt;</span><br><span class="line">    SELECT * FROM news WHERE id <span class="title function_">IN</span> <span class="params">(#&#123;ids&#125;)</span></span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>预编译了查询参数，若传参<code>ids = &quot;1,2,3&quot;</code>最终执行 sql 如下<ul>
+<li><code>SELECT * FROM news WHERE id IN (&#39;1,2,3&#39;)</code></li>
+<li>数据库查询 id 值等于字符串<code>1,2,3</code>的，而不是查询值等于 1&#x2F;2&#x2F;3——会报错</li>
+</ul>
+</li>
+<li>若改用<code>$&#123;&#125;</code>，不会报错<ul>
+<li><code>SELECT * FROM news WHERE id IN (1,2,3)</code></li>
+<li>数据库查询值等于 1&#x2F;2&#x2F;3，但会存在 sql 注入风险</li>
+</ul>
+</li>
+<li>解决方案：使用<code>&lt;foreach&gt;</code>标签——用于动态生成多个 <code>IN </code>的占位符</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//xml</span></span><br><span class="line">&lt;select id=<span class="string">&quot;selectNewsByIds&quot;</span> resultType=<span class="string">&quot;News&quot;</span>&gt;</span><br><span class="line">    SELECT * FROM news WHERE id IN</span><br><span class="line">    &lt;foreach item=<span class="string">&quot;id&quot;</span> collection=<span class="string">&quot;ids&quot;</span> open=<span class="string">&quot;(&quot;</span> separator=<span class="string">&quot;,&quot;</span> close=<span class="string">&quot;)&quot;</span>&gt;</span><br><span class="line">        #&#123;id&#125;</span><br><span class="line">    &lt;/foreach&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;font style=&quot;color:rgba(0, 0, 0, 0.85);&quot;&gt;&lt;foreach&gt;&lt;/font&gt;</code><font style="color:rgba(0, 0, 0, 0.85);"> 标签用于遍历一个集合，把集合里的元素插入到 SQL 语句中</font><ul>
+<li><code>item</code>临时变量名、<code>collection</code>需遍历的集合名</li>
+<li><code>open</code>、<code>close</code>指定在遍历开始和结束前插入的值、<code>separator</code>分隔符</li>
+</ul>
+</li>
+<li>最终执行<code>SELECT * FROM news WHERE id IN (1, 2, 3)</code><ul>
+<li>假设 ids 集合是<code>&lt;font style=&quot;color:rgba(0, 0, 0, 0.85);&quot;&gt;[1, 2, 3]&lt;/font&gt;</code></li>
+</ul>
+</li>
+<li><strong><font style="color:#DF2A3F;">（使用了多个占位符）</font></strong></li>
+</ul>
+<h4 id="Like-查询"><a href="#Like-查询" class="headerlink" title="Like 查询"></a>Like 查询</h4><ul>
+<li>like 模糊查询（多使用前缀查询可以提高效率）</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;searchNews&quot; resultType<span class="operator">=</span>&quot;News&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> news <span class="keyword">WHERE</span> title <span class="keyword">LIKE</span> <span class="string">&#x27;%#&#123;name&#125;%&#x27;</span></span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实际执行的 sql 应该是<ul>
+<li><code>SELECT * FROM news WHERE title LIKE &#39;%?%&#39;</code></li>
+</ul>
+</li>
+<li>假设传参<code>test</code>，由于用了预编译，实际执行<ul>
+<li><code>SELECT * FROM news WHERE title LIKE &#39;%&#39;test&#39;%&#39;</code></li>
+<li>这里直接语法错误了，会**<font style="color:#DF2A3F;">报错</font>**<ul>
+<li>若用<code>$&#123;&#125;</code>直接拼接，不会报错，但是会存在 sql 注入风险</li>
+<li><code>SELECT * FROM news WHERE title LIKE &#39;%test%&#39;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>正确方式：使用<code>concat</code></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;searchNews&quot; resultType<span class="operator">=</span>&quot;News&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> news <span class="keyword">WHERE</span> title <span class="keyword">LIKE</span> CONCAT(<span class="string">&#x27;%&#x27;</span>, #&#123;name&#125;, <span class="string">&#x27;%&#x27;</span>)</span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成 sql 如下<ul>
+<li><code>SELECT * FROM news WHERE title LIKE CONCAT(&#39;%&#39;, ?, &#39;%&#39;)</code></li>
+</ul>
+</li>
+<li>假设传参<code>test</code>，由于预编译，虽然被加上单引号，但是因为 concat 机制，不会报错<ul>
+<li><code>SELECT * FROM news WHERE title LIKE CONCAT(&#39;%&#39;, &#39;test&#39;, &#39;%&#39;)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="order-by-查询"><a href="#order-by-查询" class="headerlink" title="order by 查询"></a>order by 查询</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="operator">&lt;</span><span class="keyword">select</span> id<span class="operator">=</span>&quot;selectTest&quot; resultType<span class="operator">=</span>&quot;Test&quot;<span class="operator">&gt;</span></span><br><span class="line">    <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> test <span class="keyword">ORDER</span> <span class="keyword">BY</span> #&#123;columnName&#125;</span><br><span class="line"><span class="operator">&lt;</span><span class="operator">/</span><span class="keyword">select</span><span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行查询语句<ul>
+<li><code>SELECT * FROM test ORDER BY &#39;?&#39;</code></li>
+</ul>
+</li>
+<li>假设传参<code>age</code><ul>
+<li><code>SELECT * FROM test ORDER BY &#39;age&#39;</code></li>
+</ul>
+</li>
+<li>问题：这里是一个字符串<code>&#39;age&#39;</code>，非列名，会报错<ul>
+<li>若直接用<code>$&#123;&#125;</code>拼接，不会报错，但是存在 sql 注入风险</li>
+<li><code>SELECT * FROM test ORDER BY age</code></li>
+</ul>
+</li>
+<li>解决：应该使用<code>$&#123;&#125;</code>但是需要作控制<ul>
+<li>1：转义</li>
+<li>2：白名单</li>
+</ul>
+</li>
+</ul>
+<h2 id="SSRF"><a href="#SSRF" class="headerlink" title="SSRF"></a>SSRF</h2><p><a href="https://www.viewofthai.link/2023/11/01/ssrf-%E6%80%BB%E7%BB%93/">ssrf总结好文</a></p>
+<ul>
+<li>java 中 SSRF 的利用受限，不如 PHP 灵活（可以使用多种伪协议）<ul>
+<li><code>ftp/file</code>上传下载文件、<code>http(s)</code>攻击内网 Web 应用</li>
+<li>在 SSRF 中利用<code>jar</code>协议配合类加载漏洞实现 RCE<ul>
+<li>1：利用 SSRF 访问远程服务器中的恶意 jar 文件</li>
+<li>2：若目标应用存在类加载漏洞<code>URLClassLoader</code>，可 RCE</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="java-中网络请求类"><a href="#java-中网络请求类" class="headerlink" title="java 中网络请求类"></a>java 中网络请求类</h3><p>网络请求有很多：主要是含 http 、url、uri 的类</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">HttpClient.execute</span><br><span class="line">HttpClient.executeMethod</span><br><span class="line">HttpURLConnection.connect</span><br><span class="line">HttpURLConnection.getInputStream</span><br><span class="line">URL.openStream</span><br><span class="line">HttpServletRequest</span><br><span class="line">getParameter</span><br><span class="line">URI</span><br><span class="line">URL</span><br><span class="line">HttpClient</span><br><span class="line">HttpServletRequest</span><br><span class="line">HttpURLConnection</span><br><span class="line">URLConnection</span><br><span class="line">okhttp</span><br><span class="line">BasicHttpEntityEnclosingRequest</span><br><span class="line">DafauleBHttpClientConnection</span><br><span class="line">BasicHttpRequest</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>java 支持的协议<code>File、ftp、mailto、http、https、jar、netdoc</code><ul>
+<li>含有 http 的类<code>HttpURLConnection、HttpClient、Request、okhttp</code>只支持 http</li>
+<li>其他支持 java 支持的所有协议</li>
+</ul>
+</li>
+</ul>
+<h3 id="SSRF-判断"><a href="#SSRF-判断" class="headerlink" title="SSRF 判断"></a>SSRF 判断</h3><ul>
+<li>人工主要判断两个<ul>
+<li>1：网络请求的服务器可控</li>
+<li>2：没有做过滤：协议控制、ip 白名单、域名白名单、路径白名单、返回信息过滤、内网 ip 黑名单</li>
+</ul>
+</li>
+<li>自动化检测工具思路<ul>
+<li>1 遍历语法树找到调用点、污点数据流追踪<ul>
+<li>（通过危险方法列表）</li>
+</ul>
+</li>
+<li>2 误报抑制：忽略白名单校验、安全过滤</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/217dd0ea5c88939f1bfd6e7b7a7092ef.png"></p>
+<h3 id="SSRF-防御"><a href="#SSRF-防御" class="headerlink" title="SSRF 防御"></a>SSRF 防御</h3><ul>
+<li><strong>通用防御方法</strong>：<ul>
+<li>协议白名单、ip 白名单、域名白名单、路径白名单、返回信息过滤、内网 ip 黑名单</li>
+<li>正则匹配：严格控制 URL 格式，避免<code>@</code>和<code>#</code>绕过</li>
+<li>严格控制出站流量</li>
+</ul>
+</li>
+</ul>
+<h2 id="越权"><a href="#越权" class="headerlink" title="越权"></a>越权</h2><ul>
+<li>其实主要就是看怎么做的鉴权<ul>
+<li>1：直接用 id 查询</li>
+<li>2：用统一身份认证</li>
+</ul>
+</li>
+</ul>
+]]></content>
   </entry>
 </search>
