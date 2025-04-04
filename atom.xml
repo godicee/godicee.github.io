@@ -6,7 +6,7 @@
   <link href="http://godice.top/atom.xml" rel="self"/>
   
   <link href="http://godice.top/"/>
-  <updated>2025-04-04T12:48:41.000Z</updated>
+  <updated>2025-04-04T12:54:20.000Z</updated>
   <id>http://godice.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于溯源图的APT攻击检测</title>
+    <link href="http://godice.top/%E5%9F%BA%E4%BA%8E%E6%BA%AF%E6%BA%90%E5%9B%BE%E7%9A%84APT%E6%94%BB%E5%87%BB%E6%A3%80%E6%B5%8B.html"/>
+    <id>http://godice.top/%E5%9F%BA%E4%BA%8E%E6%BA%AF%E6%BA%90%E5%9B%BE%E7%9A%84APT%E6%94%BB%E5%87%BB%E6%A3%80%E6%B5%8B.html</id>
+    <published>2025-04-04T12:53:57.000Z</published>
+    <updated>2025-04-04T12:54:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="基于溯源图的细粒度-APT-检测"><a href="#基于溯源图的细粒度-APT-检测" class="headerlink" title="基于溯源图的细粒度 APT 检测"></a>基于溯源图的细粒度 APT 检测</h3><h4 id="项目描述"><a href="#项目描述" class="headerlink" title="项目描述"></a>项目描述</h4><ul><li><strong>基于溯源图的细粒度 APT 检测系统（包含的模块如下）</strong><ul><li>1 溯源图建立（包括善意、恶意节点）</li><li>2 向量模型训练（对进程&#x2F;文件节点分别用<code>FastText</code>训练模型）</li><li>3 权重与稳定性计算（进程集的平均词向量节点的重要程度分析）</li><li>4 异常时别模型训练（三层变分自编码器）</li></ul></li></ul><h4 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h4><ul><li><strong>1 溯源图建立</strong>（包括善意、恶意节点）<ul><li>节点主要三种类型：网络传输、文件操作、进程操作（但是这三种都伴有进程）</li><li>溯源图格式：<ul><li>进程为核心节点</li><li>前驱是父进程节点</li><li>后继是网络映射节点和文件节点</li></ul></li><li>节点格式：图节点是一个大型字典，里面是一个个的键值对<ul><li>键：能唯一标识节点的 md5<ul><li>（同一个父进程只生成一个节点，当前的操作进程可生成多个节点）</li></ul></li><li>值：是一个小字典，存储了节点中的有价值信息、其前驱后继分别是什么</li></ul></li><li>节点类型：<ul><li>进程节点：父进程、本进程、父进程指向本进程的边</li><li>文件节点：本进程、文件、本进程指向文件的边</li><li>网络节点：操作本次网络操作的进程、网络操作的映射、进程指向映射的边</li></ul></li></ul></li><li><strong>2 向量模型训练</strong>（针对文件名&#x2F;进程名分别训练两个<code>FastText</code>模型）<ul><li>2.1 数据清洗：去掉 ascii 字符、去掉多余字符、以标点符号为分割、转小写，存入列表<ul><li>还需要去掉无意义字符：过短字符、纯数字字符</li></ul></li><li>2.2<code>FastText</code>模型训练，得到两个模型分别处理文件名&#x2F;进程</li></ul></li><li><strong>3 计算权重</strong>（溯源图：转为词向量、计算相似度、超阈值合并）<ul><li>3.1 文件独特性计算（tf-idf 高：全局稀有、部分频繁）**<font style="color:#E4495B;">这里逻辑有问题，后面看代码补充</font>**<ul><li><font style="color:#E4495B;">（tf-idf 越高代表文件越独特，越可能有价值，这里有待考量）</font></li></ul></li></ul></li></ul><p><img src="https://raw.githubusercontent.com/godicee/img/main/5506e89123c4fb0e0e98c77ad7059383.png"></p><pre><code>- 3.2 进程和本进程所有后继的词向量的均值计算（因为进程的后继是文件&amp;网络映射节点）    * 计算方式：        + 1 进程本节点用训练好的进程`FastText`模型计算        + 2 进程后继的文件&amp;网络映射节点用训练好的文件`FastText`模型计算        + 3 暂存本进程集的所有词向量        + 4 进行权重配比（不同的文件向量应该有不同的重要性权重）            - 进程节点 向量`r * tfidf`均值            - 后继节点                * `tfidf`列表中有的`r * tfidf`记录值                * `tfidf`列表中没有的`r * tfidf`均值        + 5 求本进程的平均权重- 3.3 稳定性计算：计算同一个`Pname`下的多个平均词向量稳定性（一个 Pname 可能对应多个进程集）    * （因为进程节点唯一标识符是 `md5(Pname+Pid)`）    * `clustering = DBSCAN(eps=0.05, metric=&#39;cosine&#39;, min_samples=5).fit(refer_words)`    * DBSCAN 聚类：使用余弦相似度、邻域范围、邻域内样本数        + &lt;font style=&quot;color:#E4495B;&quot;&gt;分类簇数 s&lt;/font&gt;：作为稳定性衡量标准            - 簇数多：一个 Pname 的行为模式很多，即它不稳定            - 所以稳定性分数 s 越高，越不稳定（&lt;font style=&quot;color:#E4495B;&quot;&gt;簇数越多，越可能有恶意行为&lt;/font&gt;）</code></pre><ul><li><strong>4 模型训练：</strong>使用三层变分自编码器 VAE<ul><li>（输入还原，根据重建率，判断异常模块）</li><li>构造函数<code>def __init__(self,latent_dims)</code>一些预定义<ul><li>输入最后转换为latent_dims 维度的向量</li><li>对nn.Linear类实例化4个全连接层：<ul><li>nn.Linear是对输入张量的线性变换，即y&#x3D;Wx+b，其中W是权重矩阵，b是偏置向量，x是输入向量，y是输出向量</li></ul></li><li>定义标准正态分布的对象<code>self.N = torch.distributions.Normal(0,1)</code><ul><li>并将均值方差迁移到 gpu 上</li></ul></li><li>定义散度计算结果<code>self.kl</code><ul><li>衡量潜在变量的分布与标准正态分布间差异（希望将潜在空间的分布接近标准正态分布）</li></ul></li></ul></li><li>向前传播函数<code>forward(self,x)</code><ul><li>将输入 <code>x</code> 转化为潜在空间的概率分布，并从该分布中采样得到潜在变量 <code>z</code></li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">---categories: Ai安全（大模型安全）---基于溯源图的细粒度 APT 检测项目描述基于溯源图的细粒度 APT 检测系统（包含的模块如下）1 溯源图建立（包括善意、恶意节点）2 向量模型训练（对进程/文件节点分别用FastText训练模型）3 权重与稳定性计算（进程集的平均词向量...</summary>
+    
+    
+    
+    <category term="Ai安全（大模型安全）" scheme="http://godice.top/categories/Ai%E5%AE%89%E5%85%A8%EF%BC%88%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%89%E5%85%A8%EF%BC%89/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>2025第八届西湖论剑第2名作品</title>
