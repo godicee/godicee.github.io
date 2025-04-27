@@ -1385,11 +1385,11 @@
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">直接取消代理，用直连</span><br><span class="line">elog sync -e .elog.env</span><br><span class="line">hexo g -d </span><br></pre></td></tr></table></figure>
 
 <h3 id="github-配置"><a href="#github-配置" class="headerlink" title="github 配置"></a>github 配置</h3><p>创建 github 项目</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733815405874-df3274f4-5621-4c0c-b606-98ba126dad93.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/3d6a5ee6bd359d66d26c1c2c1ee4bd8b.png"></p>
 <p>ssh 免密登录：发送本地公钥到 github</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">生成密钥：</span><br><span class="line">ssh-keygen -t rsa -b 4096</span><br><span class="line">一路回车生成到了c/Users/Administrator/.ssh/id_rsa</span><br><span class="line">去复制id_rsa.pub到github：</span><br><span class="line">https://github.com/settings/ssh</span><br><span class="line">改变密钥认证方式：</span><br><span class="line">ssh-keyscan -t ed25519 github.com &gt;&gt; C:\Users\Administrator\.ssh\known_hosts</span><br><span class="line">测试是否成功：</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733815893308-366857ba-d0b0-4fbf-9be6-3c5704d7672a.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/510081ecc6d2361128efab1be29e726f.png"></p>
 <p><font style="color:rgb(85, 85, 85);">设置你的账号信息:</font></p>
 <table>
 <thead>
@@ -1421,11 +1421,11 @@
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/8225ff2cc50b7206035d56222ecf6a44.png"></p>
 <p>启动<code>cnpm install</code></p>
 <p>启动 hexo<code>hexo s -g</code></p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/6aa745739bc351d328f46cf2883c305e.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733818164172-60be03bd-6bce-41a2-b735-ef71438a65d0.png"></p>
 <p>直接访问<code>127.0.0.1:4000</code></p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/8c34120669b6879aabd5b5c9935aac1b.png"></p>
 <h3 id="Hexo-托管至-github"><a href="#Hexo-托管至-github" class="headerlink" title="Hexo 托管至 github"></a>Hexo 托管至 github</h3><p>打开文件</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/b22fc597cc374590a816d49f0dddb909.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733818484043-e160c793-3021-46a8-b7a8-b3f44e026990.png"></p>
 <p>文件最下面</p>
 <p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733818548132-b43a186d-af40-409e-b997-f1bdc3af6c57.png"></p>
 <p>安装部署命令<code>cnpm install hexo-deployer-git --save</code></p>
@@ -1441,7 +1441,7 @@
 <h3 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h3><p>注意：在配置文件中的分支，需要和 github 项目中的默认分支一致</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/b7b299d1831140b01d6ffd9e55546c46.png"></p>
 <p>如图</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/20fe54e91f8f166033c26841e84db96f.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733822693357-fe119673-1b2b-4a7c-afb0-9a34c0879d40.png"></p>
 <p>修改如下</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:godicee/godicee.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
 
@@ -1449,9 +1449,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
 <h3 id="hexo-文件解析"><a href="#hexo-文件解析" class="headerlink" title="hexo 文件解析"></a>hexo 文件解析</h3><p>编译后会生成如下两个文件</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733823132522-b9588e49-68a1-4dbe-bdfa-4d6710cd98d9.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/28dc76a5887ac7c7e2612ea04e6d9d31.png"></p>
 <p>静态页面文件就放在 public 下</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733823192757-6137c665-12a4-4daa-815e-89ba92f79828.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/1130d6756b531b8c81176a3ce672fde1.png"></p>
 <h3 id="设置域名-dns-解析"><a href="#设置域名-dns-解析" class="headerlink" title="设置域名 dns 解析"></a>设置域名 dns 解析</h3><p>（域名记得备案，top 结尾的不需要备案）</p>
 <p>进入购买域名的网站，进入域名解析设置。我这里是 aliyun——云解析 DNS</p>
 <p>还需要设置 github 解析到域名</p>
@@ -1478,7 +1478,7 @@
 <p><a href="https://juejin.cn/post/7169115268944560135#heading-6">next8个性化配置（新版本）</a></p>
 <p><a href="https://cs-cshi.github.io/hexo-blog/Hexo-NexT%20%E8%AE%BE%E7%BD%AE%E8%BF%91%E6%9C%9F%E6%96%87%E7%AB%A0/">添加近期文章</a></p>
 <h3 id="导航栏配置"><a href="#导航栏配置" class="headerlink" title="导航栏配置"></a>导航栏配置</h3><h4 id="导航栏架构"><a href="#导航栏架构" class="headerlink" title="导航栏架构"></a>导航栏架构</h4><p>导航栏：位于左侧，做文档分类的作用</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/a515dd74ee0bbf9e602b332875de008a.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1734054391049-c9108d7c-34b8-437c-8055-cfe6a8da1e13.png"></p>
 <ul>
 <li>三级菜单：用日常为例<ul>
 <li>第一级：日常</li>
@@ -1587,7 +1587,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1733995874337-2b23a5b7-ffbf-4520-8d88-cf5f53445a28.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/2380997949c4a5748372bba7bd160b76.png"></p>
 <h3 id="GitHub-图床配置"><a href="#GitHub-图床配置" class="headerlink" title="GitHub 图床配置"></a>GitHub 图床配置</h3><p>需要在 elog.config.js 文件中修改 image 部分为 github，且写好正确的 branch</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/058620055bc6eb719a526f8eb8ea2bc1.png"></p>
 <p>然后需要去.elog.env 中设置 github 的信息，上面文章给出了不再赘述</p>
@@ -1625,7 +1625,7 @@
 </li>
 </ul>
 <p>1 取消注释</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2024/png/47779600/1734053256468-25eb4248-53d9-426d-8a3e-95fa93b9df4b.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/72179ab48f3e289f8c36e8092cf2ac62.png"></p>
 <p>2 创建目录<code>hexo new page categories</code></p>
 <p>3 修改 index.md 文件为如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2024-12-12 22:59:52</span><br><span class="line">type: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
@@ -2944,7 +2944,7 @@
     <url>/%E8%85%BE%E8%AE%AF%E6%B2%99%E9%BE%99%EF%BC%9A%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95.html</url>
     <content><![CDATA[<p>25.4.26 参加腾讯成都线下沙龙听师傅讲后，结合自己的思路和理解做个总结（有考虑不周的，欢迎指正）</p>
 <p>其中用视觉模型识别网站内容的部分还是挺受启发的</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/6fe73879d37d8223a2e72c0e8ed0da1d.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1745740128035-090f9a4d-1578-4083-b021-e5f029329733.png"></p>
 <h3 id="宏观上的思路思考"><a href="#宏观上的思路思考" class="headerlink" title="宏观上的思路思考"></a>宏观上的思路思考</h3><ul>
 <li>大模型自动化渗透测试方向：综合最近面试和听讲座，一些师傅的观点，目前比较核心的几个研究方向<ul>
 <li>1 绿盟研究员：让大模型调用已有工具，综合利用（不要让大模型做现有工具会做的事情）<ul>
@@ -2990,7 +2990,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="传统自动化渗透瓶颈"><a href="#传统自动化渗透瓶颈" class="headerlink" title="传统自动化渗透瓶颈"></a>传统自动化渗透瓶颈</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/0b2771691bfc3c67e89af25de3c54833.png"></p>
+<h3 id="传统自动化渗透瓶颈"><a href="#传统自动化渗透瓶颈" class="headerlink" title="传统自动化渗透瓶颈"></a>传统自动化渗透瓶颈</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/11c9846343f215c6f7c36b57d4d7a37d.png"></p>
 <ul>
 <li>传统思路：<ul>
 <li>1 根据识别渗透资产的指纹信息<ul>
@@ -3043,7 +3043,7 @@
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/1444b2bed202fea1df8aa62d84411081.png"></p>
 <p>场景举例（具体场景）：</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/af755fe4a68539f76402e81cf3903885.png"></p>
-<h3 id="自动化框架"><a href="#自动化框架" class="headerlink" title="自动化框架"></a>自动化框架</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/f4abde0d26d5c24881c4700bb2bf35c0.png"></p>
+<h3 id="自动化框架"><a href="#自动化框架" class="headerlink" title="自动化框架"></a>自动化框架</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/809310afc70b7e182e55b308120785bd.png"></p>
 <ul>
 <li>前端：保证渗透测试过程的可视化回溯<ul>
 <li>前端实时响应：agent 活动、工具调用、浏览器画面等</li>
@@ -3060,9 +3060,9 @@
 </li>
 </ul>
 <h3 id="Poc-Agent-案例"><a href="#Poc-Agent-案例" class="headerlink" title="Poc Agent 案例"></a>Poc Agent 案例</h3><p>短信轰炸案例</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/19b491febe2602bd285afe6fa8b5ad99.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1745740171137-7a2127c7-1a0f-40fb-a955-e96a12e2e325.png"></p>
 <p>框架</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/b3335d419cea54604234201dac34eab5.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/99fe158083f3fcddf149fe686ca07bf8.png"></p>
 <ul>
 <li>主要实现：可以理解为一个 LLM 的 burpsuite<ul>
 <li>感知：通过爬虫 agent 感知页面元素</li>
@@ -3071,7 +3071,7 @@
 </li>
 <li>具体实现：如下</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/499ee1d69b2f76cc9209f3b9f0f60c11.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/c978f497b320412599a960d4e5fcddc2.png"></p>
 ]]></content>
       <categories>
         <category>Ai安全（大模型安全）</category>
