@@ -3040,9 +3040,9 @@
 </li>
 </ul>
 <h3 id="思路-WorkFlow-工具调用"><a href="#思路-WorkFlow-工具调用" class="headerlink" title="思路 WorkFlow+工具调用"></a>思路 WorkFlow+工具调用</h3><p>agent 和 workflow 各有优劣，但他们是可以兼容的关系，取长补短（这个我很认同）</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1745735586520-2d5f4da5-5461-47a1-a73f-314136002157.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/8ea4e720b79ade34dab43815fee3d603.png"></p>
 <p>场景举例（具体场景）：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1745735615202-c3230ce7-5aec-4ae6-bc55-d0a0736552b9.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/af755fe4a68539f76402e81cf3903885.png"></p>
 <h3 id="自动化框架"><a href="#自动化框架" class="headerlink" title="自动化框架"></a>自动化框架</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/809310afc70b7e182e55b308120785bd.png"></p>
 <ul>
 <li>前端：保证渗透测试过程的可视化回溯<ul>
@@ -3060,7 +3060,7 @@
 </li>
 </ul>
 <h3 id="Poc-Agent-案例"><a href="#Poc-Agent-案例" class="headerlink" title="Poc Agent 案例"></a>Poc Agent 案例</h3><p>短信轰炸案例</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/47779600/1745740171137-7a2127c7-1a0f-40fb-a955-e96a12e2e325.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/bf478195d5732b1c58f885bd4867ded6.png"></p>
 <p>框架</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/99fe158083f3fcddf149fe686ca07bf8.png"></p>
 <ul>
