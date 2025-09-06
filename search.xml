@@ -2945,7 +2945,7 @@
     <content><![CDATA[<p>25.4.26 参加腾讯成都线下沙龙听师傅讲后，结合自己的思路和理解做个总结（有考虑不周的，欢迎指正）</p>
 <p>其中用视觉模型识别网站内容的部分还是挺受启发的</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/c8083b3192fcd3f84fa1c89acdc8fa55.png"></p>
-<h3 id="宏观上的思路思考"><a href="#宏观上的思路思考" class="headerlink" title="宏观上的思路思考"></a>宏观上的思路思考</h3><ul>
+<h3 id="一、宏观上的思路思考"><a href="#一、宏观上的思路思考" class="headerlink" title="一、宏观上的思路思考"></a>一、宏观上的思路思考</h3><ul>
 <li>大模型自动化渗透测试方向：综合最近面试和听讲座，一些师傅的观点，目前比较核心的几个研究方向<ul>
 <li>1 绿盟研究员：让大模型调用已有工具，综合利用（不要让大模型做现有工具会做的事情）<ul>
 <li>具体而言：让大模型成为工具的使用者（代替人的任务）</li>
@@ -2990,7 +2990,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="传统自动化渗透瓶颈"><a href="#传统自动化渗透瓶颈" class="headerlink" title="传统自动化渗透瓶颈"></a>传统自动化渗透瓶颈</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/11c9846343f215c6f7c36b57d4d7a37d.png"></p>
+<h3 id="二、传统自动化渗透瓶颈"><a href="#二、传统自动化渗透瓶颈" class="headerlink" title="二、传统自动化渗透瓶颈"></a>二、传统自动化渗透瓶颈</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/11c9846343f215c6f7c36b57d4d7a37d.png"></p>
 <ul>
 <li>传统思路：<ul>
 <li>1 根据识别渗透资产的指纹信息<ul>
@@ -3021,7 +3021,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="LLM-测试的问题"><a href="#LLM-测试的问题" class="headerlink" title="LLM 测试的问题"></a>LLM 测试的问题</h3><ul>
+<h3 id="三、-LLM-测试的问题"><a href="#三、-LLM-测试的问题" class="headerlink" title="三、 LLM 测试的问题"></a>三、 LLM 测试的问题</h3><ul>
 <li>LLM 对基础漏洞的检出能力：<ul>
 <li>问题：由于需要 1 信息采集、2poc 生成、3 网站交互、4 响应包分析（然后又从 2 开始迭代）</li>
 <li>结果：一个简单的功能测试需要很长时间——漏洞产出效率太低</li>
@@ -3039,11 +3039,11 @@
 </ul>
 </li>
 </ul>
-<h3 id="思路-WorkFlow-工具调用"><a href="#思路-WorkFlow-工具调用" class="headerlink" title="思路 WorkFlow+工具调用"></a>思路 WorkFlow+工具调用</h3><p>agent 和 workflow 各有优劣，但他们是可以兼容的关系，取长补短（这个我很认同）</p>
+<h3 id="四、思路-WorkFlow-工具调用"><a href="#四、思路-WorkFlow-工具调用" class="headerlink" title="四、思路 WorkFlow+工具调用"></a>四、思路 WorkFlow+工具调用</h3><p>agent 和 workflow 各有优劣，但他们是可以兼容的关系，取长补短（这个我很认同）</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/8ea4e720b79ade34dab43815fee3d603.png"></p>
 <p>场景举例（具体场景）：</p>
-<p><img src="https://raw.githubusercontent.com/godicee/img/main/af755fe4a68539f76402e81cf3903885.png"></p>
-<h3 id="自动化框架"><a href="#自动化框架" class="headerlink" title="自动化框架"></a>自动化框架</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/809310afc70b7e182e55b308120785bd.png"></p>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/d3407ed45aeddf3e737d4ed85abf7c14.png"></p>
+<h3 id="五、自动化框架"><a href="#五、自动化框架" class="headerlink" title="五、自动化框架"></a>五、自动化框架</h3><p><img src="https://raw.githubusercontent.com/godicee/img/main/809310afc70b7e182e55b308120785bd.png"></p>
 <ul>
 <li>前端：保证渗透测试过程的可视化回溯<ul>
 <li>前端实时响应：agent 活动、工具调用、浏览器画面等</li>
@@ -3059,7 +3059,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Poc-Agent-案例"><a href="#Poc-Agent-案例" class="headerlink" title="Poc Agent 案例"></a>Poc Agent 案例</h3><p>短信轰炸案例</p>
+<h3 id="六、-Poc-Agent-案例"><a href="#六、-Poc-Agent-案例" class="headerlink" title="六、 Poc Agent 案例"></a>六、 Poc Agent 案例</h3><p>短信轰炸案例</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/bf478195d5732b1c58f885bd4867ded6.png"></p>
 <p>框架</p>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/99fe158083f3fcddf149fe686ca07bf8.png"></p>
@@ -3073,8 +3073,132 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/godicee/img/main/c978f497b320412599a960d4e5fcddc2.png"></p>
 ]]></content>
-      <categories>
-        <category>Ai安全（大模型安全）</category>
-      </categories>
+  </entry>
+  <entry>
+    <title>阿里&amp;美团风控策略调研</title>
+    <url>/%E9%98%BF%E9%87%8C&amp;%E7%BE%8E%E5%9B%A2%E9%A3%8E%E6%8E%A7%E7%AD%96%E7%95%A5%E8%B0%83%E7%A0%94.html</url>
+    <content><![CDATA[<p>注：本文内容都来自阿里、美团的多年前的公开资料调研总结。不涉及任何内部机密</p>
+<p><a href="https://www.woshipm.com/pd/1747098.html">MT亿级流量风控建设</a></p>
+<p><a href="https://developer.aliyun.com/article/739612">阿里风控大脑</a></p>
+<h2 id="一、宏观风控"><a href="#一、宏观风控" class="headerlink" title="一、宏观风控"></a>一、宏观风控</h2><h3 id="1-1MT风控体系建设"><a href="#1-1MT风控体系建设" class="headerlink" title="1.1MT风控体系建设"></a>1.1MT风控体系建设</h3><p>风控特性：</p>
+<ol>
+<li>高对抗性：因为有利可图，黑产会一直存在</li>
+<li>准确性：<ol>
+<li>准确率：判断为风险的用户的准确程度（避免误判）。策略准确率99%以上才能上线<ol>
+<li>准确率比召回率重要——避免误伤</li>
+</ol>
+</li>
+<li>召回率：成功判断风险的用户占风险用户的总量</li>
+</ol>
+</li>
+<li>灵活性：随时监控、随时修改</li>
+</ol>
+<h4 id="1-1-1MT风控架构"><a href="#1-1-1MT风控架构" class="headerlink" title="1.1.1MT风控架构"></a>1.1.1MT风控架构</h4><p><img src="https://raw.githubusercontent.com/godicee/img/main/849b4bc5502b7f12d063e200ee9447ab.png"></p>
+<ol>
+<li>实时：毫秒级</li>
+<li>准实时：几s——几分钟</li>
+<li>离线：通过ETL（数据抽取、转换清洗、合并加载）</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/3837d534fa407b7d3c40db04a082ed20.png"></p>
+<h4 id="1-1-2风控关键"><a href="#1-1-2风控关键" class="headerlink" title="1.1.2风控关键"></a>1.1.2风控关键</h4><p>情报（黑灰产特征、手段）、策略（短平快、但易被绕过）、模型（需要开发周期）、知识库（黑白名单、用户&#x2F;商家画像）</p>
+<h4 id="1-1-3实时监控"><a href="#1-1-3实时监控" class="headerlink" title="1.1.3实时监控"></a>1.1.3实时监控</h4><p><img src="https://raw.githubusercontent.com/godicee/img/main/e6bae5a296175f1bb2288556416a6fc2.png"></p>
+<h4 id="1-1-4风控模型"><a href="#1-1-4风控模型" class="headerlink" title="1.1.4风控模型"></a>1.1.4风控模型</h4><ol>
+<li>异常检测：<ol>
+<li>基于数据统计<ol>
+<li>eg：某个ip登陆成功率很高</li>
+</ol>
+</li>
+<li>聚类：离群异常点</li>
+<li>孤立森林….</li>
+</ol>
+</li>
+<li>知识图谱：多对多关系挖掘<ol>
+<li>同一设备不能被多个登陆ID登陆</li>
+<li>同一登陆id不能出现在多设备</li>
+<li>…..</li>
+</ol>
+</li>
+<li>用户画像：风险评分、信用评分…</li>
+</ol>
+<h3 id="1-2Ali风控"><a href="#1-2Ali风控" class="headerlink" title="1.2Ali风控"></a>1.2Ali风控</h3><p><a href="https://developer.aliyun.com/article/739612">阿里风控大脑</a></p>
+<h4 id="1-2-1典型防控链路"><a href="#1-2-1典型防控链路" class="headerlink" title="1.2.1典型防控链路"></a>1.2.1典型防控链路</h4><p><img src="https://raw.githubusercontent.com/godicee/img/main/affb03e0e61f7f9757e1a3c20231f8d3.png"></p>
+<p>经过七层防控环节（绿色属于业务测）</p>
+<p>端上安全-基础安全-业务安全</p>
+<ol>
+<li>端上安全防控（应用层）：端上的安全策略（这个我们有）</li>
+<li><font style="color:#FBDE28;">基础安全防控</font>：不加入具体业务逻辑<ol>
+<li>网络层：流量清洗&amp;流量保护</li>
+<li>人机防控：流量侧人机防护</li>
+</ol>
+</li>
+<li><font style="color:#74B602;">实时安全防控</font>：业务测防控<ol>
+<li>人机防控：业务测人机防控（因为人机比较复杂，需要多维度）</li>
+<li>黑&#x2F;白：优先黑白判断——为后续节约成本</li>
+<li>灰：比较复杂的灰——需要从多维度识别风险</li>
+</ol>
+</li>
+<li><font style="color:#74B602;">准实时联合防控（近线）</font>：将多种流量&amp;行为放在一起监控</li>
+<li><font style="color:#74B602;">离线回捞</font></li>
+</ol>
+<h4 id="1-2-2业务安全架构"><a href="#1-2-2业务安全架构" class="headerlink" title="1.2.2业务安全架构"></a>1.2.2业务安全架构</h4><p>业务测安防主要分为四大块</p>
+<ol>
+<li>风险识别：检查到用户的风险行为<ol>
+<li>业务简单且准确率很高：直接进入风险处置</li>
+<li>行为模糊or准确率不高：进行风险审核</li>
+<li>业务非常复杂：进入风险决策<ol>
+<li>eg：某些风险在时间段内不论触犯多少次、只能进行一次处罚；但是它在不同环节可能会被多次识别。需要在风险决策中统一去重、收口</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>风险决策：决策复杂业务场景</li>
+<li>风险审核：审核低置信度风险（机审or人审）</li>
+<li>风险处置</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/godicee/img/main/f129908e1b455c356712856b22b4c27e.png"></p>
+<h4 id="1-2-3近线检测"><a href="#1-2-3近线检测" class="headerlink" title="1.2.3近线检测"></a>1.2.3近线检测</h4><p><strong><font style="color:#DF2A3F;">为什么要做近线检测？</font></strong></p>
+<p><strong><font style="color:#DF2A3F;">近线定位</font></strong></p>
+<ol>
+<li>近线引擎要求<ol>
+<li>时效性不能太差（延迟太久没有返回风险结果，业务会认为该信息正常，易导致漏防）</li>
+<li>多事件综合处理能力（多流join处理）——超灵活多格式数据处理（需要算法自己实现）</li>
+<li>易用：和现有风控体系无缝融合</li>
+</ol>
+</li>
+</ol>
+<h4 id="1-2-4离线引擎"><a href="#1-2-4离线引擎" class="headerlink" title="1.2.4离线引擎"></a>1.2.4离线引擎</h4><ol>
+<li>实时引擎稳定性：很多离线数据需要批量导入实时引擎</li>
+<li>批处理能力：很多场景要求批处理能力</li>
+<li>新业务接入：新业务接入风控体系成本高</li>
+<li>新风险（漏过）：需要回捞新风险</li>
+<li>策略变更（策略上新）：需要用历史数据进行回归验证</li>
+</ol>
+<h2 id="二、风控策略总结（结论）"><a href="#二、风控策略总结（结论）" class="headerlink" title="二、风控策略总结（结论）"></a>二、风控策略总结（结论）</h2><h3 id="2-1实效性说明"><a href="#2-1实效性说明" class="headerlink" title="2.1实效性说明"></a>2.1实效性说明</h3><p>并非所有风险都要求实时判定，而是根据风险危害程度&amp;判定复杂程度</p>
+<p>分类三类：实时（在线）、准实时（近线）、离线</p>
+<h3 id="2-2标签研判说明"><a href="#2-2标签研判说明" class="headerlink" title="2.2标签研判说明"></a>2.2标签研判说明</h3><ol>
+<li>总结风控体系由：是由多层体系 + 多维数据源研判出来的 + 新模型快速上线 + ……（非仅靠业务数据）</li>
+</ol>
+<p>我们能做的就是：</p>
+<ol>
+<li>多手段结合研判，增加风险研判维度——尽可能全面（具体手段的效果和取舍，只有真实数据实验后才能知道）<ol>
+<li>机器学习轻量模型</li>
+<li>llm生成规则库的算法<ol>
+<li>llm生成排查风险画像代码（这个可以作为全黑命中）</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>低置信度&amp;灰色风险的复杂研判（本身就有复杂场景下的风险不能实时判断）<ol>
+<li>上面的每种手段，可能都会涉及存在某些低置信度场景（灰色风险）</li>
+<li>利用数据集微调过后的llm进行灰色风险的研判</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-3-近线检测场景"><a href="#2-3-近线检测场景" class="headerlink" title="2.3 近线检测场景"></a>2.3 近线检测场景</h3><p>因为业务复杂度、实现成本、时间跨度等多方面原因，很多业务难以在实时引擎完成</p>
+<ol>
+<li>薅羊毛：注册+登陆+交易多行为判断</li>
+<li>涉黄、涉政：需要结合多维度信息判断</li>
+</ol>
+]]></content>
   </entry>
 </search>
